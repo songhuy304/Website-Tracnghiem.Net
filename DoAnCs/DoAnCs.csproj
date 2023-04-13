@@ -174,6 +174,7 @@
     <Compile Include="Areas\Admin\Controllers\DeThiController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MonHocController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuestionController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -220,6 +221,12 @@
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs">
+      <DependentUpon>TracNghiemModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TracNghiemModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>TracNghiemModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
@@ -356,6 +363,10 @@
     <Content Include="Areas\Admin\Views\MonHoc\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Question\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Question\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Question\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Question\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

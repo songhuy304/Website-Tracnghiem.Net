@@ -1,0 +1,75 @@
+﻿@model DoAnCs.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Contentt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contentt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.optionA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.optionA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.optionB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.optionB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.optionC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.optionC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.optionD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.optionD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Difficulty.NameDifficulty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Difficulty.NameDifficulty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.NameSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.NameSubject)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdQuestion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
