@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DoAnCs.Models.Exam>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+@section naviheader{
+    <h1>Quản Lý Đề Thi</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Home</a>
+        </li>
+    </ul>
+
+
+}
+<div class="order">
+    <div class="head">
+        <h3>Recent Orders</h3>
+        <i class="bx bx-search"></i>
+        <i class="bx bx-filter"></i>
+        <a href="/admin/DeThi/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
+
+
+    </div>
+    @if (Model.Any() && Model != null)
+    {
+        var i = 1;
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th>STT</th>
+                    <th>Tên Đề thi</th>
+                    <th>Thời Gian</th>
+                    <th>Số Lượng Câu Hỏi</th>
+                    <th>Ngày Tạo</th>
+                    <th class="float-right"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <p>@i</p>
+                        </td>
+                        <td>@item.NameExam</td>
+                        <td>@item.Time</td>
+                        <td>@item.NumberQ</td>
+                        <td>@item.Exam_date</td>
+                        <td>@item.</td>
+
+                        <td class="float-right">
+                            <a href="/admin/productcategory/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/productcategory/delete/@item.IdExam'" class=" btn btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+
+
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>Không Có Gì</p>
+    }
+</div>
+

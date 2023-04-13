@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/bootstrap4/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <title>AdminHub</title>
+</head>
+<body>
+
+
+    <!-- SIDEBAR -->
+    <!-- SIDEBAR -->
+    <!-- CONTENT -->
+    <section id="sidebar">
+        @Html.Partial("_SideBar")
+
+    </section>
+
+
+
+
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+        <!-- MAIN -->
+        <main>
+
+            <div class="head-title">
+                <div class="left">
+                    @RenderSection("naviheader", required: false)
+
+                </div>
+
+            </div>
+            <div class="table-data">
+                @RenderBody()
+
+            </div>
+
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="~/Content/script.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/bootstrap.min.js"></script>
+</body>
+</html>

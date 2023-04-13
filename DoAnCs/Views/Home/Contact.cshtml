@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Colo Shop</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Colo Shop Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/bootstrap4/bootstrap.min.css">
+    <link href="~/Content/asset/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/asset/styles/css.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+
+    <div class="container mt-4 dethii" @*style="background-color:red;"*@>
+        <div class="formthi">
+            <h5 class="text-center my-5">Thi trắc nghiệm</h5>
+            <form class="form-section page-section">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label for="name">Tên Bài Thi:</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Tên Người THi:</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                @*Câu Hỏi*@
+                <div class="form-group">
+                    <label for="question1">Câu hỏi 1:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" value="option1" required>
+                        <label class="form-check-label" for="question1">
+                            Option 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" value="option2" required>
+                        <label class="form-check-label" for="question1">
+                            Option 2
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question1" value="option3" required>
+                        <label class="form-check-label" for="question1">
+                            Option 3
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="question2">Câu hỏi 2:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" value="option1" required>
+                        <label class="form-check-label" for="question2">
+                            Option 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" value="option2" required>
+                        <label class="form-check-label" for="question2">
+                            Option 2
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question2" value="option3" required>
+                        <label class="form-check-label" for="question2">
+                            Option 3
+                        </label>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input type="submit" name="name" value="Nộp Bài" class="btn btn-success" />
+                    <input type="submit" name="name" value="quay Lại" class="btn btn-default" />
+
+                </div>
+                <div class="form-group">
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <script src="~/Content/asset/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/asset/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/asset/plugins/easing/easing.js"></script>
+    <script src="~/Content/asset/js/custom.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>

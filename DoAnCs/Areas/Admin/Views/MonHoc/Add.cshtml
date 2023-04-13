@@ -1,0 +1,52 @@
+﻿@model DoAnCs.Models.Subject
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<div class="order">
+    <div class="head">
+        <h3>Recent Orders</h3>
+        <i class="bx bx-search"></i>
+        <i class="bx bx-filter"></i>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông Tin thêm mới</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Add", "MonHoc", FormMethod.Post, new { }))
+
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tên Môn Học</label>
+                                @Html.TextBoxFor(x => x.NameSubject, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                                @Html.ValidationMessageFor(x => x.NameSubject, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
