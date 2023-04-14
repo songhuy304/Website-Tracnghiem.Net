@@ -1,7 +1,9 @@
-﻿
+﻿@model PagedList.PagedList<DoAnCs.Models.Question>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@using PagedList.Mvc;
 
-  
-@model IEnumerable<DoAnCs.Models.Question>
+
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
@@ -23,8 +25,13 @@
 }
 <div class="order">
     <div class="head">
-        
-        <i class="bx bx-search"></i>
+
+        @using (Html.BeginForm("Index", "Question", FormMethod.Get))
+        {
+
+            @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" class="btn btn-default" />
+        }
         <i class="bx bx-filter"></i>
         <a href="/admin/Question/Create" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
 
@@ -33,6 +40,7 @@
     @if (Model.Any() && Model != null)
     {
         var i = 1;
+
         <table>
             <thead>
                 <tr class="text-center">
@@ -40,7 +48,7 @@
                     <th>Tên Câu Hỏi</th>
                     <th>Tên Môn Học</th>
                     <th>Đáp Án</th>
-                    
+
 
                     <th class="float-right"></th>
                 </tr>
@@ -58,13 +66,12 @@
                         <td>@item.Subject.NameSubject</td>
                         @*<td>@item.Answer.DapAn</td>*@
 
-                    <td class="float-right">
+                        <td class="float-right">
 
-                        <a href="/admin/Question/edit/@item.IdQuestion " class=" btn btn-primary">Edit</a>
-                        <a href="/admin/Question/details/@item.IdQuestion " class=" btn btn-primary">Chi Tiết</a>
-
-                        <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/productcategory/delete/@item.IdSubject'" class=" btn btn-danger">Xóa</a>
-                    </td>
+                            <a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
+                            <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
+                        </td>
                     </tr>
 
                     i++;
@@ -73,6 +80,8 @@
 
             </tbody>
         </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+               new { page, currentFilter = ViewBag.CurrentFilter }))
 
     }
     else

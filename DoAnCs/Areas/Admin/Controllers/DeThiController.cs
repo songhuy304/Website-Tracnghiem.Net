@@ -41,5 +41,40 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             return View(exam);
         }
+        public ActionResult edit(int id)
+        {
+          
+            var exem = db.Exams.Find(id);
+            return View(exem);
+        }
+        [HttpPost]
+        public ActionResult edit(Exam exem)
+
+        {
+
+
+            if (ModelState.IsValid)
+            {
+                db.Exams.Attach(exem);
+                db.Entry(exem).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(exem);
+        }
+        //Xóa Không load trang khác  
+
+        public ActionResult Delete(int? id)
+        {
+            var exem = db.Exams.Find(id);
+
+
+            db.Exams.Remove(exem);
+            db.SaveChanges();
+            return RedirectToAction("Index", "DeThi");
+
+        }
     }
 }
