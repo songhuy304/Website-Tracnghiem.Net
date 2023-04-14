@@ -1,28 +1,9 @@
 ﻿@model DoAnCs.Models.Question
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "detail";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
-@section naviheader{
-    <h1>Quản Lý Câu Hỏi</h1>
-    <ul class="breadcrumb">
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li><i class='bx bx-chevron-right'></i></li>
-        <li>
-            <a class="active" href="#">Câu Hỏi</a>
-        </li>
-        <li><i class='bx bx-chevron-right'></i></li>
-        <li>
-            <a class="active" href="#">Thêm Mới Câu Hỏi</a>
-        </li>
-    </ul>
-
-
-}
-
 
 <div class="order">
     <div class="head">
@@ -112,11 +93,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Đáp Án Đúng</label>
-                                @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, "-Chọn Danh Mục Sản phẩm-", new { @class = "form-control" })
+                                @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
-                                <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
+                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
@@ -134,3 +115,4 @@
     </div>
 
 </div>
+
