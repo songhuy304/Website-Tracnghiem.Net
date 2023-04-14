@@ -374,6 +374,7 @@
     <Content Include="Areas\Admin\Views\Question\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Question\edit.cshtml" />
     <Content Include="Areas\Admin\Views\Question\detail.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
