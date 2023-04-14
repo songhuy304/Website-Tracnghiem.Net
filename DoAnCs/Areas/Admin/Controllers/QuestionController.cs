@@ -18,7 +18,8 @@ namespace DoAnCs.Areas.Admin.Controllers
         // GET: Admin/Question
         public ActionResult Index()
         {
-            var questions = db.Questions;
+    
+            var questions = db.Questions.OrderByDescending(x=>x.IdSubject);
             return View(questions.ToList());
         }
 

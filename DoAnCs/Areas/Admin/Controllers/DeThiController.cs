@@ -30,7 +30,7 @@ namespace DoAnCs.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                exam.Exam_date = DateTime.Now;
                 db.Exams.Add(exam);
                 db.SaveChanges();
 

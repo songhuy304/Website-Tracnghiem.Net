@@ -5,56 +5,117 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
 
-<h2>Add</h2>
+@section naviheader{
+    <h1>Quản Lý Đề Thi</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Quản Lý Đề Thi</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Thêm Đề Thi</a>
+        </li>
+    </ul>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Exam</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Exam_date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Exam_date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Exam_date, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
+}
+<div class="order">
+    <div class="head">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumberQ, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumberQ, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumberQ, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NameExam, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NameExam, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NameExam, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        <i class="bx bx-search"></i>
+        <i class="bx bx-filter"></i>
     </div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông Tin thêm mới</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("Add", "DeThi", FormMethod.Post, new { }))
+
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tên Đề Thi</label>
+                                @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                                @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="Time">Thời Gian</label>
+                                @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Số Câu Hỏi</label>
+                                @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="form-group">
+                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+<div class="form-group">
+    <label for="Time">Thời Gian (phút)</label>
+    <div class="input-group">
+        <input type="text" value="10" id="Time" class="form-control" />
+    </div>
+</div>
+<button id="btnla" class="btn btn-primary">Bắt đầu đếm ngược</button>
+<div id="countdown"></div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#btnla").click(function () {
+                var timeInMinutes = parseFloat($("#Time").val());
+                var time = isNaN(timeInMinutes) ? 0 : timeInMinutes * 60 * 1000;
+                if (time === 0) {
+                    alert("Vui lòng nhập thời gian hợp lệ!");
+                    return;
+                }
+                var interval = setInterval(function () {
+                    time -= 1000;
+                    if (time < 0) {
+                        clearInterval(interval);
+                        alert("Hết thời gian!");
+                    } else {
+                        var minutes = Math.floor(time / 60000);
+                        var seconds = Math.floor((time % 60000) / 1000);
+                        var display = minutes + "p " + seconds + "s";
+                        if (!isNaN(minutes) && !isNaN(seconds)) {
+                            $("#countdown").text(display);
+                        }
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
