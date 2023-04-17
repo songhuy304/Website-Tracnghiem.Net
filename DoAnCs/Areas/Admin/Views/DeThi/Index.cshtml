@@ -31,12 +31,12 @@
         var i = 1;
         <table>
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th>STT</th>
                     <th>Tên Đề thi</th>
                     <th>Thời Gian</th>
                     <th>Số Lượng Câu Hỏi</th>
-                    <th>Ngày Tạo</th>
+                    <th>Thuộc Môn Học</th>
                     <th class="float-right"></th>
                 </tr>
             </thead>
@@ -52,8 +52,10 @@
                         <td>@item.NameExam</td>
                         <td>@item.Time</td>
                         <td>@item.NumberQ</td>
-                        @*<td>@item.Exam_date.ToString("dd/MM/yyyy")</td>*@
-                        
+                        <td>@item.Subject.NameSubject</td>
+
+
+
 
                         <td class="float-right">
                             <a href="/admin/DeThi/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>

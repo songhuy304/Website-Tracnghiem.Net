@@ -19,7 +19,7 @@ namespace DoAnCs.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-
+            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
             return View();
 
 
@@ -38,12 +38,14 @@ namespace DoAnCs.Areas.Admin.Controllers
 
                 return RedirectToAction("Index");
             }
+            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
 
             return View(exam);
         }
         public ActionResult edit(int id)
         {
-          
+            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
+
             var exem = db.Exams.Find(id);
             return View(exem);
         }
@@ -61,6 +63,7 @@ namespace DoAnCs.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
 
             return View(exem);
         }

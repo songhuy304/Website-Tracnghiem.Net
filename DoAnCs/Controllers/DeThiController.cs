@@ -3,6 +3,7 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -44,6 +45,64 @@ namespace DoAnCs.Controllers
             ViewBag.PageSize = pagesize;
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
+        }
+        
+
+        public ActionResult DeThi(int? id, FormCollection form)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Exam exam = db.Exams.Find(id);
+            var questions = db.Questions.Where(q => q.IdSubject == exam.IdSubject).OrderBy(q => Guid.NewGuid()).Take((int)exam.NumberQ);
+        
+            return View(questions);
+        }
+        [HttpPost]
+        public ActionResult DeThi(FormCollection form, IEnumerable<Question> questions)
+        {
+            int mark = 0;
+            int countdung = 0;
+            int countcauhoi = questions.Count(); // Lấy số lượng câu hỏi từ danh sách
+            for (int i = 1; i <= countcauhoi; i++)
+            {
+                string id = form[string.Format("question1_{0}", i)];
+                string idDapAn = form[string.Format("question1_{0}_idDapAn", i)];
+                string choice = "";
+
+                switch (id)
+                {
+                    case "A":
+                        choice = "A";
+                        break;
+                    case "B":
+                        choice = "B";
+                        break;
+                    case "C":
+                        choice = "C";
+                        break;
+                    case "D":
+                        choice = "D";
+                        break;
+                }
+
+                // Lấy câu hỏi tương ứng với vòng lặp
+                var question = questions.ElementAt(i - 1);
+
+                if (choice == question.DapAn) // Kiểm tra câu trả lời của người dùng
+                {
+                    mark += 2;
+                    countdung++;
+                }
+            }
+
+            ViewBag.Mark = mark;
+            ViewBag.CountDung = countdung;
+            ViewBag.CountCauHoi = countcauhoi;
+
+            return View();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             ViewBag.CurrentFilter = searchString;
             int pageIndex = (page ?? 1);
-            int pagesize = 3; /*số lượng item của trang = 5*/
+            int pagesize = 10; /*số lượng item của trang = 5*/
             item = item.OrderByDescending(n => n.IdSubject).ToList();
             ViewBag.PageSize = pagesize;
             ViewBag.Page = page;

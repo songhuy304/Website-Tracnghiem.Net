@@ -8,11 +8,11 @@
     <h1>Quản Lý Câu Hỏi</h1>
     <ul class="breadcrumb">
         <li>
-            <a href="#">Home</a>
+            <a href="/Admin/Home">Home</a>
         </li>
         <li><i class='bx bx-chevron-right'></i></li>
         <li>
-            <a class="active" href="#">Câu Hỏi</a>
+            <a class="active" href="/admin/Question/index">Câu Hỏi</a>
         </li>
         <li><i class='bx bx-chevron-right'></i></li>
         <li>
@@ -25,11 +25,7 @@
 
 
 <div class="order">
-    <div class="head">
-        <h3>Recent Orders</h3>
-        <i class="bx bx-search"></i>
-        <i class="bx bx-filter"></i>
-    </div>
+    
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Thông Tin thêm mới</h3>
@@ -53,31 +49,24 @@
                                     @Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">Đán Án A</label>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Đáp Án A</label>
 
-                                        @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-
-                                        <label class="control-label col-md-4">Đán Án B</label>
-
-                                        @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
-                                    </div>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
-
-
-
                             <div class="form-group">
-                                <label class="control-label col-md-4">Đán Án C</label>
+                                <label class="control-label col-md-4">Đáp Án B</label>
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Đáp Án C</label>
 
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.optionC, new { htmlAttributes = new { @class = "form-control" } })
@@ -112,9 +101,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Đáp Án Đúng</label>
-                                @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, "-Chọn Danh Mục Sản phẩm-", new { @class = "form-control" })
-                                @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, "-Chọn Đáp Án Đúng-", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>

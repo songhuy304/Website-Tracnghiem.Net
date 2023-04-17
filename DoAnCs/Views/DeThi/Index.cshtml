@@ -6,9 +6,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container1" >
+<div class="container1">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb" style=" background-color:#ffffff" >
+        <ol class="breadcrumb" style=" background-color:#ffffff">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Library</li>
         </ol>
@@ -22,19 +22,23 @@
         <div class="container">
             @foreach (var item in Model)
             {
-            <div class="card-item">
-                <div class="card">
-                    <div class="card-header" style="background-color:lemonchiffon">
-                        <strong>@item.NameExam</strong> 
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Số Lượng Câu Hỏi: @item.NumberQ</p>
-                        <p class="card-text">Số Phút: @item.Time</p>
+                <div class="card-item">
+                    <div class="card">
+                        <div class="card-header" style="background-color:lemonchiffon">
+                            <strong>@item.NameExam</strong>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Số Lượng Câu Hỏi: @item.NumberQ</p>
+                            <p class="card-text">Số Phút: @item.Time</p>
 
-                        <a href="#" class="btn btn-primary">Vào Thi</a>
+                            <a href="/DeThi/DeThi/@item.IdExam" class="btn btn-primary">Vào Thi</a>
+
+
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
             }
 
@@ -47,4 +51,5 @@ else
     <h3>Không Có đề Thi Nào</h3>
 }
 
-
+    
+    
