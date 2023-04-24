@@ -3,19 +3,17 @@
 $(document).ready(function () {
     alert('Bắt Đầu Bài Thi');
     startCountdown();
+    $('#btnluubai').hide();
+
     $('#btnquaylai').hide();
     $('#btnnop').click(function () {
         if (confirm('Bạn Muốn Nộp Bài ')) {
             clearInterval(countdownInterval); // Xóa bỏ interval
             CheckResult();
-            $('#btnquaylai').show();
+            //$('#btnquaylai').show();
             $('#btnnop').hide();
-            //var thoigianlambaiElement = document.getElementById("thoigianlambai");
-            //var thoiGianLamBai = (sophut * 60 * 1000);
-            //var sophutthi = Math.floor(thoiGianLamBai / 1000 / 60);
-            //var sophutthiGiay = Math.floor((thoiGianLamBai / 1000) % 60);
-            //var sophutthiString = sophutthi + ":" + (sophutthiGiay < 10 ? "0" : "") + sophutthiGiay;
-            //thoigianlambaiElement.textContent = sophutthiString;
+            $('#btnluubai').show();
+
         }
     });
     checknav();
