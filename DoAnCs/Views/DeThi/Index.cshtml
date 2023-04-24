@@ -29,9 +29,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">Số Lượng Câu Hỏi: @item.NumberQ</p>
-                            <p class="card-text">Số Phút: @item.Time</p>
+                            <p data-id="@item.Time" class="card-text">Số Phút: @item.Time</p>
 
-                            <a href="/DeThi/DeThi/@item.IdExam" class="btn btn-primary">Vào Thi</a>
+                            <a href="/DeThi/DeThi/@item.IdExam" class="btnvaothi btn btn-primary">Vào Thi</a>
 
 
 
@@ -51,5 +51,22 @@ else
     <h3>Không Có đề Thi Nào</h3>
 }
 
-    
-    
+
+@section scripts{
+    <script src="~/Scripts/Dethi.js"></script>
+
+    @*<script>
+
+            $(document).ready(function () {
+                $('.btnvaothi').click(function (e) {
+                    if (confirm("Xác Nhận Vào Thi")) {
+                        return true;
+
+                    }
+                    else {
+                        e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
+                    }
+                });
+            });
+        </script>*@
+}

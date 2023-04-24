@@ -9,7 +9,7 @@
     background-color: whitesmoke;
     box-sizing: border-box;
     border: solid 1px;
-    box-shadow: 5px 5px 8px 5px #808080;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     max-width: 50%;
 }
 
@@ -41,3 +41,28 @@ body {
 }
 
 
+.dem1 {
+    background-color: whitesmoke;
+    position: fixed;
+    top: 147px;
+    left: 53px;
+    height: 114px;
+    width: 281px;
+    border: solid 1px;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.demgio{
+   
+}
+.demgio label {
+    font-size: 25px;
+    margin-top:15px;
+}
+.demgio #countdow {
+    padding-top:15px;
+    padding-left:15px;
+    color: red;
+    font-size: 50px;
+}

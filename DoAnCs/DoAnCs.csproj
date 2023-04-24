@@ -484,6 +484,7 @@
     <Content Include="public\scss\bootstrap\_variables.scss" />
     <Content Include="public\scss\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -19,7 +19,7 @@
 }
 <div class="order">
     <div class="head">
-        
+
         <i class="bx bx-search"></i>
         <i class="bx bx-filter"></i>
         <a href="/admin/DeThi/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
@@ -60,12 +60,14 @@
                         <td class="float-right">
                             <a href="/admin/DeThi/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>
                             <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/delete/@item.IdExam'" class=" btn btn-danger">Xóa</a>
+                            <a href="/home/index"  data-id="1" class="btnhe btn btn-danger">sađấ</a>
                         </td>
                     </tr>
 
                     i++;
                 }
 
+                
 
             </tbody>
         </table>
@@ -76,4 +78,18 @@
         <p>Không Có Gì</p>
     }
 </div>
+@section scripts{
+    <script>
+        $('.btnhe').click(function (e) {
+            if (confirm("Bạn có tiếp Tục không")) {
+                var id = $(this).data('id');
+                alert("ID của phần tử là: " + id);
+                console.log("Đối tượng sự kiện là: ", e);
+            } else {
+                e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
 
+            }
+          
+        });
+    </script>
+}

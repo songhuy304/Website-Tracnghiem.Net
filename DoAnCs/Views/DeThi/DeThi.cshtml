@@ -2,12 +2,12 @@
         
 @{
     ViewBag.Title = "Contact";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Colo Shop</title>
+    @*<title>Colo Shop</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/main_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">*@
 
 
     @*@Styles.Render("~/Content/css")*@
@@ -29,27 +29,39 @@
 
 
 <body>
-    @using (Html.BeginForm("DeThi", "DeThi", FormMethod.Post))
-    {
-        if (Model != null)
+    
+    
+        @if (Model != null)
         {
+            <div class="dem1">
+                <div class="demgio">
+                    <label>Thời Gian Còn :</label>
+                    <div data-id="@ViewBag.sophut" id="countdow"></div>
 
-            <div class="container mt-4 dethii" @*style="background-color:red;"*@>
+                </div>
+            </div>
+
+            <div class="container mt-4 mb-4 dethii" @*style="background-color:red;"*@>
                 <div class="formthi">
-                    <h5 class="text-center my-5">Thi trắc nghiệm</h5>
-                    <form class="form-section page-section">
+                    <h5 class="text-center my-5">@*Thi trắc nghiệm*@</h5>
+                    <form class="form-section page-section">    
                         <div class="row">
-                            <div class="col-md-7">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    @*<label for="name">Tên Bài Thi:</label>
-            <input type="text" name="name" class="form-control" required>*@
-                                </div>
-                               
-                                <div class="form-group">
-                                    @*<label for="email">Tên Người THi:</label>
-            <input type="email" name="email" class="form-control" required>*@
+                                    <div id="thoigianlam"></div>
+                                    <label for="name">Tên Bài Thi:</label>
+                                    <input type="text" name="name" class="form-control" required>
                                 </div>
                             </div>
+                                
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="email">Tên Người THi:</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                          
+                           
                         </div>
 
                         <hr>
@@ -64,32 +76,32 @@
                                 <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>
                                 <div class="form-check">
                                     <input class="rdoptionA" type="radio" name="question1_@questionNumber" value="A">
-                                    <label class="form-check-label" for="question@questionNumber">
+                                    <label class="A" for="question@questionNumber">
                                         A: @item.optionA
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="rdoptionB" type="radio" name="question1_@questionNumber" value="B">
-                                    <label class="form-check-label" for="question@questionNumber">
+                                    <label class="B" for="question@questionNumber">
                                         B: @item.optionB
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="rdoptionC" type="radio" name="question1_@questionNumber" value="C">
-                                    <label class="form-check-label" for="question@questionNumber">
+                                    <label class="C" for="question@questionNumber">
                                         C: @item.optionC
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="rdoptionD" type="radio" name="question1_@questionNumber" value="D">
-                                    <label class="form-check-label" for="question@questionNumber">
+                                    <label class="D" for="question@questionNumber">
                                         D: @item.optionD
                                     </label>
                                 </div>
                                 <div class="form-check">
 
-                                    <label class="form-check-label" style="display:none" for="question@questionNumber">
-                                        Đáp Án Đúng ID @item.DapAn
+                                    <label class="dapan" style="display:none" for="question@questionNumber">
+                                        Đáp Án Đúng @item.DapAn
                                     </label>
                                 </div>
                                
@@ -106,12 +118,12 @@
 
 
 
-                        <hr>
+                        
                         <div class="form-group">
-                            
-                            <input type="submit" id="btnsub" name="name" value="Nộp Bài" class="btn btn-success" />
-                            <input type="submit" name="name" value="quay Lại" class="btn btn-default" />
-                            <button type="button" id="btnnop" class="btn btn-danger">test</button>
+
+
+                            <button type="button" id="btnquaylai" name="name" class="btn btn-danger" >Quay lại</button>
+                            <button type="button" id="btnnop" class="btn btn-success">Nộp Bài</button>
 
                         </div>
                         <div class="form-group">
@@ -128,7 +140,7 @@
             </div>
         }
 
-    }
+    
 
     <script src="~/Content/asset/js/jquery-3.2.1.min.js"></script>
     <script src="~/Content/asset/styles/bootstrap4/popper.js"></script>
@@ -141,5 +153,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @*@RenderSection("scripts", required: true)*@
     <script src="~/Scripts/JavaScript1.js"></script>
+   
 </body>
 </html>
