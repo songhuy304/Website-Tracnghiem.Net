@@ -29,11 +29,12 @@ namespace DoAnCs.Models
         public Nullable<int> IdSubject { get; set; }
         public Nullable<int> IdDifficulty { get; set; }
         public Nullable<int> IdDapan { get; set; }
+        public string DapAn { get; set; }
     
+        public virtual Answer Answer { get; set; }
         public virtual Difficulty Difficulty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
         public virtual Subject Subject { get; set; }
-        public virtual Answer Answer { get; set; }
     }
 }

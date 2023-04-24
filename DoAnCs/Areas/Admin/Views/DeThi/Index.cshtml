@@ -19,7 +19,7 @@
 }
 <div class="order">
     <div class="head">
-        
+
         <i class="bx bx-search"></i>
         <i class="bx bx-filter"></i>
         <a href="/admin/DeThi/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
@@ -31,12 +31,12 @@
         var i = 1;
         <table>
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th>STT</th>
                     <th>Tên Đề thi</th>
                     <th>Thời Gian</th>
                     <th>Số Lượng Câu Hỏi</th>
-                    <th>Ngày Tạo</th>
+                    <th>Thuộc Môn Học</th>
                     <th class="float-right"></th>
                 </tr>
             </thead>
@@ -52,18 +52,22 @@
                         <td>@item.NameExam</td>
                         <td>@item.Time</td>
                         <td>@item.NumberQ</td>
-                        @*<td>@item.Exam_date.ToString("dd/MM/yyyy")</td>*@
-                        
+                        <td>@item.Subject.NameSubject</td>
+
+
+
 
                         <td class="float-right">
                             <a href="/admin/DeThi/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>
                             <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/delete/@item.IdExam'" class=" btn btn-danger">Xóa</a>
+                            <a href="/home/index"  data-id="1" class="btnhe btn btn-danger">sađấ</a>
                         </td>
                     </tr>
 
                     i++;
                 }
 
+                
 
             </tbody>
         </table>
@@ -74,4 +78,18 @@
         <p>Không Có Gì</p>
     }
 </div>
+@section scripts{
+    <script>
+        $('.btnhe').click(function (e) {
+            if (confirm("Bạn có tiếp Tục không")) {
+                var id = $(this).data('id');
+                alert("ID của phần tử là: " + id);
+                console.log("Đối tượng sự kiện là: ", e);
+            } else {
+                e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
 
+            }
+          
+        });
+    </script>
+}

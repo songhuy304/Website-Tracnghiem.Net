@@ -9,10 +9,60 @@
     background-color: whitesmoke;
     box-sizing: border-box;
     border: solid 1px;
-    box-shadow: 5px 5px 8px 5px #808080;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     max-width: 50%;
 }
 
 body {
     background-color: lightgray;
+}
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
+
+.cascading-right {
+    margin-right: -50px;
+}
+
+@media (max-width: 991.98px) {
+    .cascading-right {
+        margin-right: 0;
+    }
+}
+
+
+.dem1 {
+    background-color: whitesmoke;
+    position: fixed;
+    top: 147px;
+    left: 53px;
+    height: 114px;
+    width: 281px;
+    border: solid 1px;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.demgio{
+   
+}
+.demgio label {
+    font-size: 25px;
+    margin-top:15px;
+}
+.demgio #countdow {
+    padding-top:15px;
+    padding-left:15px;
+    color: red;
+    font-size: 50px;
 }

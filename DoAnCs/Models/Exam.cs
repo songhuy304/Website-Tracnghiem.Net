@@ -22,11 +22,13 @@ namespace DoAnCs.Models
     
         public int IdExam { get; set; }
         public Nullable<System.DateTime> Exam_date { get; set; }
+        public Nullable<int> IdSubject { get; set; }
         public Nullable<int> Time { get; set; }
         public Nullable<int> NumberQ { get; set; }
         public string NameExam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

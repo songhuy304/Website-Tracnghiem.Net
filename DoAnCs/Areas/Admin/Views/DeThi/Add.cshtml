@@ -43,29 +43,36 @@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         <!-- your steps content here -->
-                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Tên Đề Thi</label>
-                                @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
-                                @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label for="Time">Thời Gian</label>
-                                @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Số Câu Hỏi</label>
-                                @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
-                            </div>
-
-
-                            <div class="form-group">
-                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tên Đề Thi</label>
+                            @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                            @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
                         </div>
+                        <div class="form-group">
+                            <label class="">Tên Môn Học</label>
+                            
+                                @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="Time">Thời Gian</label>
+                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số Câu Hỏi</label>
+                            @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                     }
                 </div>
             </div>
@@ -80,42 +87,3 @@
     </div>
 
 </div>
-<div class="form-group">
-    <label for="Time">Thời Gian (phút)</label>
-    <div class="input-group">
-        <input type="text" value="10" id="Time" class="form-control" />
-    </div>
-</div>
-<button id="btnla" class="btn btn-primary">Bắt đầu đếm ngược</button>
-<div id="countdown"></div>
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $("#btnla").click(function () {
-                var timeInMinutes = parseFloat($("#Time").val());
-                var time = isNaN(timeInMinutes) ? 0 : timeInMinutes * 60 * 1000;
-                if (time === 0) {
-                    alert("Vui lòng nhập thời gian hợp lệ!");
-                    return;
-                }
-                var interval = setInterval(function () {
-                    time -= 1000;
-                    if (time < 0) {
-                        clearInterval(interval);
-                        alert("Hết thời gian!");
-                    } else {
-                        var minutes = Math.floor(time / 60000);
-                        var seconds = Math.floor((time % 60000) / 1000);
-                        var display = minutes + "p " + seconds + "s";
-                        if (!isNaN(minutes) && !isNaN(seconds)) {
-                            $("#countdown").text(display);
-                        }
-                    }
-                }, 1000);
-            });
-        });
-    </script>
-
-
-}
-
