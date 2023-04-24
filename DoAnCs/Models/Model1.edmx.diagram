@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9406f76539cf4cada85511c082e6f832" Name="Diagram1">
+      <Diagram DiagramId="082844cc85804825bbb891b59353e67c" Name="Diagram1">
         <EntityTypeShape EntityType="TracNghiemModel.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Answer" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.AspNetRole" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
@@ -18,7 +18,6 @@
         <EntityTypeShape EntityType="TracNghiemModel.Question" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Student" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Subject" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.sysdiagram" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
         <AssociationConnector Association="TracNghiemModel.FK_Question_Answer" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />

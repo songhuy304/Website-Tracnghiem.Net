@@ -65,6 +65,9 @@ namespace DoAnCs.Controllers
             Session["bathi"] = exam;
             Session["cauhoi"] = questions;
             ViewBag.Exam = exam;
+            ViewBag.sophut = exam.Time;
+            ViewBag.tenbaithi = exam.NameExam;
+            ViewBag.socauhoi = exam.NumberQ;
             if (exam == null)
             {
                 return HttpNotFound();

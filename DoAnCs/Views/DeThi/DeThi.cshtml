@@ -49,20 +49,30 @@
                     <h5 class="text-center my-5">@*Thi trắc nghiệm*@</h5>
                     <form class="form-section page-section">
                         <div class="row">
-                            @*<div class="col-md-4">
-                                    <div class="form-group">
-                                        <div id="thoigianlam"></div>
-                                        <label for="name">Tên Bài Thi:</label>
-                                        <input type="text" name="name" class="form-control" required>
-                                    </div>
-                                </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div id="thoigianlam"></div>
+                                    <label for="name">Tên Bài Thi: <strong> @ViewBag.tenbaithi</strong></label>
+                                    <br />
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="email">Tên Người THi:</label>
-                                        <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                </div>*@
+                                    <label for="name">Số Câu Hỏi : <strong>@ViewBag.socauhoi</strong></label>
+                                    <label for="name">Số Phút : <strong> @ViewBag.sophut</strong></label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Số Điểm: <strong><label id="sodiem"> </label></strong> </label>
+                                    <br />
+                                    <label>Số Câu Đúng: <strong><label id="socaudung"></label></strong></label>
+                                    <br />
+                                    <label>Số Câu Sai: <strong> <label id="socausai"></label></strong> </label>
+                                    <br />
+                                    <label>Số Phút Thi: <strong> <label id="thoigianlambai"></label></strong> </label>
+
+                                </div>
+                            </div>
 
 
                         </div>
@@ -127,7 +137,7 @@
 
                             <button type="button" id="btnquaylai" name="name" class="btn btn-danger">Quay lại</button>
                             <button type="submit" id="btnnop" class="btn btn-success">Nộp Bài</button>
-
+                            <button type="button" id="btnnop" class="btn btn-success">Nộp Bài</button>
                         </div>
                         <div class="form-group">
                         </div>

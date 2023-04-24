@@ -12,7 +12,7 @@ using PagedList;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class QuestionController : KtraLoginAdController
+    public class QuestionController : Controller
     {
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 
@@ -38,7 +38,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             else
             {
-             
+
                 item = db.Questions.ToList();
             }
             ViewBag.CurrentFilter = searchString;
@@ -71,11 +71,11 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
             ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
-            ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
+            //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
 
             ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
             return View(question);
@@ -86,12 +86,13 @@ namespace DoAnCs.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult edit(int id)
         {
+            var question = db.Questions.Find(id);
             ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
-            ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
+            //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
 
             ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
-            var question = db.Questions.Find(id);
+
             return View(question);
         }
         [HttpPost]
@@ -134,4 +135,3 @@ namespace DoAnCs.Areas.Admin.Controllers
 
 
 }
-
