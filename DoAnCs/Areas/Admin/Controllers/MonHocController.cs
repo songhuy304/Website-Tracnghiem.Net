@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class MonHocController : Controller
+    public class MonHocController : KtraLoginAdController
     {
         TracNghiemEntities1 db = new TracNghiemEntities1();
 

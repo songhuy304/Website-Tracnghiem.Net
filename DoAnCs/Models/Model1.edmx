@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TracNghiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TracNghiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -146,6 +146,16 @@
           </Key>
           <Property Name="IdSubject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameSubject" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -314,6 +324,7 @@
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -363,7 +374,8 @@
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TracNghiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -495,11 +507,11 @@
           <Property Name="IdSubject" Type="Int32" />
           <Property Name="IdDifficulty" Type="Int32" />
           <Property Name="IdDapan" Type="Int32" />
+          <Property Name="DapAn" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Answer" Relationship="Self.FK_Question_Answer" FromRole="Question" ToRole="Answer" />
           <NavigationProperty Name="Difficulty" Relationship="Self.FK_Question_Difficulty" FromRole="Question" ToRole="Difficulty" />
           <NavigationProperty Name="Exam_Results" Relationship="Self.FK_Exam_Results_Question" FromRole="Question" ToRole="Exam_Results" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Question_Subject" FromRole="Question" ToRole="Subject" />
-          <Property Name="DapAn" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -522,6 +534,16 @@
           <NavigationProperty Name="Exams" Relationship="Self.FK_Exam_Subject" FromRole="Subject" ToRole="Exam" />
           <NavigationProperty Name="Lecturers" Relationship="Self.FK_Lecturer_Subject" FromRole="Subject" ToRole="Lecturer" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Subject" FromRole="Subject" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Question_Answer">
           <End Role="Answer" Type="Self.Answer" Multiplicity="0..1" />
@@ -665,6 +687,7 @@
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_Question_Answer" Association="Self.FK_Question_Answer">
             <End Role="Answer" EntitySet="Answers" />
             <End Role="Question" EntitySet="Questions" />
@@ -825,7 +848,6 @@
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="TracNghiemModel.Question">
               <MappingFragment StoreEntitySet="Question">
-                <ScalarProperty Name="DapAn" ColumnName="DapAn" />
                 <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
                 <ScalarProperty Name="Contentt" ColumnName="Contentt" />
                 <ScalarProperty Name="optionA" ColumnName="optionA" />
@@ -835,6 +857,7 @@
                 <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
                 <ScalarProperty Name="IdDifficulty" ColumnName="IdDifficulty" />
                 <ScalarProperty Name="IdDapan" ColumnName="IdDapan" />
+                <ScalarProperty Name="DapAn" ColumnName="DapAn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -855,6 +878,17 @@
               <MappingFragment StoreEntitySet="Subject">
                 <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
                 <ScalarProperty Name="NameSubject" ColumnName="NameSubject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TracNghiemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

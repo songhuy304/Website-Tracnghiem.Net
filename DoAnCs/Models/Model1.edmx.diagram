@@ -4,20 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d2bd40588cf402c832f278dabfe807d" Name="Diagram1">
-        <EntityTypeShape EntityType="TracNghiemModel.C__MigrationHistory" Width="1.5" PointX="9.875" PointY="7.25" IsExpanded="true" />
+      <Diagram DiagramId="9406f76539cf4cada85511c082e6f832" Name="Diagram1">
+        <EntityTypeShape EntityType="TracNghiemModel.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Answer" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.AspNetRole" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.AspNetUser" Width="1.5" PointX="10" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.AspNetUser" Width="1.5" PointX="10" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Difficulty" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Exam" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Exam_Results" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.Lecturer" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TracNghiemModel.Question" Width="1.5" PointX="7.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.Lecturer" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.Question" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Student" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TracNghiemModel.Subject" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.sysdiagram" Width="1.5" PointX="8.75" PointY="10.125" IsExpanded="true" />
         <AssociationConnector Association="TracNghiemModel.FK_Question_Answer" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />

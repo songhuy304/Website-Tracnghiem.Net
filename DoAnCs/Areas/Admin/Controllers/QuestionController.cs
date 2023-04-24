@@ -12,7 +12,7 @@ using PagedList;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class QuestionController : Controller
+    public class QuestionController : KtraLoginAdController
     {
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 

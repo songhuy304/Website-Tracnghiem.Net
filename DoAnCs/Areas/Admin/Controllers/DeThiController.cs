@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class DeThiController : Controller
+    public class DeThiController : KtraLoginAdController
     {
         TracNghiemEntities1 db = new TracNghiemEntities1();
         // GET: Admin/BaiThi
