@@ -28,6 +28,12 @@ namespace DoAnCs.Areas.Admin.Controllers
             Lecturer gv = db.Lecturers.SingleOrDefault(n => n.Email == semail && n.Password == smatkhau);
             if (gv != null)
             {
+                Session["FullName"] = gv.Name;
+                Session["Addres"] = gv.Address;
+                Session["Email"] = gv.Email;
+                Session["Phone"] = gv.Phone;
+
+
                 ViewBag.thongbao = "Bạn đã đăng nhập thành công";
                 Session["TaiKhoanGV"] = gv;
                 ViewBag.thbao = ((Lecturer)Session["TaiKhoanGV"]).Email;
