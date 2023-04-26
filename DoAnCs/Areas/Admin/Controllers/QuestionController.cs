@@ -44,7 +44,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             ViewBag.CurrentFilter = searchString;
             int pageIndex = (page ?? 1);
             int pagesize = 10; /*số lượng item của trang = 5*/
-            item = item.OrderByDescending(n => n.IdSubject).ToList();
+            item = item.OrderByDescending(n => n.IdExam).ToList();
             ViewBag.PageSize = pagesize;
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
@@ -58,13 +58,14 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
 
-            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
+            ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
             return View();
         }
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Question question)
         {
             if (ModelState.IsValid)
@@ -77,40 +78,51 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
 
-            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
+            /* ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");*/
+            ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
             return View(question);
         }
 
         // GET: Admin/Question/Edit/5
 
         [HttpGet]
+       
         public ActionResult edit(int id)
         {
-            var question = db.Questions.Find(id);
+            var cauhoi = db.Questions.SingleOrDefault(n => n.IdQuestion == id);
+            if (cauhoi == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
             ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
             //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
 
-            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
+            /*ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");*/
+            ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
 
-            return View(question);
+            return View(cauhoi);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult edit(Question question)
 
         {
 
-
+            
             if (ModelState.IsValid)
             {
-                db.Questions.Attach(question);
+
                 db.Entry(question).State = System.Data.Entity.EntityState.Modified;
-
+                //cauhoi.Contentt = question.Contentt;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
             }
+            return RedirectToAction("Index");
 
-            return View(question);
+            /* return View(question);*/
         }
         //Xóa Không load trang khác  
 

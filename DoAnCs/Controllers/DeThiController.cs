@@ -61,13 +61,15 @@ namespace DoAnCs.Controllers
                 return HttpNotFound();
             }
 
-            var questions = db.Questions.Where(q => q.IdSubject == exam.IdSubject).OrderBy(q => Guid.NewGuid()).Take((int)exam.NumberQ);
+            var questions = db.Questions.Where(q => q.IdExam == exam.IdExam).OrderBy(q => Guid.NewGuid()).Take((int)exam.NumberQ);
             Session["bathi"] = exam;
             Session["cauhoi"] = questions;
             ViewBag.Exam = exam;
             ViewBag.sophut = exam.Time;
             ViewBag.tenbaithi = exam.NameExam;
             ViewBag.socauhoi = exam.NumberQ;
+            
+
             if (exam == null)
             {
                 return HttpNotFound();

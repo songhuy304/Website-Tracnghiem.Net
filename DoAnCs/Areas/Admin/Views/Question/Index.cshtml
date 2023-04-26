@@ -45,7 +45,7 @@
             <thead>
                 <tr class="text-center">
                     <th>STT</th>
-                    <th>Tên Câu Hỏi</th>
+                    @*<th>Tên Câu Hỏi</th>*@
                     <th>Tên Môn Học</th>
                     <th>Đáp Án</th>
 
@@ -62,16 +62,20 @@
                         <td>
                             <p>@i</p>
                         </td>
-                        <td>@item.Contentt</td>
-                        <td>@item.Subject.NameSubject</td>
+                        @*<td>@item.Contentt</td>*@
+                        <td>@item.Exam.NameExam</td>
                         @*<td>@item.Answer.DapAn</td>*@
 
-                        <td class="float-right">
+                    <td class="float-right">
 
-                            <a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
-                            <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
-                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
-                        </td>
+                        @*<a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
+        <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
+
+        <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
+                        *@
+
+                        @Html.ActionLink("Edit", "edit", new { @id = item.IdQuestion }) |
+                    </td>
                     </tr>
 
                     i++;

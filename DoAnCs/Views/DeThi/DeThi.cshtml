@@ -1,5 +1,6 @@
-﻿@model IEnumerable<DoAnCs.Models.Question>
-
+﻿
+@model IEnumerable<DoAnCs.Models.Question>
+@using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,21 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @*<title>Colo Shop</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Colo Shop Template">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/bootstrap4/bootstrap.min.css">
-        <link href="~/Content/asset/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-        <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/animate.css">
-        <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/main_styles.css">
-        <link rel="stylesheet" type="text/css" href="styles/responsive.css">*@
 
-
-    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/asset/styles/css.css" rel="stylesheet" />
 
@@ -86,7 +73,29 @@
                             {
 
                                 <div class="form-group">
-                                    <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>
+                                    @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>*@
+                                    @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
+                                            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
+                                        </h5>*@
+                                    <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
+                                        Câu hỏi @questionNumber:
+                                        @{
+                                            // Lấy tất cả các thẻ <img> trong nội dung câu hỏi
+                                            var images = Regex.Matches(item.Contentt, @"<img.*?>");
+
+                                            // Duyệt qua tất cả các ảnh và gán kích thước cho chúng
+                                            foreach (Match image in images)
+                                            {
+                                                var newImage = Regex.Replace(image.Value, "(width|height)=\".*?\"", "");
+                                                newImage = newImage.Replace("<img", "<img style=\"width: 300px; height: 200px;\"");
+                                                item.Contentt = item.Contentt.Replace(image.Value, newImage);
+                                            }
+                                        }
+                                        @Html.Raw(item.Contentt)
+                                    </h5>
+
+
+
                                     <div class="form-check">
                                         <input class="rdoptionA" type="radio" name="question-@item.IdQuestion" value="A">
                                         <label class="A" for="question@questionNumber">
@@ -168,3 +177,6 @@
 
 </body>
 </html>
+
+<style>
+</style>

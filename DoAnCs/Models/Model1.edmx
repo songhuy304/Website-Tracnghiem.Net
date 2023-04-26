@@ -124,7 +124,7 @@
           <Property Name="optionB" Type="nvarchar" MaxLength="200" />
           <Property Name="optionC" Type="nvarchar" MaxLength="200" />
           <Property Name="optionD" Type="nvarchar" MaxLength="200" />
-          <Property Name="IdSubject" Type="int" />
+          <Property Name="IdExam" Type="int" />
           <Property Name="IdDifficulty" Type="int" />
           <Property Name="IdDapan" Type="int" />
           <Property Name="DapAn" Type="nchar" MaxLength="1" />
@@ -146,6 +146,16 @@
           </Key>
           <Property Name="IdSubject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameSubject" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -287,15 +297,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_Subject">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+        <Association Name="FK_Question_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="IdSubject" />
+            <Principal Role="Exam">
+              <PropertyRef Name="IdExam" />
             </Principal>
             <Dependent Role="Question">
-              <PropertyRef Name="IdSubject" />
+              <PropertyRef Name="IdExam" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -314,6 +324,7 @@
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -358,8 +369,8 @@
             <End Role="Difficulty" EntitySet="Difficulty" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
-          <AssociationSet Name="FK_Question_Subject" Association="Self.FK_Question_Subject">
-            <End Role="Subject" EntitySet="Subject" />
+          <AssociationSet Name="FK_Question_Exam" Association="Self.FK_Question_Exam">
+            <End Role="Exam" EntitySet="Exam" />
             <End Role="Question" EntitySet="Question" />
           </AssociationSet>
         </EntityContainer>
@@ -455,6 +466,7 @@
           <Property Name="NameExam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Exam_Results" Relationship="Self.FK_Exam_Results_Exam" FromRole="Exam" ToRole="Exam_Results" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Exam_Subject" FromRole="Exam" ToRole="Subject" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Exam" FromRole="Exam" ToRole="Question" />
         </EntityType>
         <EntityType Name="Exam_Results">
           <Key>
@@ -493,14 +505,14 @@
           <Property Name="optionB" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="optionC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="optionD" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="IdSubject" Type="Int32" />
+          <Property Name="IdExam" Type="Int32" />
           <Property Name="IdDifficulty" Type="Int32" />
           <Property Name="IdDapan" Type="Int32" />
           <Property Name="DapAn" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Answer" Relationship="Self.FK_Question_Answer" FromRole="Question" ToRole="Answer" />
           <NavigationProperty Name="Difficulty" Relationship="Self.FK_Question_Difficulty" FromRole="Question" ToRole="Difficulty" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Question_Exam" FromRole="Question" ToRole="Exam" />
           <NavigationProperty Name="Exam_Results" Relationship="Self.FK_Exam_Results_Question" FromRole="Question" ToRole="Exam_Results" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK_Question_Subject" FromRole="Question" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -522,7 +534,16 @@
           <Property Name="NameSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Exams" Relationship="Self.FK_Exam_Subject" FromRole="Subject" ToRole="Exam" />
           <NavigationProperty Name="Lecturers" Relationship="Self.FK_Lecturer_Subject" FromRole="Subject" ToRole="Lecturer" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Subject" FromRole="Subject" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Question_Answer">
           <End Role="Answer" Type="Self.Answer" Multiplicity="0..1" />
@@ -600,6 +621,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Question_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="IdExam" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdExam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Exam_Results_Question">
           <End Role="Question" Type="Self.Question" Multiplicity="1" />
           <End Role="Exam_Results" Type="Self.Exam_Results" Multiplicity="*" />
@@ -636,18 +669,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Question_Subject">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-          <End Role="Question" Type="Self.Question" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="IdSubject" />
-            </Principal>
-            <Dependent Role="Question">
-              <PropertyRef Name="IdSubject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -666,6 +687,7 @@
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_Question_Answer" Association="Self.FK_Question_Answer">
             <End Role="Answer" EntitySet="Answers" />
             <End Role="Question" EntitySet="Questions" />
@@ -690,6 +712,10 @@
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Exam" EntitySet="Exams" />
           </AssociationSet>
+          <AssociationSet Name="FK_Question_Exam" Association="Self.FK_Question_Exam">
+            <End Role="Exam" EntitySet="Exams" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
           <AssociationSet Name="FK_Exam_Results_Question" Association="Self.FK_Exam_Results_Question">
             <End Role="Question" EntitySet="Questions" />
             <End Role="Exam_Results" EntitySet="Exam_Results" />
@@ -701,10 +727,6 @@
           <AssociationSet Name="FK_Lecturer_Subject" Association="Self.FK_Lecturer_Subject">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Lecturer" EntitySet="Lecturers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Question_Subject" Association="Self.FK_Question_Subject">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -832,7 +854,7 @@
                 <ScalarProperty Name="optionB" ColumnName="optionB" />
                 <ScalarProperty Name="optionC" ColumnName="optionC" />
                 <ScalarProperty Name="optionD" ColumnName="optionD" />
-                <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
+                <ScalarProperty Name="IdExam" ColumnName="IdExam" />
                 <ScalarProperty Name="IdDifficulty" ColumnName="IdDifficulty" />
                 <ScalarProperty Name="IdDapan" ColumnName="IdDapan" />
                 <ScalarProperty Name="DapAn" ColumnName="DapAn" />
@@ -856,6 +878,17 @@
               <MappingFragment StoreEntitySet="Subject">
                 <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
                 <ScalarProperty Name="NameSubject" ColumnName="NameSubject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TracNghiemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

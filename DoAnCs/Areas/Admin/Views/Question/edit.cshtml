@@ -24,7 +24,7 @@
 }
 <<div class="order">
     <div class="head">
-     
+
         <i class="bx bx-search"></i>
         <i class="bx bx-filter"></i>
     </div>
@@ -41,13 +41,16 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
+                        @Html.HiddenFor( m =>m.IdQuestion)
+
                         <!-- your steps content here -->
                         <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
 
                             <div class="form-group">
                                 <label class="control-label col-md-2">Tên Câu Hỏi</label>
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Contentt, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*@Html.EditorFor(model => model.Contentt, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    <textarea class="form-control" name="Contentt" id="inputContentt">@Model.Contentt</textarea>
                                     @Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -96,8 +99,8 @@
                                 <label class="control-label col-md-4">Tên Môn Học</label>
 
                                 <div class="col-md-10">
-                                    @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("IdExam", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.IdExam, "", new { @class = "text-danger" })
                                 </div>
                             </div>
 
@@ -108,11 +111,11 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Đáp Án Đúng</label>
-                                @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
-                            </div>
+                            @*<div class="form-group">
+                                    <label for="exampleInputEmail1">Đáp Án Đúng</label>
+                                    @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
+                                </div>*@
                             <div class="form-group">
                                 <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -132,3 +135,10 @@
     </div>
 
 </div>
+@section scripts{
+    <script>
+        CKEDITOR.replace("inputContentt");
+
+    </script>
+
+}

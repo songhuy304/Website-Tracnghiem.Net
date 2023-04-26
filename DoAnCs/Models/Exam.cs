@@ -18,6 +18,7 @@ namespace DoAnCs.Models
         public Exam()
         {
             this.Exam_Results = new HashSet<Exam_Results>();
+            this.Questions = new HashSet<Question>();
         }
     
         public int IdExam { get; set; }
@@ -30,5 +31,7 @@ namespace DoAnCs.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
         public virtual Subject Subject { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }
