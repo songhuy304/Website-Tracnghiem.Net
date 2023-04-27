@@ -120,6 +120,7 @@
           </Key>
           <Property Name="IdQuestion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Contentt" Type="nvarchar" MaxLength="200" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="200" />
           <Property Name="optionA" Type="nvarchar" MaxLength="200" />
           <Property Name="optionB" Type="nvarchar" MaxLength="200" />
           <Property Name="optionC" Type="nvarchar" MaxLength="200" />
@@ -501,6 +502,7 @@
           </Key>
           <Property Name="IdQuestion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Contentt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HinhAnh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="optionA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="optionB" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="optionC" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -850,6 +852,7 @@
               <MappingFragment StoreEntitySet="Question">
                 <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
                 <ScalarProperty Name="Contentt" ColumnName="Contentt" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
                 <ScalarProperty Name="optionA" ColumnName="optionA" />
                 <ScalarProperty Name="optionB" ColumnName="optionB" />
                 <ScalarProperty Name="optionC" ColumnName="optionC" />

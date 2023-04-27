@@ -22,6 +22,7 @@ namespace DoAnCs.Models
     
         public int IdQuestion { get; set; }
         public string Contentt { get; set; }
+        public string HinhAnh { get; set; }
         public string optionA { get; set; }
         public string optionB { get; set; }
         public string optionC { get; set; }

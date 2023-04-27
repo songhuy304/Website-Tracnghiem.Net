@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKFinder">
+      <HintPath>..\..\plugin\ckfinder\bin\Debug\CKFinder.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -1455,13 +1458,6 @@
     <Content Include="public\scss\style.scss" />
     <Content Include="Areas\Admin\Views\LoginAd\Login.cshtml" />
     <Content Include="Areas\Admin\Views\LoginAd\EmailPartial.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\asset\plugin\ckeditor\plugins\scayt\CHANGELOG.md" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\scayt\README.md" />
@@ -1478,6 +1474,13 @@
     <Content Include="Content\asset\plugin\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Content\asset\plugin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Content\asset\plugin\ckfinder\userfiles\.htaccess" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />
@@ -1538,6 +1541,7 @@
     <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Areas\Admin\Views\BaiThi\" />
     <Folder Include="Areas\Admin\Views\KtraLoginAd\" />
+    <Folder Include="Upload\" />
     <Folder Include="Views\hellocu\" />
     <Folder Include="Views\KtraLoginSV\" />
   </ItemGroup>

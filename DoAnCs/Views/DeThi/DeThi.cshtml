@@ -75,25 +75,33 @@
                                 <div class="form-group">
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>*@
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
-                                            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
-                                        </h5>*@
+            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
+        </h5>*@
                                     <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
                                         Câu hỏi @questionNumber:
                                         @{
-                                            // Lấy tất cả các thẻ <img> trong nội dung câu hỏi
-                                            var images = Regex.Matches(item.Contentt, @"<img.*?>");
-
-                                            // Duyệt qua tất cả các ảnh và gán kích thước cho chúng
-                                            foreach (Match image in images)
+                                            if (!string.IsNullOrEmpty(item.Contentt))
                                             {
-                                                var newImage = Regex.Replace(image.Value, "(width|height)=\".*?\"", "");
-                                                newImage = newImage.Replace("<img", "<img style=\"width: 300px; height: 200px;\"");
-                                                item.Contentt = item.Contentt.Replace(image.Value, newImage);
+                                                // Lấy tất cả các thẻ <img> trong nội dung câu hỏi
+                                                var images = Regex.Matches(item.Contentt, @"<img.*?>");
+
+                                                // Duyệt qua tất cả các ảnh và gán kích thước cho chúng
+                                                foreach (Match image in images)
+                                                {
+                                                    var newImage = Regex.Replace(image.Value, "(width|height)=\".*?\"", "");
+                                                    newImage = newImage.Replace("<img", "<img style=\"width: 300px; height: 200px;\"");
+                                                    item.Contentt = item.Contentt.Replace(image.Value, newImage);
+                                                }
                                             }
                                         }
                                         @Html.Raw(item.Contentt)
+                                        <div class="form-check">
+
+                                            <img src="@Url.Content("~/Upload/Images"+item.HinhAnh)" alt="Ảnh mô tả" width="490px" height="500" />
+                                        </div>
                                     </h5>
 
+                                    
 
 
                                     <div class="form-check">

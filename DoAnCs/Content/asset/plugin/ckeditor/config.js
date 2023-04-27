@@ -7,12 +7,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
     // config.uiColor = '#AADC6E';
-    config.filebrowserBrowseUrl = "/Areas/Admin/asset/plugin/ckfinder/ckfinder.html";
-    config.filebrowserImageUrl = "/Areas/Admin/asset/plugin/ckfinder/ckfinder.html?type=Images";
-    config.filebrowserFlashUrl = "/Areas/Admin/asset/plugin/ckfinder/ckfinder.html?type=Flash";
-    config.filebrowserUploadUrl = "/Areas/Admin/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files";
-    config.filebrowserImageUploadUrl = "/Areas/Admin/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images";
-    config.filebrowserFlashUploadUrl = "/Areas/Admin/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash";
+    config.filebrowserBrowseUrl = "/Content/asset/plugin/ckfinder/ckfinder.html";
+    config.filebrowserImageUrl = "/Content/asset/plugin/ckfinder/ckfinder.html?type=Images";
+    config.filebrowserFlashUrl = "/Content/asset/plugin/ckfinder/ckfinder.html?type=Flash";
+    config.filebrowserUploadUrl = "/Content/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files";
+    config.filebrowserImageUploadUrl = "/Content/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images";
+    config.filebrowserFlashUploadUrl = "/Content/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash";
 
     config.extraPlugins = 'youtube';
     config.youtube_responsive = true;

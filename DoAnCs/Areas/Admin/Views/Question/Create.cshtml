@@ -40,81 +40,93 @@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         <!-- your steps content here -->
-                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
 
-                            <div class="form-group">
-                                <label class="control-label col-md-2">Tên Câu Hỏi</label>
-                                <div class="col-md-10">
-                                    @* @Html.EditorFor(model => model.Contentt, new { htmlAttributes = new { @class = "form-control" } })*@
-                                    <textarea class="form-control" name="Contentt" id="inputContentt"></textarea>
-                                    @Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án A</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án B</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án C</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionC, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionC, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <lbel class="control-label col-md-4">Đán Án D</lbel>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionD, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionD, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Tên Môn Học</label>
-
-                                <div class="col-md-10">
-                                    @Html.DropDownList("IdExam", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdExam, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-
-                                <div class="col-md-10">
-                                    @Html.HiddenFor(model => model.Difficulty, new { @class = "form-control" })
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Đáp Án Đúng</label>
-                                <div class="col-md-10">
-
-                                    @Html.EditorFor(model => model.DapAn, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Tên Câu Hỏi</label>
+                            <div class="col-md-10">
+                                @* @Html.EditorFor(model => model.Contentt, new { htmlAttributes = new { @class = "form-control" } })*@
+                                <textarea class="form-control" name="Contentt" id="inputContentt"></textarea>
+                                @Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Chọn hình ảnh nếu có</label>
+
+                            <div class="col-md-10">
+                               @* @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @*<a href="#" class="btn btn-default btn-sm" onclick="BrowseServer()">Thêm ảnh</a>*@
+                                <input onclick="BrowseServer()"  class = "form-control" name="HinhAnh"/>
+                                @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Đáp Án A</label>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Đáp Án B</label>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Đáp Án C</label>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.optionC, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.optionC, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <lbel class="control-label col-md-4">Đán Án D</lbel>
+
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.optionD, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.optionD, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Tên Môn Học</label>
+
+                            <div class="col-md-10">
+                                @Html.DropDownList("IdExam", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdExam, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.Difficulty, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Đáp Án Đúng</label>
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.DapAn, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                     }
                 </div>
             </div>
@@ -132,8 +144,22 @@
 
 @section scripts{
     <script>
+
+
+
         CKEDITOR.replace("inputContentt");
 
+
+
+
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = URlHinhAnh;
+            finder.popup();
+        }
+        function URlHinhAnh(url) {
+            $("input[name=HinhAnh]").val(url);
+        }
     </script>
 
     }

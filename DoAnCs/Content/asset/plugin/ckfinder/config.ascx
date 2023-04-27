@@ -26,11 +26,11 @@
 
 
         // Đây là thiết lập đường dẫn lưu file
-        BaseUrl = "/DATA";
+        BaseUrl = "/Upload";
 
         // The phisical directory in the server where the file will end up. If
         // blank, CKFinder attempts to resolve BaseUrl.
-        BaseDir = HttpContext.Current.Server.MapPath("/DATA");
+        BaseDir = HttpContext.Current.Server.MapPath("/Upload");
 
 
         // Optional: enable extra plugins (remember to copy .dll files first).
@@ -174,14 +174,14 @@
         type.DeniedExtensions = new string[] { };
 
         // Thư mục 2: Lưu tất cả các loại file
-        ResourceType type2;
-        type2 = ResourceType.Add("FILES");
-        type2.Url = BaseUrl + "/FILES/";
-        type2.Dir = BaseDir == "" ? "" : BaseDir + "/FILES/";
-        type2.MaxSize = 0;
+        /* ResourceType type2;
+         type2 = ResourceType.Add("FILES");
+         type2.Url = BaseUrl + "/FILES/";
+         type2.Dir = BaseDir == "" ? "" : BaseDir + "/FILES/";
+         type2.MaxSize = 0;*/
         // Để string rỗng => file gì tải lên cũng được
-        type2.AllowedExtensions = new string[] { };
-        type2.DeniedExtensions = new string[] { };
+        /*type2.AllowedExtensions = new string[] { };
+        type2.DeniedExtensions = new string[] { };*/
 
     }
 
