@@ -95,11 +95,15 @@
                                             }
                                         }
                                         @Html.Raw(item.Contentt)
-                                        @*<div class="form-check">
-
-                                            <img src="@Url.Content("~/Upload/Images"+item.HinhAnh)" alt="Ảnh mô tả" width="490px" height="500" />
-                                        </div>*@
+                                       
                                     </h5>
+                                    <div>
+                                        @if (!string.IsNullOrEmpty(item.HinhAnh))
+                                        {
+                                            <img src="@item.HinhAnh" style="width: 300px; height: 200px" alt="Ảnh câu hỏi">
+                                        }
+                                    </div>
+                                    
 
                                     
 
