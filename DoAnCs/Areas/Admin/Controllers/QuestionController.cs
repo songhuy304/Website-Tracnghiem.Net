@@ -98,9 +98,6 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
-            //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
-
-            /*ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");*/
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
 
             return View(cauhoi);

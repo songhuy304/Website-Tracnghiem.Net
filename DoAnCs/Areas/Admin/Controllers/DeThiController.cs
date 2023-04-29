@@ -79,5 +79,31 @@ namespace DoAnCs.Areas.Admin.Controllers
             return RedirectToAction("Index", "DeThi");
 
         }
+
+        //thêm cau hỏi trực tiếp zo bài thi
+        public ActionResult Addquestion()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Addquestion(int id, Question question)
+        {
+            var exam = db.Exams.Find(id);
+            if (exam != null)
+            {
+                // Gán IdExam cho question
+                question.IdExam = id;
+
+                // Thêm question vào bài thi
+                exam.Questions.Add(question);             
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "DeThi");
+        }
+
+
+
     }
 }
