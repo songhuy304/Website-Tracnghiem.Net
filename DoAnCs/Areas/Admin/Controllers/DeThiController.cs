@@ -92,6 +92,8 @@ namespace DoAnCs.Areas.Admin.Controllers
             var exam = db.Exams.Find(id);
             if (exam != null)
             {
+                //mã hóa nội dung
+                question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
                 // Gán IdExam cho question
                 question.IdExam = id;
 

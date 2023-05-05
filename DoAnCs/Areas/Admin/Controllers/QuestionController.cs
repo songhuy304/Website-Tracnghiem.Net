@@ -70,15 +70,14 @@ namespace DoAnCs.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
                 db.Questions.Add(question);
                 db.SaveChanges();
                 return RedirectToAction("index");
             }
             ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
-            //ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
-
-            /* ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");*/
+            
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
             return View(question);
         }
@@ -111,6 +110,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             
             if (ModelState.IsValid)
             {
+                question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
 
                 db.Entry(question).State = System.Data.Entity.EntityState.Modified;
                 //cauhoi.Contentt = question.Contentt;
@@ -119,7 +119,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
 
-            /* return View(question);*/
+            
         }
         //Xóa Không load trang khác  
 

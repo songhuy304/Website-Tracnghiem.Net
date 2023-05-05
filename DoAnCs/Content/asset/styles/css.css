@@ -66,3 +66,6 @@ body {
     color: red;
     font-size: 50px;
 }
+#question .question-container h5 p {
+    color: black;
+}

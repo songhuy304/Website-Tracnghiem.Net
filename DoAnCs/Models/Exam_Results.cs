@@ -14,13 +14,13 @@ namespace DoAnCs.Models
     
     public partial class Exam_Results
     {
-        public int IdStudent { get; set; }
-        public int IdExam { get; set; }
-        public int IdQuestion { get; set; }
-        public string Answer_student { get; set; }
+        public int IdResult { get; set; }
+        public Nullable<int> IdStudent { get; set; }
+        public Nullable<int> IdExam { get; set; }
+        public Nullable<decimal> Score { get; set; }
+        public Nullable<System.DateTime> ExamDay { get; set; }
     
         public virtual Exam Exam { get; set; }
-        public virtual Question Question { get; set; }
         public virtual Student Student { get; set; }
     }
 }

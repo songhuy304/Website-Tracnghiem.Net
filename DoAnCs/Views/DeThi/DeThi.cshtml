@@ -72,11 +72,11 @@
                             @foreach (var item in Model)
                             {
 
-                                <div class="form-group">
+                                <div class="form-group question-container" id="@item.IdQuestion">
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>*@
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
-            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
-        </h5>*@
+                                            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
+                                        </h5>*@
                                     <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
                                         Câu hỏi @questionNumber:
                                         @{
@@ -94,8 +94,11 @@
                                                 }
                                             }
                                         }
-                                        @Html.Raw(item.Contentt)
-                                       
+                                        @* @Html.Raw(item.Contentt)*@
+                                        @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))
+
+
+
                                     </h5>
                                     <div>
                                         @if (!string.IsNullOrEmpty(item.HinhAnh))
@@ -103,9 +106,9 @@
                                             <img src="@item.HinhAnh" style="width: 300px; height: 200px" alt="Ảnh câu hỏi">
                                         }
                                     </div>
-                                    
 
-                                    
+
+
 
 
                                     <div class="form-check">
@@ -135,7 +138,7 @@
                                     <div class="form-check">
 
                                         <label class="dapan" style="display:none" for="question@questionNumber">
-                                            Đáp Án Đúng @item.DapAn
+                                            Đáp Án Đúng  <label id="dapan">@item.DapAn</label>
                                         </label>
                                     </div>
 

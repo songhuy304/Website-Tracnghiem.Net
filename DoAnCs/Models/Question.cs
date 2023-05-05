@@ -14,12 +14,6 @@ namespace DoAnCs.Models
     
     public partial class Question
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Question()
-        {
-            this.Exam_Results = new HashSet<Exam_Results>();
-        }
-    
         public int IdQuestion { get; set; }
         public string Contentt { get; set; }
         public string HinhAnh { get; set; }
@@ -35,7 +29,5 @@ namespace DoAnCs.Models
         public virtual Answer Answer { get; set; }
         public virtual Difficulty Difficulty { get; set; }
         public virtual Exam Exam { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam_Results> Exam_Results { get; set; }
     }
 }

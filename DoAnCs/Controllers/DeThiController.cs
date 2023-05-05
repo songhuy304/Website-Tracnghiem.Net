@@ -84,7 +84,7 @@ namespace DoAnCs.Controllers
             var student = (Student)Session["TaiKhoanSV"];
             var questionss = (Session["cauhoi"] as IQueryable<Question>).ToList();
 
-            foreach (var question in questionss)
+            /*foreach (var question in questionss)
             {
                 var answer = form["question-" + question.IdQuestion];
 
@@ -113,6 +113,41 @@ namespace DoAnCs.Controllers
                     result.Answer_student = answer;
                 }
             }
+
+            db.SaveChanges();*/
+            int numQuestions = questionss.Count;
+            int numCorrectAnswers = 0;
+
+            foreach (var question in questionss)
+            {
+                /*var answer = form["question-" + question.IdQuestion];*/
+                var answer = HttpUtility.HtmlDecode(form["question-" + question.IdQuestion]);
+
+                if (answer == question.DapAn)
+                {
+                    numCorrectAnswers++;
+                }
+            }
+
+               /* for (int i = 0; i < numQuestions; i++)
+            {
+                var question = questionss[i];
+                var answer = form["question-" + question.IdQuestion];
+
+                if (answer == question.DapAn)
+                {
+                    numCorrectAnswers++;
+                }
+            }*/
+            double score = Math.Round((double)numCorrectAnswers / numQuestions * 10, 2);
+            var examResult = new Exam_Results
+            {
+                IdExam = exam.IdExam,
+                IdStudent = student.IdStudent,
+                Score = (decimal?)score,
+                ExamDay = DateTime.Now
+            };
+            db.Exam_Results.Add(examResult);
 
             db.SaveChanges();
 

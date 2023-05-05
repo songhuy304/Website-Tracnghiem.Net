@@ -49,8 +49,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">Tên Câu Hỏi</label>
                             <div class="col-md-10">
-                                @*@Html.EditorFor(model => model.Contentt, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <textarea class="form-control" name="Contentt" id="inputContentt">@Model.Contentt</textarea>
+                                <textarea class="form-control" name="Contentt" id="inputContentt">@Html.Raw(Model.Contentt)</textarea>
                                 @Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -59,7 +58,7 @@
                             <label class="control-label col-md-4">Sử đổi ảnh</label>
 
                             <div class="col-md-10">
-                                
+
                                 <input onclick="BrowseServer()" class="form-control" name="HinhAnh" value="@Model.HinhAnh" />
                                 @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
                             </div>
@@ -122,11 +121,21 @@
 
                             </div>
                         </div>
-                        @*<div class="form-group">
+                        @* <div class="form-group">
             <label for="exampleInputEmail1">Đáp Án Đúng</label>
             @Html.DropDownListFor(x => x.IdDapan, ViewBag.Ans as SelectList, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.IdDapan, null, new { @class = "text-danger" })
         </div>*@
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Đáp Án Đúng</label>
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.DapAn, new { htmlAttributes = new { @class = "form-control", @value = Model.DapAn } })
+                                @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <a href="/admin/Question" class="btn btn-danger">Quay Lại</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
