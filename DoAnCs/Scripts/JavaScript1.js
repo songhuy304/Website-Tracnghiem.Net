@@ -8,7 +8,6 @@ $(document).ready(function () {
 
     });
 
-
     $('#btnluubai').hide();
     $("#btnluubai").click(function (event) {
         // Ngăn chặn hành vi mặc định của trình duyệt
