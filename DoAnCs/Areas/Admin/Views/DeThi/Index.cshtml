@@ -62,7 +62,8 @@
                             <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/delete/@item.IdExam'" class=" btn btn-danger">Xóa</a>
                             <a href="@Url.Action("Addquestion", new { id = item.IdExam })" data-id="1" class="btnhe btn btn-danger">add</a>
 
-                          @*  @Html.ActionLink("addcauhoi", "Addquestion", new { @id = item.IdExam })*@
+
+                            @*  @Html.ActionLink("addcauhoi", "Addquestion", new { @id = item.IdExam })*@
                         </td>
                     </tr>
 
@@ -82,16 +83,6 @@
 </div>
 @section scripts{
     <script>
-        $('.btnhe').click(function (e) {
-            if (confirm("Bạn có tiếp Tục không")) {
-                var id = $(this).data('id');
-                alert("ID của phần tử là: " + id);
-                console.log("Đối tượng sự kiện là: ", e);
-            } else {
-                e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
 
-            }
-          
-        });
     </script>
 }

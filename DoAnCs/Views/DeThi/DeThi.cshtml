@@ -16,7 +16,7 @@
 
 
 <body>
-    @using (Html.BeginForm("DeThi", "DeThi", FormMethod.Post))
+    @using (Html.BeginForm("DeThi", "DeThi", FormMethod.Post , new {id = "examForm" }))
     {
 
 
@@ -75,8 +75,8 @@
                                 <div class="form-group question-container" id="@item.IdQuestion">
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion">Câu hỏi @questionNumber: @item.Contentt</h5>*@
                                     @*<h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
-                                            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
-                                        </h5>*@
+            Câu hỏi @questionNumber: @Html.Raw(item.Contentt)
+        </h5>*@
                                     <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
                                         Câu hỏi @questionNumber:
                                         @{
@@ -109,32 +109,72 @@
 
 
 
+                                    @if (item.optionA != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionA" type="radio" name="question-@item.IdQuestion" id="optionA-@item.IdQuestion" value="A">
+                                            <label class="A" for="optionA-@item.IdQuestion">
+                                                A: @item.optionA
+                                            </label>
+                                        </div>
+                                    }
+                                    @if (item.optionB != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionB" type="radio" name="question-@item.IdQuestion" id="optionB-@item.IdQuestion" value="B">
+                                            <label class="B" for="optionB-@item.IdQuestion">
+                                                B: @item.optionB
+                                            </label>
+                                        </div>
+                                    }
 
+                                    @if (item.optionC != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionC" type="radio" name="question-@item.IdQuestion" id="optionC-@item.IdQuestion"value="C">
+                                            <label class="C" for="optionC-@item.IdQuestion">
+                                                C: @item.optionC
+                                            </label>
+                                        </div>
+                                    }
 
-                                    <div class="form-check">
-                                        <input class="rdoptionA" type="radio" name="question-@item.IdQuestion" value="A">
-                                        <label class="A" for="question@questionNumber">
-                                            A: @item.optionA
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="rdoptionB" type="radio" name="question-@item.IdQuestion" value="B">
-                                        <label class="B" for="question@questionNumber">
-                                            B: @item.optionB
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="rdoptionC" type="radio" name="question-@item.IdQuestion" value="C">
-                                        <label class="C" for="question@questionNumber">
-                                            C: @item.optionC
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="rdoptionD" type="radio" name="question-@item.IdQuestion" value="D">
-                                        <label class="D" for="question@questionNumber">
-                                            D: @item.optionD
-                                        </label>
-                                    </div>
+                                    @if (item.optionD != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionD" type="radio" name="question-@item.IdQuestion" id="optionD-@item.IdQuestion" value="D">
+                                            <label class="D" for="optionD-@item.IdQuestion">
+                                                D: @item.optionD
+                                            </label>
+                                        </div>
+                                    }
+                                    @if (item.optionE != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionE" type="radio" name="question-@item.IdQuestion"id="optionE-@item.IdQuestion" value="E">
+                                            <label class="E" for="optionE-@item.IdQuestion">
+                                                E: @item.optionE
+                                            </label>
+                                        </div>
+                                    }
+                                    @if (item.optionF != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionF" type="radio" name="question-@item.IdQuestion"id="optionF-@item.IdQuestion" value="F">
+                                            <label class="F" for="optionF-@item.IdQuestion">
+                                                F: @item.optionF
+                                            </label>
+                                        </div>
+                                    }
+                                    @if (item.optionG != null)
+                                    {
+                                        <div class="form-check">
+                                            <input class="rdoptionG" type="radio" name="question-@item.IdQuestion"id="optionG-@item.IdQuestion" value="G">
+                                            <label class="G" for="optionG-@item.IdQuestion">
+                                                G: @item.optionG
+                                            </label>
+                                        </div>
+                                    }
+
                                     <div class="form-check">
 
                                         <label class="dapan" style="display:none" for="question@questionNumber">

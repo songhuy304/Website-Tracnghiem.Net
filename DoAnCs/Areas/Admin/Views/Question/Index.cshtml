@@ -74,7 +74,9 @@
         <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
                         *@
 
-                        @Html.ActionLink("Edit", "edit", new { @id = item.IdQuestion }) |
+                        @Html.ActionLink("Edit", "edit", new { @id = item.IdQuestion }) 
+                        <a href="@Url.Action("ThemNhieu","DeThi", new {  })" data-id="1" class="btnhe btn btn-danger">aáđâsddd</a>
+
                     </td>
                     </tr>
 

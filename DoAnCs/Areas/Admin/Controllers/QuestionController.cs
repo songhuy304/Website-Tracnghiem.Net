@@ -140,6 +140,32 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             return View(question);
         }
+        [HttpGet]
+        public ActionResult ThemNhieu()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ThemNhieu(List<Question> questions)
+        {
+            // Tạo đối tượng DbContext để truy cập cơ sở dữ liệu
+            using (var context = new TracNghiemEntities1())
+            {
+                // Duyệt qua từng câu hỏi trong danh sách
+                foreach (var question in questions)
+                {
+                    // Thêm câu hỏi mới vào DbSet "Questions" trong DbContext
+                    context.Questions.Add(question);
+                }
+
+                // Lưu các thay đổi vào cơ sở dữ liệu
+                context.SaveChanges();
+            }
+
+            // Chuyển hướng đến trang Index
+            return RedirectToAction("Index");
+        }
     }
 
 

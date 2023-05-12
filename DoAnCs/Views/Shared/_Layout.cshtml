@@ -41,24 +41,45 @@
                                     <li><a href="/Home/index">Trang Chủ</a></li>
                                     <li><a href="/DeThi/Index">Luyện Thi</a></li>
                                     <li><a href="#">Tài Liệu </a></li>
-                                    <li class="dropdown show">
-
-                                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" href="/DeThi/Index" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Luyện Thi
+                                        </a>
+                                        @Html.Action("Partial_Mon", "Menu")
+
+                                        @*<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>*@
+                                    </li>
+                                </ul>
+                             
+                                @if (Session["TaiKhoanSV"] == null)
+                                {
+
+                                    <ul class="navbar_user">
+                                        <li><a href="@Url.Action("Login","LoginSV")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <div class="dropdown show">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Session["FullName"]
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Môn</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="/LoginSV/LichSuthi">Thông Tin</a>
+                                            <a class="dropdown-item" href="/loginSV/DangXuat">Đăng Xuất</a>
                                         </div>
+                                    </div>
+                                    @*<ul class="navbar_user">
+                <li><a href="/LoginSV/LichSuthi"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
-                                    </li>
-                                </ul>
-                                <ul class="navbar_user">
-                                    <li><a href="@Url.Action("Login","LoginSV")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-
-                                </ul>
+            </ul>*@
+                                }
                                 <div class="hamburger_container">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                 </div>
@@ -71,7 +92,7 @@
         </header>
 
         <div class="fs_menu_overlay"></div>
-        
+
 
         <!-- Slider -->
         <!-- Banner -->

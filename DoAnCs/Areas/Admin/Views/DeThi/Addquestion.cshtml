@@ -51,76 +51,118 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Hình ảnh kèm theo nếu có</label>
-
-                                <div class="col-md-10">
-                                    @* @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })*@
-                                    @*<a href="#" class="btn btn-default btn-sm" onclick="BrowseServer()">Thêm ảnh</a>*@
-                                    <input onclick="BrowseServer()" class="form-control" name="HinhAnh" />
-                                    @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án A</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án B</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Đáp Án C</label>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionC, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionC, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <lbel class="control-label col-md-4">Đán Án D</lbel>
-
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.optionD, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.optionD, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            @*<div class="form-group">
-                                <label class="control-label col-md-4">Tên Môn Học</label>
-
-                                <div class="col-md-10">
-                                    @Html.DropDownList("IdExam", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdExam, "", new { @class = "text-danger" })
-                                </div>
-                            </div>*@
-
-                            <div class="form-group">
-
-                                <div class="col-md-10">
-                                    @Html.HiddenFor(model => model.Difficulty, new { @class = "form-control" })
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án A</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionA, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionA, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio" value="A"name="group1" id="optionA">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button id="btnthemcauhoi" type="button" class="btn btn-primary">+</button>
+                                    </div>
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Đáp Án Đúng</label>
-                                <div class="col-md-10">
-
-                                    @Html.EditorFor(model => model.DapAn, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
-
+                            <div class="form-group" id="groupB" style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án B</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionB, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionB, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio"name="group1" value="B" id="optionB">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="form-group" id="groupC" style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án C</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionC, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionC, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio" name="group1"value="C" id="optionC">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="groupD" style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án D</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionD, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionD, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio" name="group1"value="D" id="optionD">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"  id="groupE"style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án E</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionE, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionE, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio"name="group1" value="E" id="optionE">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" id="groupF" style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án F</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionF, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionF, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio"name="group1" value="F" id="optionF">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" id="groupG" style="display:none">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label">Đáp Án G</label>
+                                    <div class="col-sm-6">
+                                        @Html.EditorFor(model => model.optionG, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.optionG, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input custom-checkbox" type="radio"name="group1" value="G" id="optionG">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            
+
+                                    @Html.HiddenFor(model => model.DapAn, new { htmlAttributes = new { id="DapAn", @class = "form-control" } })
+
+                             
 
                             <div class="form-group">
                                 <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
@@ -144,8 +186,7 @@
 
 @section scripts{
     <script>
-
-
+      
 
         CKEDITOR.replace("inputContentt");
 
@@ -161,5 +202,6 @@
             $("input[name=HinhAnh]").val(url);
         }
     </script>
+        <script src="~/Scripts/Admin.js"></script>
 
 }

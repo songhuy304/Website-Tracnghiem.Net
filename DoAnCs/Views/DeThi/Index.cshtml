@@ -14,11 +14,21 @@
         </ol>
     </nav>
 </div>
+<section class="dethii">
+    <div class="container" style="display: flex; justify-content: end;">
+        @using (Html.BeginForm("Index", "DeThi", FormMethod.Get))
+        {
 
+            @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" class="btn btn-success" />
+        }
+    </div>
+</section>
 
-@if (Model != null && Model.Any())
-{
-    <section class="dethii">
+<section class="dethii">
+    @if (Model != null && Model.Any())
+    {
+
         <div class="container">
             @foreach (var item in Model)
             {
@@ -41,32 +51,35 @@
                 </div>
 
             }
-
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+               new { page, currentFilter = ViewBag.CurrentFilter }))
         </div>
-    </section>
-
-}
-else
-{
-    <h3>Không Có đề Thi Nào</h3>
-}
 
 
-@section scripts{
-    <script src="~/Scripts/Dethi.js"></script>
+    }
+    else
+    {
+        <h3>Không Có đề Thi Nào</h3>
+    }
+  
+</section>
 
-    @*<script>
+   
+    @section scripts{
+        <script src="~/Scripts/Dethi.js"></script>
 
-            $(document).ready(function () {
-                $('.btnvaothi').click(function (e) {
-                    if (confirm("Xác Nhận Vào Thi")) {
-                        return true;
+        @*<script>
 
-                    }
-                    else {
-                        e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
-                    }
+                $(document).ready(function () {
+                    $('.btnvaothi').click(function (e) {
+                        if (confirm("Xác Nhận Vào Thi")) {
+                            return true;
+
+                        }
+                        else {
+                            e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a khi click
+                        }
+                    });
                 });
-            });
-        </script>*@
-}
+            </script>*@
+    }

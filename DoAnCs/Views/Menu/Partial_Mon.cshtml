@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DoAnCs.Models.Subject>
+@if (Model != null && Model.Any())
+{
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+        @foreach (var item in Model)
+        {
+            <li><a class="dropdown-item" href="@Url.Action("Index", "DeThi", new { idSubject = item.IdSubject })">@item.NameSubject</a></li>
+            
+        }
+    </ul>
+}

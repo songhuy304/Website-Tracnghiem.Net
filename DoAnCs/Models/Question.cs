@@ -21,6 +21,9 @@ namespace DoAnCs.Models
         public string optionB { get; set; }
         public string optionC { get; set; }
         public string optionD { get; set; }
+        public string optionE { get; set; }
+        public string optionF { get; set; }
+        public string optionG { get; set; }
         public Nullable<int> IdExam { get; set; }
         public Nullable<int> IdDifficulty { get; set; }
         public Nullable<int> IdDapan { get; set; }

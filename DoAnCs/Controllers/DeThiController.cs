@@ -14,7 +14,7 @@ namespace DoAnCs.Controllers
         // GET: DeThi
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 
-        public ActionResult Index(string currentFilter, int? page, string searchString)
+        public ActionResult Index(string currentFilter, int? page, string searchString ,int? idSubject)
         {
             var item = new List<Exam>();
 
@@ -38,6 +38,10 @@ namespace DoAnCs.Controllers
 
                 item = db.Exams.ToList();
             }
+            if(idSubject != null)
+            {
+                item = db.Exams.Where(x => x.IdSubject == idSubject).ToList();
+            }
             ViewBag.CurrentFilter = searchString;
             int pageIndex = (page ?? 1);
             int pagesize = 10; /*số lượng item của trang = 5*/
@@ -46,10 +50,17 @@ namespace DoAnCs.Controllers
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
         }
-
+        [HttpGet]
 
         public ActionResult DeThi(int? id, FormCollection form)
         {
+
+            
+
+            if (Session["cauhoi"] != null && ((List<Question>)Session["cauhoi"]).Count > 0 && id != ((List<Question>)Session["cauhoi"])[0].IdExam)
+            {
+                Session.Remove("cauhoi");
+            }
 
             if (id == null)
             {
@@ -60,20 +71,24 @@ namespace DoAnCs.Controllers
             {
                 return HttpNotFound();
             }
-
-            var questions = db.Questions.Where(q => q.IdExam == exam.IdExam).OrderBy(q => Guid.NewGuid()).Take((int)exam.NumberQ);
+            List<Question> questions;
+            if (Session["cauhoi"] == null)
+            {
+                questions = db.Questions.Where(q => q.IdExam == exam.IdExam).OrderBy(q => Guid.NewGuid()).Take((int)exam.NumberQ).ToList();
+                // Lưu danh sách câu hỏi vào session
+                Session["cauhoi"] = questions;
+            }
+            else
+            {
+                questions = (List<Question>)Session["cauhoi"];
+            }
+            // Sử dụng session để lưu thông tin bài thi
             Session["bathi"] = exam;
-            Session["cauhoi"] = questions;
             ViewBag.Exam = exam;
             ViewBag.sophut = exam.Time;
             ViewBag.tenbaithi = exam.NameExam;
             ViewBag.socauhoi = exam.NumberQ;
-            
 
-            if (exam == null)
-            {
-                return HttpNotFound();
-            }
             return View(questions);
         }
         [HttpPost]
@@ -82,45 +97,14 @@ namespace DoAnCs.Controllers
 
             var exam = (Exam)Session["bathi"];
             var student = (Student)Session["TaiKhoanSV"];
-            var questionss = (Session["cauhoi"] as IQueryable<Question>).ToList();
-
-            /*foreach (var question in questionss)
-            {
-                var answer = form["question-" + question.IdQuestion];
-
-
-
-                // Kiểm tra xem bản ghi đã tồn tại hay chưa
-                var result = db.Exam_Results.SingleOrDefault(r => r.IdStudent == student.IdStudent
-                                                                      && r.IdExam == exam.IdExam
-                                                                      && r.IdQuestion == question.IdQuestion);
-
-                if (result == null)
-                {
-                    // Chưa có bản ghi nào, thêm mới
-                    result = new Exam_Results
-                    {
-                        IdExam = exam.IdExam,
-                        IdStudent = student.IdStudent,
-                        IdQuestion = question.IdQuestion,
-                        Answer_student = answer
-                    };
-                    db.Exam_Results.Add(result);
-                }
-                else
-                {
-                    // Đã có bản ghi, cập nhật lại giá trị đáp án của sinh viên
-                    result.Answer_student = answer;
-                }
-            }
-
-            db.SaveChanges();*/
+            //var questionss = (Session["cauhoi"] as IQueryable<Question>).ToList();
+            var questionss = (Session["cauhoi"] as List<Question>) ?? new List<Question>();
             int numQuestions = questionss.Count;
             int numCorrectAnswers = 0;
 
             foreach (var question in questionss)
             {
-                /*var answer = form["question-" + question.IdQuestion];*/
+
                 var answer = HttpUtility.HtmlDecode(form["question-" + question.IdQuestion]);
 
                 if (answer == question.DapAn)
@@ -128,17 +112,6 @@ namespace DoAnCs.Controllers
                     numCorrectAnswers++;
                 }
             }
-
-               /* for (int i = 0; i < numQuestions; i++)
-            {
-                var question = questionss[i];
-                var answer = form["question-" + question.IdQuestion];
-
-                if (answer == question.DapAn)
-                {
-                    numCorrectAnswers++;
-                }
-            }*/
             double score = Math.Round((double)numCorrectAnswers / numQuestions * 10, 2);
             var examResult = new Exam_Results
             {
@@ -148,12 +121,22 @@ namespace DoAnCs.Controllers
                 ExamDay = DateTime.Now
             };
             db.Exam_Results.Add(examResult);
-
             db.SaveChanges();
-
-            return View();
+            return RedirectToAction("index", "DeThi");
         }
 
 
+        public ActionResult LichSuThi()
+        {
+            if (Session["TaiKhoanSV"] == null)
+            {
+                return RedirectToAction("Login", "Account"); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+            }
+            var student = (Student)Session["TaiKhoanSV"];
+            
+            var lichsudethi  = db.Exam_Results.Where(e=> e.IdStudent == student.IdStudent).ToList();
+            return View(lichsudethi);
+        }
     }
+   
 }

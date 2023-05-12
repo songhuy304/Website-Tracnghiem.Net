@@ -1,0 +1,41 @@
+﻿@model List<DoAnCs.Models.Question>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm("ThemNhieu", "Question", FormMethod.Post))
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="question">
+            <label>Câu hỏi @(i+1):</label>
+            <br />
+            <textarea name="Contentt_@(i+1)"></textarea>
+            <br />
+            <label>Đáp án A:</label>
+            <input type="text" name="optionA_@(i+1)" />
+            <br />
+            <label>Đáp án B:</label>
+            <input type="text" name="optionB_@(i+1)" />
+            <br />
+            <label>Đáp án C:</label>
+            <input type="text" name="optionC_@(i+1)" />
+            <br />
+            <label>Đáp án D:</label>
+            <input type="text" name="optionD_@(i+1)" />
+            <br />
+            <label>Đáp án đúng:</label>
+            <select name="DapAn_@(i+1)">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+        <hr />
+    }
+
+    <input type="submit" value="Lưu" />
+}

@@ -38,5 +38,6 @@ namespace DoAnCs.Models
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
