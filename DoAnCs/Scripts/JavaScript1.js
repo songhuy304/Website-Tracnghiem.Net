@@ -1,45 +1,20 @@
 ﻿var countdownInterval;
-
+var thoigianlambai = 0;
+var sogiaylambai = 0;
 $(document).ready(function () {
     alert('Bắt Đầu Bài Thi');
     startCountdown();
-  
-    
-
-    $('#btnluubai').hide();
-    $("#btnluubai").click(function (event) {
-        // Ngăn chặn hành vi mặc định của trình duyệt
-        event.preventDefault();
-
-       //  Thực hiện lưu bài bằng Ajax request
-        //$.ajax({
-        //    url: "/DeThi/DeThi",
-        //    type: "POST",
-        //    data: $('#examForm').serialize(),
-        //    success: function (response) {
-        //        // Cập nhật trạng thái của trang web nếu cần thiết
-        //        alert("Lưu bài thành công!");
-        //        window.location.href = 'https://localhost:44337/Home/index';
-        //    },
-        //    error: function (jqXHR, textStatus, errorThrown) {
-        //        alert("Lưu bài thất bại: " + textStatus);
-        //    }
-        //});
-    });
     $('#btnquaylai').hide();
     $('#btnnop').click(function () {
         if (confirm('Bạn Muốn Nộp Bài ')) {
-            clearInterval(countdownInterval); // Xóa bỏ interval
+            clearInterval(countdownInterval); 
             CheckResult();
-            
             $.ajax({
                 url: "/DeThi/DeThi",
                 type: "POST",
                 data: $('#examForm').serialize(),
 
                 success: function (response) {
-                    // Cập nhật trạng thái của trang web nếu cần thiết
-                  
                    
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -51,6 +26,7 @@ $(document).ready(function () {
             $('#btnquaylai').show();
             disradio();
             localStorage.clear();
+            clearsscountdown();
         }
     });
     checknav();
@@ -85,13 +61,28 @@ function startCountdown() {
     // Chuyển đổi giá trị sang số nguyên
     sophut = parseInt(sophut);
 
-    // Tính thời gian kết thúc của đếm ngược
-    var endTime = Date.now() + sophut * 60 * 1000; // endTime tính theo milliseconds
+    // Kiểm tra xem có lưu thời gian đã trôi qua và thời gian kết thúc trong sessionStorage không
+    var timeLeft = sessionStorage.getItem("timeLeft");
+    var endTime = sessionStorage.getItem("endTime");
+
+    if (timeLeft && endTime) {
+        // Nếu có, tính toán lại thời gian còn lại từ thời gian đã trôi qua và thời gian kết thúc
+        var remainingTime = endTime - Date.now() - timeLeft;
+    } else {
+        // Nếu không, tính toán thời gian kết thúc của đếm ngược
+        var remainingTime = sophut * 60 * 1000; // tính theo milliseconds
+        endTime = Date.now() + remainingTime;
+    }
 
     // Cập nhật đếm ngược mỗi giây
     countdownInterval = setInterval(function () { // Lưu interval vào biến countdownInterval
         // Tính thời gian còn lại
         var remainingTime = Math.max(0, endTime - Date.now());
+
+        // Lưu thời gian đã trôi qua vào sessionStorage
+        var timeLeft = sophut * 60 * 1000 - remainingTime;
+        sessionStorage.setItem("timeLeft", timeLeft);
+        sessionStorage.setItem("endTime", endTime);
 
         // Chuyển đổi thời gian còn lại sang phút
         var remainingMinutes = Math.floor(remainingTime / 1000 / 60);
@@ -106,27 +97,42 @@ function startCountdown() {
         countdownElement.textContent = remainingTimeString;
 
         if (remainingTime <= 0) {
+          
             clearInterval(countdownInterval);
-            countdownElement.textContent = "Kết Thúc Bài Thi!";
+            countdownElement.textContent = "Kết Thúc!";
             alert("Kết Thúc Bài Thi")
+
+
+            sessionStorage.removeItem("timeLeft");
+            sessionStorage.removeItem("endTime");
+            CheckResult();
+            $.ajax({
+                url: "/DeThi/DeThi",
+                type: "POST",
+                data: $('#examForm').serialize(),
+
+                success: function (response) {
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Nộp bài thất bại: " + textStatus);
+                }
+            });
+
+            $('#btnnop').hide();
+            $('#btnquaylai').show();
+            disradio();
+            localStorage.clear();
+            clearsscountdown();
         }
-
-
-        var thoigianlambaiElement = document.getElementById("thoigianlambai");
-
-        var thoiGianLamBai = (sophut * 60 * 1000) - remainingTime;
-
-
-        var sophutthi = Math.floor(thoiGianLamBai / 1000 / 60);
-
-
-        var sophutthiGiay = Math.floor((thoiGianLamBai / 1000) % 60);
-
-        var sophutthiString = sophutthi + ":" + (sophutthiGiay < 10 ? "0" : "") + sophutthiGiay;
-
-
-        thoigianlambaiElement.textContent = sophutthiString;
+        
+        
     }, 1000);
+
+}
+function clearsscountdown() {
+    sessionStorage.removeItem("timeLeft");
+    sessionStorage.removeItem("endTime");
 }
 function checknav() {
     const links = $('a');
@@ -135,7 +141,7 @@ function checknav() {
             if (confirm('Bạn Muốn Thoát Bài Thi?')) {
                 // Cho phép chuyển đến trang được liên kết khi click vào liên kết
                 localStorage.clear();
-
+                clearsscountdown();
             } else {
                 // Ngăn chặn hành động mặc định của thẻ a khi click
                 e.preventDefault();

@@ -52,7 +52,7 @@ COLOR PALETTE
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
+	/*font-family: 'Poppins', sans-serif;*/
 	font-size: 14px;
 	line-height: 23px;
 	font-weight: 400;
@@ -1757,9 +1757,7 @@ section .dethi {
 .dethii{
 	background-color:#FFFFFF;
 }
-.dethii .card-item {
-	height: 200px;
-}
+
 .dethii .container {
 	max-width:900px;
 }

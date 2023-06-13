@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Colo Shop</title>
+    <title>Ôn thi</title>
+    <link href="~/public/checkmark.png" type="image/svg" rel="icon" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -12,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="~/Content/asset/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/Trangchu.css">
     @*<link href="~/Content/asset/styles/css.css" rel="stylesheet" />*@
     @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
@@ -35,6 +38,7 @@
                         <div class="col-lg-12 text-right">
                             <div class="logo_container">
                                 <a href="/home/index">Ôn Thi<span></span></a>
+                                <a href="/home/index"><img style="vertical-align: bottom;" src="~/public/checkmark.png" alt="IconTick" />   </a>
                             </div>
                             <nav class="navbar">
                                 <ul class="navbar_menu">
@@ -47,11 +51,7 @@
                                         </a>
                                         @Html.Action("Partial_Mon", "Menu")
 
-                                        @*<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>*@
+               
                                     </li>
                                 </ul>
                              

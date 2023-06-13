@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DoAnCs.Models.Student>
+@{
+    ViewBag.Title = "Tài Khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+@section naviheader{
+    <h1>Quản Lý Tài Khoản</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a class="active" href="/admin/home">Home</a>
+        </li>
+       
+    </ul>
+
+
+}
+<div class="order">
+    <div class="head">
+
+        <i class="bx bx-search"></i>
+        <i class="bx bx-filter"></i>
+        <a href="/admin/User/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
+
+
+    </div>
+    @if (Model.Any() && Model != null)
+    {
+        var i = 1;
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th>STT</th>
+                    <th>Tên Sinh Viên</th>
+                    <th>Mật Khẩu</th>
+                    <th class="float-right"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <p>@i</p>
+                        </td>
+                        <td>@item.Name</td>
+                        <td>@item.Password</td>
+
+                        <td class="float-right">
+                            @*<a href="/admin/productcategory/edit/@item.IdSubject " class=" btn btn-primary">Sửa</a>
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/productcategory/delete/@item.IdSubject'" class=" btn btn-danger">Xóa</a>*@
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+
+
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>Không Có Gì</p>
+    }
+</div>

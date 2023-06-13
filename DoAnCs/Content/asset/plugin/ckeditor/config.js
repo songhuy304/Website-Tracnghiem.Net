@@ -14,6 +14,12 @@ CKEDITOR.editorConfig = function( config ) {
     config.filebrowserImageUploadUrl = "/Content/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images";
     config.filebrowserFlashUploadUrl = "/Content/asset/plugin/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash";
 
+
+    
+
     config.extraPlugins = 'youtube';
     config.youtube_responsive = true;
+
+    config.extraPlugins += (config.extraPlugins.length == 0 ? '' : ',') + 'ckeditor_wiris';
+    config.allowedContent = true;
 };

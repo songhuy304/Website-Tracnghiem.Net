@@ -1,0 +1,14 @@
+﻿@model DoAnCs.Models.Question
+
+@{
+    ViewBag.Title = "taocauhoi";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+<h2>taocauhoi</h2>
+
+@using (Html.BeginForm("taocauhoi", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="questionFile" accept=".docx">
+    <input type="submit" value="Upload">
+}

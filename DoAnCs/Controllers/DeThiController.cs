@@ -97,7 +97,7 @@ namespace DoAnCs.Controllers
 
             var exam = (Exam)Session["bathi"];
             var student = (Student)Session["TaiKhoanSV"];
-            //var questionss = (Session["cauhoi"] as IQueryable<Question>).ToList();
+         
             var questionss = (Session["cauhoi"] as List<Question>) ?? new List<Question>();
             int numQuestions = questionss.Count;
             int numCorrectAnswers = 0;
@@ -122,7 +122,7 @@ namespace DoAnCs.Controllers
             };
             db.Exam_Results.Add(examResult);
             db.SaveChanges();
-            return RedirectToAction("index", "DeThi");
+            return View();
         }
 
 

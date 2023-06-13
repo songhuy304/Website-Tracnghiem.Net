@@ -46,8 +46,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="CKFinder">
       <HintPath>..\..\plugin\ckfinder\bin\Debug\CKFinder.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Document, Version=35.0.0.1363, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
+      <HintPath>..\packages\GemBox.Document.35.0.1363\lib\net35\GemBox.Document.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -59,11 +65,16 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,6 +135,15 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WIRIScommon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e6c25a2806ef6977, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\bin\WIRIScommon.dll</HintPath>
+    </Reference>
+    <Reference Include="WIRISplugin, Version=7.25.0.1439, Culture=neutral, PublicKeyToken=e6c25a2806ef6977, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\bin\WIRISplugin.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -188,7 +208,67 @@
     <Compile Include="Areas\Admin\Controllers\LoginAdController.cs" />
     <Compile Include="Areas\Admin\Controllers\MonHocController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuestionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ThemNhieuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cas.aspx.cs">
+      <DependentUpon>cas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cleancache.aspx.cs">
+      <DependentUpon>cleancache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\configurationjs.aspx.cs">
+      <DependentUpon>configurationjs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\configurationjson.aspx.cs">
+      <DependentUpon>configurationjson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\createcasimage.aspx.cs">
+      <DependentUpon>createcasimage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\createimage.aspx.cs">
+      <DependentUpon>createimage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\editor.aspx.cs">
+      <DependentUpon>editor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\getmathml.aspx.cs">
+      <DependentUpon>getmathml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\isaspx.aspx.cs">
+      <DependentUpon>isaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\resource.aspx.cs">
+      <DependentUpon>resource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\service.aspx.cs">
+      <DependentUpon>service.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\showcasimage.aspx.cs">
+      <DependentUpon>showcasimage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\showimage.aspx.cs">
+      <DependentUpon>showimage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\testfilter.aspx.cs">
+      <DependentUpon>testfilter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DeThiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -261,9 +341,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -418,6 +495,32 @@
     <Content Include="Content\asset\plugin\ckeditor\plugins\about\dialogs\about.js" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\bin\WIRIScommon.dll" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\bin\WIRISplugin.dll" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\global.js" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\icons\cas.png" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\icons\chem.png" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\icons\formula.png" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cas.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cleancache.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\configurationjs.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\configurationjson.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\createcasimage.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\createimage.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\editor.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\getmathml.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\isaspx.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\resource.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\service.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\showcasimage.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\showimage.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\test.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\testfilter.aspx" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\WIRISplugins.js" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\plugin.js" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\plugin.src.js" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\tech.txt" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\webpack.config.js" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\clipboard\dialogs\paste.js" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
@@ -1273,6 +1376,7 @@
     <Content Include="Content\asset\styles\responsive.css" />
     <Content Include="Content\asset\styles\single_responsive.css" />
     <Content Include="Content\asset\styles\single_styles.css" />
+    <Content Include="Content\asset\styles\Trangchu.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1295,6 +1399,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="public\bannertop.jpg" />
+    <Content Include="public\checkmark.png" />
     <Content Include="public\css\bootstrap.min.css" />
     <Content Include="public\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="public\css\bootstrap\mixins\_reset-text.css" />
@@ -1306,6 +1411,7 @@
     <Content Include="public\css\csss.css" />
     <Content Include="public\css\style.css" />
     <Content Include="public\images\bg.jpg" />
+    <Content Include="public\images\welcomeTKB.png" />
     <Content Include="public\js\bootstrap.min.js" />
     <Content Include="public\js\jquery.min.js" />
     <Content Include="public\js\main.js" />
@@ -1481,6 +1587,12 @@
     <Content Include="Areas\Admin\Views\DeThi\Addquestion.cshtml" />
     <Content Include="Areas\Admin\Views\BaiThi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Question\ThemNhieu.cshtml" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\configuration.ini.dist" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\Web.config" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\package-lock.json" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\package.json" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\README.md" />
+    <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\VERSION" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1488,6 +1600,8 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Question\taocauhoi.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />
@@ -1539,11 +1653,11 @@
     <Content Include="Views\DeThi\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\DeThi\DeThi.cshtml" />
-    <Content Include="Views\DeThi\Score.cshtml" />
     <Content Include="Views\LoginSV\Login.cshtml" />
     <Content Include="Views\DeThi\LichSuThi.cshtml" />
     <Content Include="Views\LoginSV\LichSuThi.cshtml" />
     <Content Include="Views\Menu\Partial_Mon.cshtml" />
+    <Content Include="Temp\New Microsoft Word Document.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1551,7 +1665,6 @@
     <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Areas\Admin\Views\ThemNhieu\" />
     <Folder Include="Upload\" />
-    <Folder Include="Views\hellocu\" />
     <Folder Include="Views\KtraLoginSV\" />
   </ItemGroup>
   <ItemGroup>
@@ -1574,6 +1687,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

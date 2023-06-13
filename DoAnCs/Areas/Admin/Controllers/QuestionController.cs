@@ -9,10 +9,12 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using DoAnCs.Models;
 using PagedList;
+using GemBox.Document;
+using System.IO;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class QuestionController : Controller
+    public class QuestionController : KtraLoginAdController
     {
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 
@@ -54,9 +56,9 @@ namespace DoAnCs.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
 
             ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
+            ViewBag.iddd = new SelectList(db.Exams.ToList(), "IdExam", "NameExam");
 
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
             return View();
@@ -75,9 +77,9 @@ namespace DoAnCs.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("index");
             }
-            ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
+            ViewBag.iddd = new SelectList(db.Exams.ToList(), "IdExam", "NameExam");
 
-            
+
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
             return View(question);
         }
@@ -141,31 +143,113 @@ namespace DoAnCs.Areas.Admin.Controllers
             return View(question);
         }
         [HttpGet]
-        public ActionResult ThemNhieu()
+        public ActionResult taocauhoi()
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult ThemNhieu(List<Question> questions)
+        public ActionResult taocauhoi(HttpPostedFileBase questionFile)
         {
-            // Tạo đối tượng DbContext để truy cập cơ sở dữ liệu
-            using (var context = new TracNghiemEntities1())
+            if (questionFile != null && questionFile.ContentLength > 0)
             {
-                // Duyệt qua từng câu hỏi trong danh sách
-                foreach (var question in questions)
+                // Lưu tệp Word vào một đường dẫn tạm thời
+                string filePath = Server.MapPath("~/Temp/" + Path.GetFileName(questionFile.FileName));
+                questionFile.SaveAs(filePath);
+
+
+                // Mở file Word
+                ComponentInfo.SetLicense("FREE-LIMITED-KEY");
+                DocumentModel document = DocumentModel.Load(filePath);
+
+                // Lặp qua các đoạn văn trong tài liệu
+                foreach (Paragraph paragraph in document.GetChildElements(true, ElementType.Paragraph))
                 {
-                    // Thêm câu hỏi mới vào DbSet "Questions" trong DbContext
-                    context.Questions.Add(question);
+                    // Đọc nội dung câu hỏi và các lựa chọn từ đoạn văn
+                    string content = paragraph.Content.ToString();
+                    string optionA = GetOption(paragraph, "A");
+                    string optionB = GetOption(paragraph, "B");
+                    string optionC = GetOption(paragraph, "C");
+                    string optionD = GetOption(paragraph, "D");
+                    string answer = GetAnswer(paragraph);
+
+                    // Tạo một đối tượng Question và thêm các thuộc tính
+                    Question question = new Question
+                    {
+                        Contentt = content,
+                        optionA = optionA,
+                        optionB = optionB,
+                        optionC = optionC,
+                        optionD = optionD,
+                        DapAn = answer
+                    };
+
+                    // Thêm câu hỏi vào cơ sở dữ liệu
+                    if (ModelState.IsValid)
+                    {
+                        question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
+                        db.Questions.Add(question);
+                        db.SaveChanges();
+                    }
                 }
 
-                // Lưu các thay đổi vào cơ sở dữ liệu
-                context.SaveChanges();
+                // Xóa tệp Word tạm thời sau khi đã xử lý
+                //System.IO.File.Delete(filePath);
             }
 
-            // Chuyển hướng đến trang Index
             return RedirectToAction("Index");
         }
+        private string GetOption(Paragraph paragraph, string optionIdentifier)
+        {
+            string paragraphText = paragraph.Content.ToString();
+
+            // Tìm văn bản của lựa chọn trong đoạn văn
+            string optionText = string.Empty;
+            int optionStartIndex = paragraphText.IndexOf(optionIdentifier + ".");
+            if (optionStartIndex >= 0)
+            {
+                int optionEndIndex = paragraphText.IndexOf('\n', optionStartIndex);
+                if (optionEndIndex >= 0)
+                {
+                    // Xác định vị trí bắt đầu và kết thúc của lựa chọn
+                    int optionContentStartIndex = optionStartIndex + optionIdentifier.Length + 2;
+                    int optionContentEndIndex = optionEndIndex;
+
+                    // Kiểm tra nếu có lựa chọn tiếp theo cùng dòng
+                    int nextOptionStartIndex = paragraphText.IndexOf((char)(optionIdentifier[0] + 1) + ".", optionEndIndex);
+                    if (nextOptionStartIndex >= 0)
+                    {
+                        optionContentEndIndex = nextOptionStartIndex;
+                    }
+
+                    optionText = paragraphText.Substring(optionContentStartIndex, optionContentEndIndex - optionContentStartIndex).Trim();
+                }
+            }
+
+            return optionText;
+        }
+
+
+
+        private string GetAnswer(Paragraph paragraph)
+        {
+            string paragraphText = paragraph.Content.ToString();
+
+            // Tìm văn bản của đáp án trong đoạn văn
+            string answerText = string.Empty;
+            int answerStartIndex = paragraphText.IndexOf("Answer:");
+            if (answerStartIndex >= 0)
+            {
+                answerText = paragraphText.Substring(answerStartIndex + 7).Trim();
+            }
+
+            return answerText;
+        }
+
+
+
+
+
+
     }
 
 

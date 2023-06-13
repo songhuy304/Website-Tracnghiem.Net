@@ -1,0 +1,1 @@
+{"result":{"text":"square root of 2 space space plus 2 over 2 space equals space ?"},"status":"ok"}

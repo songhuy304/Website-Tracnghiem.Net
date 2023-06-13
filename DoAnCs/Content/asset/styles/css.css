@@ -69,3 +69,21 @@ body {
 #question .question-container h5 p {
     color: black;
 }
+.dscauhoi-column {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+#question .question-container h5 p {
+    color: black;
+}
+
+.dethii .dethiiiiii label {
+    color: #0021ff;
+    font-weight: 700;
+}
+
+.dethii .dethiiiiii span {
+    color: black;
+    font-weight: 700;
+}

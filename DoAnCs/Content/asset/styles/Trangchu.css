@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-col1 {
+    text-align: left;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+.logo {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.footer p {
+    color: gray;
+}
+
+.footer-col2 {
+    /* margin-right: 150px; */
+}
+
+.logo2 {
+    margin-bottom: 20px;
+}
+
+.footer-col3 {
+    margin-right: 120px;
+}

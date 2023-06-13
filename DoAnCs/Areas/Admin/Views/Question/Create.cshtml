@@ -159,7 +159,8 @@
                             <label class="control-label col-md-4">Tên Môn Học</label>
 
                             <div class="col-md-10">
-                                @Html.DropDownList("IdExam", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownListFor(x => x.IdExam, ViewBag.iddd as SelectList, "-Chọn Bài thi-", new { @class = "form-control" })
+
                                 @Html.ValidationMessageFor(model => model.IdExam, "", new { @class = "text-danger" })
                             </div>
                         </div>

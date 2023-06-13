@@ -20,6 +20,7 @@ namespace DoAnCs
              namespaces: new[] { "DoAnCs.Controllers" }
 
             );
+            routes.MapPageRoute("DeThi/LichSuThi", "De-Thi/Lich-Su-Thi", "~/DeThi/LichSuThi.aspx");
         }
     }
 }
