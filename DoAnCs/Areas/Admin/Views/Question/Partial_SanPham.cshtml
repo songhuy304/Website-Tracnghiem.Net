@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DoAnCs.Models.Exam>
+<div class="modal" tabindex="-1" role="dialog" id="modallop">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @if (Model.Any() && Model != null)
+            {
+                var i = 1;
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên Đề thi</th>
+                            @*<th>Thời Gian</th>
+                        
+                            <th class="float-right"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <p>@i</p>
+                                </td>
+                                <td data-id="@item.IdExam">@item.NameExam</td>
+                                @*<td>@item.Time</td>
+                                <td>@item.NumberQ</td>
+                                <td>@item.Subject.NameSubject</td>*@
+                            </tr>
+
+                            i++;
+                        }
+
+
+
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <p>Không Có Gì</p>
+            }
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

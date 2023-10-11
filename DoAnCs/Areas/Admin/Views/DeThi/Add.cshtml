@@ -37,53 +37,119 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    @using (Html.BeginForm("Add", "DeThi", FormMethod.Post, new { }))
+                    @using (Html.BeginForm("AddExamWithQuestions", "DeThi", FormMethod.Post, new { id = "examForm" }))
 
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         <!-- your steps content here -->
-                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên Đề Thi</label>
-                            @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
-                            @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label class="">Tên Môn Học</label>
-                            
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tên Đề Thi</label>
+                                @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                                @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class="">Tên Môn Học</label>
+
                                 @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
-                           
-                        </div>
-                        <div class="form-group">
-                            <label for="Time">Thời Gian</label>
-                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Số Câu Hỏi</label>
-                            @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
-                        </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="Time">Thời Gian</label>
+                                @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Số Câu Hỏi</label>
+                                @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
+                            </div>
+                            <br />
+
+                            <h4>Chọn Câu Hỏi </h4>
+                            <h6 class="socauchon">Số Câu Đã Chọn : <span id="socauchon">0</span></h6>
+
+                            <table class="table">
+
+                                @Html.Action("Partial_CauHoi123", "DeThi")
+
+                            </table>
 
 
-                        <div class="form-group">
-                            <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="form-group">
+                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
-                    </div>
                     }
+                    <button type="button" id="submitButton" class="btn btn-primary">Chọn Câu Hỏi</button>
+
                 </div>
             </div>
 
 
         </div>
         <!-- /.card-body -->
-        <div class="card-footer">
-
-        </div>
         <!-- /.card-footer-->
     </div>
 
 </div>
+@section scripts{
+    <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+            // Lấy thẻ checkbox "selectAllCheckbox"
+            var selectAllCheckbox = document.getElementById("selectAllCheckbox");
+
+            // Lấy tất cả các checkbox với class "cbkItem"
+            var checkboxes = document.querySelectorAll(".cbkItem");
+
+            // Xử lý sự kiện khi người dùng nhấp vào "selectAllCheckbox"
+            selectAllCheckbox.addEventListener("change", function () {
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = selectAllCheckbox.checked;
+                });
+            });
+
+            // Lấy giá trị của các ô được chọn khi nhấp vào nút button
+            var button = document.getElementById("submitButton");
+            button.addEventListener("click", function () {
+                var selectedValues = [];
+            checkboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                selectedValues.push(checkbox.value);
+                    }
+                });
+            // In ra giá trị các ô được chọn
+
+                console.log(selectedValues);
+                 $.ajax({
+                url: "@Url.Action("AddExamWithQuestions", "DeThi")", // Điều chỉnh đường dẫn và tên controller nếu cần
+                type: "POST",
+                data: $("#examForm").serialize(), // Gửi dữ liệu form
+                success: function (data) {
+                    // Xử lý kết quả ở đây nếu cần
+                    alert("Success!");
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi ở đây nếu cần
+                    alert("Error: " + error);
+                }
+            });
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+}

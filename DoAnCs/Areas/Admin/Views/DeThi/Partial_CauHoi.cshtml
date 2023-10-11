@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DoAnCs.Models.Question>
+
+<div class="modal-content">
+    <div class="modal-header">
+        <span class="close">&times;</span>
+
+    </div>
+    <div class="modal-body" id="Preview">
+        @if (Model.Any() && Model != null)
+        {
+            var i = 1;
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="SelecAll" value="">
+                            </div>
+                            STT
+                        </th>
+                        <th>TênCâuHỏi</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr id="trow_@item.IdQuestion">
+                            <td>
+                                <div class="form-check">
+                                    <input class="cbkItem" type="checkbox" value="@item.IdQuestion" id="flexCheckDefault">
+
+                                </div>
+                                <p>@i</p>
+                            </td>
+
+                            <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
+                         
+                        </tr>
+
+                        i++;
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>Không Có Gì</p>
+        }
+    </div>
+    <div id="myPager" class="modal-footer">
+        @if (ViewBag.TotalPages > 1)
+        {
+            <div class="btn-group">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <button type="button" class="btn btn-primary btn-page" data-page="@i">@i</button>
+                }
+            </div>
+        }
+        <button class="btn btn-primary" id="AddAllQuestion1"> Thêm </button>
+    </div>
+</div>

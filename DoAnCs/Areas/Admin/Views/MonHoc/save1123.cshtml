@@ -1,0 +1,67 @@
+﻿@model List<DoAnCs.Models.Viewmodel.SubjectItem>
+@{
+    ViewBag.Title = "Save1";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SaveQuestion1", "MonHoc", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="subjectInputs">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="subject">
+                <h4>Subject @i</h4>
+                <label for="Model[@i].Content">Content:</label>
+                @Html.TextBoxFor(model => model[i].Content, new { id = "Model_" + i + "__Content" })
+
+         
+
+                @*<label for="Model[@i].is_true">Is True:</label>
+                @Html.TextBoxFor(model => model[i].is_true, new { id = "Model_" + i + "__is_true" })*@
+            </div>
+        }
+    </div>
+
+    <button type="button" id="addSubject">Add Subject</button>
+
+    <input type="submit" value="Save" />
+}
+
+@if (ViewBag.Message != null)
+{
+    <div>@ViewBag.Message</div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var subjectCount = @Model.Count;
+
+        $("#addSubject").click(function () {
+            subjectCount++;
+
+            var newSubjectHtml = `
+                <div class="subject">
+                    <h4>Subject ${subjectCount}</h4>
+                    <label for="Model_${subjectCount}__Content">Content:</label>
+                    <input type="text" name="Model[${subjectCount}].Content" id="Model_${subjectCount}__Content" value="" />
+
+                    <label for="Model_${subjectCount}__DapAnA">Đáp Án A:</label>
+                    <textarea name="Model[${subjectCount}].DapAnA" id="Model_${subjectCount}__DapAnA"></textarea>
+
+                    <label for="Model_${subjectCount}__DapAnB">Đáp Án B:</label>
+                    <textarea name="Model[${subjectCount}].DapAnB" id="Model_${subjectCount}__DapAnB"></textarea>
+
+                    <label for="Model_${subjectCount}__is_true">Is True:</label>
+                    <input type="text" name="Model[${subjectCount}].is_true" id="Model_${subjectCount}__is_true" />
+                </div>
+            `;
+
+            $("#subjectInputs").append(newSubjectHtml);
+        });
+    });
+    </script>
+}

@@ -1,6 +1,31 @@
 ﻿body {
 }
+.circle {
+/*    border: groove 5px red;*/
+    margin-top:50px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+    .circle .text-container {
+        text-align: center;
+        line-height: 200px; /* Giống với chiều cao của hình tròn */
+    }
+
+p {
+    margin: 0; /* Loại bỏ khoảng cách mặc định của đoạn văn bản */
+}
+#cardformthi {
+    background-color: rgb(77 45 45 / 7%);
+}
+
+#cardcauhoiformthi {
+    background-color: rgb(77 45 45 / 7%);
+}
 .main_slider {
     margin-bottom: 200px;
 }
@@ -15,6 +40,11 @@
 
 body {
     background-color: lightgray;
+}
+#examForm {
+/*   background-color:aquamarine;
+    background-size: cover;*/
+   
 }
 .bg-image-vertical {
     position: relative;
@@ -44,15 +74,19 @@ body {
 .dem1 {
     background-color: whitesmoke;
     position: fixed;
-    top: 147px;
-    left: 53px;
-    height: 114px;
-    width: 281px;
+    top: 0px;
+    left: 610px;
+    height: 50px;
+    width: 235px;
     border: solid 1px;
     display: flex;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+
+
+
 .demgio{
    
 }

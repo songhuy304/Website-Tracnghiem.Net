@@ -18,20 +18,24 @@ namespace DoAnCs.Models
         public Exam()
         {
             this.Exam_Results = new HashSet<Exam_Results>();
-            this.Questions = new HashSet<Question>();
+            this.Question_Exam = new HashSet<Question_Exam>();
         }
     
         public int IdExam { get; set; }
         public Nullable<System.DateTime> Exam_date { get; set; }
         public Nullable<int> IdSubject { get; set; }
-        public Nullable<int> Time { get; set; }
-        public Nullable<int> NumberQ { get; set; }
+        public int Time { get; set; }
+        public int NumberQ { get; set; }
         public string NameExam { get; set; }
+        public bool isactive { get; set; }
+        public string CreateBy { get; set; }
+        public Nullable<System.DateTime> ModifierDate { get; set; }
+        public string MordifierBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
-        public virtual Subject Subject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Question_Exam> Question_Exam { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

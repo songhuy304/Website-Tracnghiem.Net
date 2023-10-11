@@ -14,23 +14,21 @@ namespace DoAnCs.Models
     
     public partial class Question
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Question()
+        {
+            this.Question_Exam = new HashSet<Question_Exam>();
+        }
+    
         public int IdQuestion { get; set; }
         public string Contentt { get; set; }
         public string HinhAnh { get; set; }
-        public string optionA { get; set; }
-        public string optionB { get; set; }
-        public string optionC { get; set; }
-        public string optionD { get; set; }
-        public string optionE { get; set; }
-        public string optionF { get; set; }
-        public string optionG { get; set; }
-        public Nullable<int> IdExam { get; set; }
-        public Nullable<int> IdDifficulty { get; set; }
-        public Nullable<int> IdDapan { get; set; }
-        public string DapAn { get; set; }
+        public string answer { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string CreateBy { get; set; }
+        public Nullable<System.DateTime> MordifierDate { get; set; }
     
-        public virtual Answer Answer { get; set; }
-        public virtual Difficulty Difficulty { get; set; }
-        public virtual Exam Exam { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Question_Exam> Question_Exam { get; set; }
     }
 }

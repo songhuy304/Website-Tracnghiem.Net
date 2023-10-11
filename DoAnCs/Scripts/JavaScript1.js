@@ -5,51 +5,74 @@ $(document).ready(function () {
     alert('Bắt Đầu Bài Thi');
     startCountdown();
     $('#btnquaylai').hide();
+
+
+
     $('#btnnop').click(function () {
         if (confirm('Bạn Muốn Nộp Bài ')) {
             clearInterval(countdownInterval); 
             CheckResult();
+          
+
             $.ajax({
                 url: "/DeThi/DeThi",
                 type: "POST",
                 data: $('#examForm').serialize(),
 
                 success: function (response) {
-                   
+                    var reElement = document.getElementById("re");
+                    if (reElement) {
+                        reElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert("Nộp bài thất bại: " + textStatus);
                 }
             });
-
+           
             $('#btnnop').hide();
             $('#btnquaylai').show();
-            disradio();
+           
             localStorage.clear();
+            sessionStorage.clear();
             clearsscountdown();
+
+          
+
         }
     });
     checknav();
-    //Lưu Giá Trị ô input radio vào trong local
-    $('input[type="radio"]').click(function () {
-        localStorage.setItem($(this).attr('name'), $(this).attr('value'));
-    });
+   
 
-    //Khi mình vào lại thì hiện giá trị đó lên 
-    $('input[type="radio"]').each(function () {
-        let name = $(this).attr('name');
-        let value = localStorage.getItem(name);
-        if (value && $(this).attr('value') === value) {
-            $(this).prop('checked', true);
-        }
-    });
+
+
+
+   
 
 
 
 });
 
-//Lấy Danh sách câu hỏi menu left
 
+
+//function luuthongtininput() {
+//    //Lưu Giá Trị ô input radio vào trong local
+//    $('input[type="radio"]').click(function () {
+//        let name = $(this).attr('name');
+//        let value = $(this).attr('value');
+//        sessionStorage.setItem(name, value); // Lưu giá trị vào sessionStorage
+//    });
+
+//    // Khi mình vào lại thì hiện giá trị đó lên từ sessionStorage
+//    $('input[type="radio"]').each(function () {
+//        let name = $(this).attr('name');
+//        let value = sessionStorage.getItem(name);
+//        if (value && $(this).attr('value') === value) {
+//            $(this).prop('checked', true);
+//        }
+//    });
+
+//}
 //Tính Giờ 
 function startCountdown() {
 
@@ -123,6 +146,7 @@ function startCountdown() {
             $('#btnquaylai').show();
             disradio();
             localStorage.clear();
+            sessionStorage.clear();
             clearsscountdown();
         }
         
@@ -130,10 +154,30 @@ function startCountdown() {
     }, 1000);
 
 }
+// Xoas sstore tisnh gio
 function clearsscountdown() {
     sessionStorage.removeItem("timeLeft");
     sessionStorage.removeItem("endTime");
 }
+// check Khi lam xong bai
+//function checknav() {
+//    const links = $('a');
+//    links.each(function () {
+//        $(this).click(function (e) {
+//            if (confirm('Bạn Muốn Thoát Bài Thi?')) {
+//                // Cho phép chuyển đến trang được liên kết khi click vào liên kết
+//                localStorage.clear();
+//                sessionStorage.clear();
+//                clearsscountdown();
+//            } else {
+//                // Ngăn chặn hành động mặc định của thẻ a khi click
+//                e.preventDefault();
+//            }
+//        });
+//    });
+
+//}
+
 function checknav() {
     const links = $('a');
     links.each(function () {
@@ -141,6 +185,7 @@ function checknav() {
             if (confirm('Bạn Muốn Thoát Bài Thi?')) {
                 // Cho phép chuyển đến trang được liên kết khi click vào liên kết
                 localStorage.clear();
+                sessionStorage.clear();
                 clearsscountdown();
             } else {
                 // Ngăn chặn hành động mặc định của thẻ a khi click
@@ -150,88 +195,115 @@ function checknav() {
     });
 
 }
-function disradio() {
-    $('#question div h5').each(function (k, v) {
-
-        $(v).parent().find('input[type="radio"]').each(function () {
-            $(this).prop('disabled', true);
-        });
-
-    });
-}
-
-
+var calculatedScore;
 function CheckResult() {
-
-    let countdung = 0;
-    let soCauHoi = $('#question div h5').length;
-    console.log('Số câu hỏi có trong View: ' + soCauHoi);
-    $('#question div h5').each(function (k, v) {
-        let id = $(v).attr('id');
-        let idDapAn = $(v).data('idDapAn');
-        let da = $(v).parent().find('input[type="radio"]:checked').val();
-        if (da === idDapAn) {
-            countdung++;
-        }
-        else {
-        }
-
+    // Đổi màu nền cho các phần tử có data-id="1" thành màu xanh
+    var elements = document.querySelectorAll("[data-id='1']");
+    elements.forEach(function (element) {
+        element.style.backgroundColor = "lightgreen";
     });
 
+    // Đổi màu nền cho các phần tử có data-id="0" thành màu đỏ
+    var elementss = document.querySelectorAll("[data-id='0']");
+    elementss.forEach(function (element) {
+        element.style.backgroundColor = "lightcoral";
+    });
+   
+    
 
-    // Dừng đếm ngược
-    clearInterval(countdownInterval);
-    let diem1cau = 100 / soCauHoi;
-    let TongDiem = diem1cau * countdung;
-    TongDiem = Math.round(TongDiem * 2) / 2;
-    alert('Điểm Của Bạn Là : ' + TongDiem + 'số Câu Đúng' + countdung + '/' + soCauHoi);
-    var HienThiDiem = document.getElementById("sodiem");
-    var HienThisocaudung = document.getElementById("socaudung");
-    var HienThisocausai = document.getElementById("socausai");
+    // In số lượng câu hỏi ra màn hình
+    
 
-    HienThiDiem.textContent = TongDiem;
-    HienThisocaudung.textContent = countdung;
-    HienThisocausai.textContent = soCauHoi - countdung;
+    var maxScore = 100; // Điểm tối đa
+   
+
+    var radioButtons = document.querySelectorAll("input[type='radio']");
+    var score = 0; // Biến để tính điểm
+
+    radioButtons.forEach(function (radioButton) {
+        var dataId = radioButton.getAttribute("data-id");
+        var questionId = radioButton.id.replace("question_", "");
+        var selectedAnswer = document.querySelector("input[name='question_" + questionId + "']:checked");
+       
+        //var correctElementId = "correct_" + questionId;
+        //var correctElement = document.querySelector("#" + correctElementId);
+
+        if (selectedAnswer !== null) {
+            var selectedDataId = selectedAnswer.getAttribute("data-id");
+
+            if (selectedDataId === "1" && dataId === "1") {
+                // Nếu người dùng chọn đúng đáp án có data-id = 1
+                score++;
+
+                var correctElementId = "correct_" + questionId;
+                var correctElement = document.querySelector("#" + correctElementId);
+
+                correctElement.style.backgroundColor = 'lightgreen';
+
+                // Thêm dòng văn bản "Đúng" vào phần tử correct tương ứng
+                var correctText = document.createElement("p");
+                var c = correctText.classList.add("text-center")
+                correctText.innerHTML = `<i class="fa-solid fa-check fa-xl" style="color: #2fda90;"></i> Correct`;
+                correctElement.appendChild(correctText);
 
 
-    $('.dapan').each(function (k, v) {
-        let dapAnDung = $(v).text();
-        $('.dapan').css("display", "block");
-        $('.dapan').css("color", "red");
-        $('.dapan').css("font-weight", "bold");
-
-        let dapAn = $(v).find('#dapan').text().trim();
-
-        let questionContainer = $(v).closest('.question-container');
-        let optionA = questionContainer.find('.rdoptionA');
-        let optionB = questionContainer.find('.rdoptionB');
-        let optionC = questionContainer.find('.rdoptionC');
-        let optionD = questionContainer.find('.rdoptionD');
-        let labelA = questionContainer.find('.A');
-        let labelB = questionContainer.find('.B');
-        let labelC = questionContainer.find('.C');
-        let labelD = questionContainer.find('.D');
-
-        if (dapAn === 'A') {
-            labelA.css("background-color", "red");
-        } else if (dapAn === 'B') {
-            labelB.css("background-color", "red");
-        } else if (dapAn === 'C') {
-            labelC.css("background-color", "red");
-        } else if (dapAn === 'D') {
-            labelD.css("background-color", "red");
+              
+            } else {
+            
+            }
         }
 
-
-        $('input[type="radio"]').css("background", "blue");
-
-
-
+        // Đếm số câu hỏi dựa trên số lần lặp qua các nút radio
+       
     });
-    $('#question div input[type="radio"]:checked').each(function (k, v) {
-        let da = $(v).parent().find('label').css("color", "blue");
+    
+    // Số câu hỏi có trong form thi đã được lưu trong biến numberOfQuestions
+    var socauhoiValue = document.getElementById("socauhoi").getAttribute("data-viewbag-value");
+    let diem1cau = 100 / socauhoiValue;
 
-    });
 
+    calculatedScore = diem1cau * score;
 
+    // Hiển thị kết quả
+    var resultElement = document.getElementById("re");
+    var resultElementsss = document.querySelector(".matbuon");
+
+    var congtron = document.querySelector(".circle");
+    if (calculatedScore >= 80) {
+       
+        congtron.style.border = "9px outset #32ff00";
+        resultElement.style.color = "#32ff00";
+        resultElement.innerHTML = calculatedScore + "\\100";
+        resultElementsss.innerHTML = `<i class="fa-regular fa-face-surprise fa-xl" style="color: #32ff00; font-size:6.5rem; line-height:0px"></i>
+                                         <h4 class="m-6" style="
+                                         margin-top: 34px;
+                                         margin-left: 10px;
+                                        ">Your Are Huy</h4>
+                                        `;
+
+    } else if (calculatedScore >= 50 && calculatedScore < 80)
+
+    {
+        resultElementsss.innerHTML = `<i class="fa-regular fa-face-smile fa-xl" style="color: yellow; font-size:6.5rem; line-height:0px"></i>
+                                        <h4 class="m-6" style="
+                                         margin-top: 34px;
+                                         margin-left: 10px;
+                                        ">Not Bad</h4>`;
+       
+        congtron.style.border = "8px outset yellow";
+        resultElement.innerHTML = calculatedScore + "\\100";
+    }
+    else {
+        resultElementsss.innerHTML = `<p><i class="fa-regular fa-face-frown fa-xl" style="color:red; font-size:6.5rem; line-height:0px"></i></p>
+                                        <h4 class="m-6" style="
+                                         margin-top: 34px;
+                                         margin-left: 10px;
+                                        ">So Bad</h4>
+                                        `;
+       
+         congtron.style.border = "9px outset red";
+         resultElement.innerHTML = calculatedScore + "\\100";   
+    }
+    return calculatedScore;
+    
 }

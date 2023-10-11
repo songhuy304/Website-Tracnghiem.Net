@@ -1,0 +1,68 @@
+﻿@model List<DoAnCs.Models.Question>
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+
+<div class="order"> 
+    @if (Model.Any() && Model != null)
+    {
+        var i = 1;
+
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th><input class="checkbox1" type="checkbox"> </th>
+                    <th>STT</th>
+                    <th>Tên Câu Hỏi</th>
+
+                    <th class="float-right"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" name="group1">
+                            </div>
+                        </td>
+                        <td>
+                            <p>@i</p>
+                        </td>
+                        <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
+                        
+
+                        <td class="float-right">
+                            @Html.ActionLink("Xóa", "XoaCauHoi1", new { examId = (int)Session["bathiId"], questionId = item.IdQuestion }, new { onclick = "return confirm('Bạn có chắc chắn muốn xóa câu hỏi này?');" })
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/XoaCauHoi/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+
+
+            </tbody>
+        </table>
+
+
+    }
+    else
+    {
+        <p>Không Có Gì</p>
+    }
+</div>
+
+@section scripts{
+
+}
+

@@ -1,0 +1,316 @@
+﻿@model List<DoAnCs.Models.Viewmodel.SubjectItem>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+
+
+<div class="order">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">thêm mới câu Hỏi</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("saveJson", "Question", FormMethod.Post))
+
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Tên Câu Hỏi</label>
+                                <div class="col-md-10">
+
+                                    <input type="text" id="contenntt" name="contenntt" class="form-control" />
+                                </div>
+                            </div>
+
+
+                            @for (var i = 0; i < Model.Count; i++)
+                            {
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div id="subjectInputs">
+                                            <div class="subject">
+                                                <label class="col-sm-2 control-label">Đáp Án </label>
+                                                <div class="col-sm-6">
+
+                                                    <input type="text" name="ci[@(i)].Content" id="ci_@(i)__Content" class="form-control" value="@Model[i].Content" autocomplete="off" />
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" name="ci[@(i)].is_true" id="ci_@(i)__is_true" class="form-control" @(Model[i].is_true ? "checked" : "") />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="addSubjec1t">Thêm</button>
+                                <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @*<script>
+
+
+            CKEDITOR.replace("contenntt");
+
+
+
+
+            function BrowseServer() {
+                var finder = new CKFinder();
+                finder.selectActionFunction = URlHinhAnh;
+                finder.popup();
+            }
+            function URlHinhAnh(url) {
+                $("input[name=HinhAnh]").val(url);
+            }
+        </script>*@
+    <script src="~/Scripts/Admin.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            var subjectCount = 0;
+
+            $("#addSubjec1t").click(function () {
+                subjectCount++;
+
+                var newSubjectHtml = `
+                                                            <div class="subject">
+
+
+                                                               <label col-sm-2 control-label for="ci_${subjectCount}__Content">Đáp Án:</label>
+                                                                <div class="col-sm-6">
+                                                                    <input type="text" name="ci[${subjectCount}].Content" class="form-control" id="ci_${subjectCount}__Content" value="" />
+                                                                </div>
+
+                                                                   <div class="col-sm-2">
+                                                            <div class="form-check">
+                                                                 <input type="checkbox" name="ci[${subjectCount}].is_true" class="form-control" id="ci_${subjectCount}__is_true" />
+                                                            </div>
+                                                        </div>
+
+
+                                                            </div>
+                                                            `;
+
+                $("#subjectInputs").append(newSubjectHtml);
+            });
+        });
+
+
+
+
+    </script>
+}
+
+
+
+
+
+
+
+
+
+@model List<DoAnCs.Models.Viewmodel.SubjectItem>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+
+
+<div class="order">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">thêm mới câu Hỏi</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @*<form id="yourFormId" method="post">*@
+                    @using (Html.BeginForm("saveJson", "Question", FormMethod.Post))
+                    {<!-- ... (your form fields) -->
+
+
+
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Tên Câu Hỏi</label>
+                                <div class="col-md-10">
+
+                                    <input type="text" id="contenntt" name="contenntt" class="form-control" />
+                                </div>
+                            </div>
+
+
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label">Đáp Án </label>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="ci[@(i)].Content" id="ci_@(i)__Content" class="form-control" value="@Model[i].Content" autocomplete="off" />
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-check">
+                                                <label for="Model[@i].is_true">Is True:</label>
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model[i].Trueis)
+                                                    @Html.ValidationMessageFor(model => model[i].Trueis, "", new { @class = "text-danger" })
+                                                </div>
+                                                @*<input type="checkbox" name="ci[@(i)].Trueis" id="ciTrueis" class="form-control" @(Model[i].Trueis == true ? "checked" : "") />*@
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="addSubjec1t">Thêm</button>
+                                <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                    @*</form>*@
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="~/Scripts/Admin.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+
+            var subjectCount = 0;
+
+
+
+
+            $("#addSubjec1t").click(function () {
+
+                // Lấy tham chiếu đến phần tử input checkbox bằng cách sử dụng id của nó
+
+
+                subjectCount++;
+                // Tạo một form group mới
+                var newFormGroup = `
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-2 control-label">Đáp Án</label>
+                        <div class="col-sm-6">
+                              <input type="text" name="ci[${subjectCount}].Content" class="form-control" id="ci_${subjectCount}__Content" value="" />
+                        </div>
+                        <div class="col-sm-2">
+                         <div class="form-check">
+
+                        <input type="checkbox" name="ci[${subjectCount}].Trueis" class="form-control" id="ci_${subjectCount}__Trueis" />
+                </div>
+            </div>
+                    </div>
+                </div>`;
+
+                // Thêm form group mới vào cuối của danh sách
+                $(".form-group:last").before(newFormGroup);
+            });
+
+
+
+
+             @*$("#submitForm").click(function () {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Serialize the form data
+            var formData = $("#yourFormId").serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("SaveJson", "Question")",
+                data: formData,
+                success: function (data) {
+                    if (data.success) {
+                        // Handle success, e.g., display a success message
+                        alert("Data successfully saved!");
+                    } else {
+                        // Handle failure, e.g., display an error message
+                        alert("Error saving data");
+                    }
+                },
+                error: function () {
+                    // Handle AJAX error
+                    alert("Error occurred during AJAX request");
+                }
+            });
+        });*@
+
+        });
+
+
+
+
+    </script>
+}

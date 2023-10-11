@@ -11,6 +11,9 @@ using DoAnCs.Models;
 using PagedList;
 using GemBox.Document;
 using System.IO;
+using OfficeOpenXml;
+using DoAnCs.Models.Viewmodel;
+using Newtonsoft.Json;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
@@ -46,7 +49,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             ViewBag.CurrentFilter = searchString;
             int pageIndex = (page ?? 1);
             int pagesize = 10; /*số lượng item của trang = 5*/
-            item = item.OrderByDescending(n => n.IdExam).ToList();
+            item = item.OrderByDescending(n => n.Contentt).ToList();
             ViewBag.PageSize = pagesize;
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
@@ -57,7 +60,7 @@ namespace DoAnCs.Areas.Admin.Controllers
         public ActionResult Create()
         {
 
-            ViewBag.Ans = new SelectList(db.Answers.ToList(), "IdAnswer", "DapAn");
+       
             ViewBag.iddd = new SelectList(db.Exams.ToList(), "IdExam", "NameExam");
 
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
@@ -77,10 +80,7 @@ namespace DoAnCs.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("index");
             }
-            ViewBag.iddd = new SelectList(db.Exams.ToList(), "IdExam", "NameExam");
-
-
-            ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
+     
             return View(question);
         }
 
@@ -97,7 +97,7 @@ namespace DoAnCs.Areas.Admin.Controllers
                 return null;
             }
 
-            ViewBag.IdDifficulty = new SelectList(db.Difficulties, "IdDifficulty", "NameDifficulty");
+          
 
             ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
 
@@ -143,113 +143,110 @@ namespace DoAnCs.Areas.Admin.Controllers
             return View(question);
         }
         [HttpGet]
-        public ActionResult taocauhoi()
+       
+        public ActionResult Partial_SanPham()
         {
-            return View();
+            var item = db.Exams.ToList();
+            return PartialView(item);
+        }
+     
+        [HttpGet]
+        public JsonResult LoadDsDethi()
+        {
+            try
+            {
+                var dslop = db.Questions.ToList();
+                return Json(new { code = 200, dslop = dslop, msg = "Lấy Thành Công" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Lỗi: " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
         }
         [HttpPost]
-        public ActionResult taocauhoi(HttpPostedFileBase questionFile)
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadExcel( HttpPostedFileBase excelFile)
         {
-            if (questionFile != null && questionFile.ContentLength > 0)
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Hoặc LicenseContext.Commercial tùy vào loại giấy phép bạn sử dụng
+
+            if (ModelState.IsValid)
             {
-                // Lưu tệp Word vào một đường dẫn tạm thời
-                string filePath = Server.MapPath("~/Temp/" + Path.GetFileName(questionFile.FileName));
-                questionFile.SaveAs(filePath);
-
-
-                // Mở file Word
-                ComponentInfo.SetLicense("FREE-LIMITED-KEY");
-                DocumentModel document = DocumentModel.Load(filePath);
-
-                // Lặp qua các đoạn văn trong tài liệu
-                foreach (Paragraph paragraph in document.GetChildElements(true, ElementType.Paragraph))
+                if (excelFile != null && excelFile.ContentLength > 0)
                 {
-                    // Đọc nội dung câu hỏi và các lựa chọn từ đoạn văn
-                    string content = paragraph.Content.ToString();
-                    string optionA = GetOption(paragraph, "A");
-                    string optionB = GetOption(paragraph, "B");
-                    string optionC = GetOption(paragraph, "C");
-                    string optionD = GetOption(paragraph, "D");
-                    string answer = GetAnswer(paragraph);
-
-                    // Tạo một đối tượng Question và thêm các thuộc tính
-                    Question question = new Question
+                    if (Path.GetExtension(excelFile.FileName).Equals(".xls") || Path.GetExtension(excelFile.FileName).Equals(".xlsx"))
                     {
-                        Contentt = content,
-                        optionA = optionA,
-                        optionB = optionB,
-                        optionC = optionC,
-                        optionD = optionD,
-                        DapAn = answer
+                        using (var package = new ExcelPackage(excelFile.InputStream))
+                        {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                            int rowCount = worksheet.Dimension.Rows;
+
+                            for (int row = 2; row <= rowCount+1 ; row++)
+                            {
+                                string Contentts = worksheet.Cells[row, 2].Value.ToString();
+                                string optionAs = worksheet.Cells[row, 3].Value.ToString();
+                                string optionBs = worksheet.Cells[row, 4].Value.ToString();
+                                string optionCs = worksheet.Cells[row, 5].Value.ToString();
+                                string optionDs = worksheet.Cells[row, 6].Value.ToString();
+                                string DapAns = worksheet.Cells[row, 7].Value.ToString();
+                           
+
+                                Question question = new Question
+                                {
+                                  
+                                };
+
+                                db.Questions.Add(question);
+                            }
+
+                            db.SaveChanges();
+                            TempData["SuccessMessage"] = "Dữ liệu đã được thêm thành công.";
+                            return RedirectToAction("Index");
+                        }
+                    }
+                    else
+                    {
+                        TempData["Loi"] = "Vui Lòng Chọn Tệp Hợp Lệ!";
+
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("excelFile", "Vui lòng chọn một tệp Excel.");
+                }
+            }
+
+            return View("index");
+        }
+
+        [HttpGet]
+        public ActionResult saveJson()
+        {
+
+            List<SubjectItem> ci = new List<SubjectItem> { new SubjectItem { Content=""  } };
+            return View(ci);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult saveJson(List<SubjectItem> ci, string contenntt)
+        {
+            string mahoa = HttpUtility.HtmlEncode(contenntt);
+            string json = JsonConvert.SerializeObject(ci);
+            var subject = new Question
+                    {
+                        Contentt = mahoa,
+                        answer = json
                     };
 
-                    // Thêm câu hỏi vào cơ sở dữ liệu
-                    if (ModelState.IsValid)
-                    {
-                        question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
-                        db.Questions.Add(question);
-                        db.SaveChanges();
-                    }
-                }
-
-                // Xóa tệp Word tạm thời sau khi đã xử lý
-                //System.IO.File.Delete(filePath);
-            }
-
-            return RedirectToAction("Index");
+                    db.Questions.Add(subject);
+                    db.SaveChanges();
+                    ViewBag.Message = "Data successfully saved!";
+            
+                    ci = new List<SubjectItem> { new SubjectItem { Content ="" , Trueis=false } };
+                    return View(ci);
+        
         }
-        private string GetOption(Paragraph paragraph, string optionIdentifier)
-        {
-            string paragraphText = paragraph.Content.ToString();
-
-            // Tìm văn bản của lựa chọn trong đoạn văn
-            string optionText = string.Empty;
-            int optionStartIndex = paragraphText.IndexOf(optionIdentifier + ".");
-            if (optionStartIndex >= 0)
-            {
-                int optionEndIndex = paragraphText.IndexOf('\n', optionStartIndex);
-                if (optionEndIndex >= 0)
-                {
-                    // Xác định vị trí bắt đầu và kết thúc của lựa chọn
-                    int optionContentStartIndex = optionStartIndex + optionIdentifier.Length + 2;
-                    int optionContentEndIndex = optionEndIndex;
-
-                    // Kiểm tra nếu có lựa chọn tiếp theo cùng dòng
-                    int nextOptionStartIndex = paragraphText.IndexOf((char)(optionIdentifier[0] + 1) + ".", optionEndIndex);
-                    if (nextOptionStartIndex >= 0)
-                    {
-                        optionContentEndIndex = nextOptionStartIndex;
-                    }
-
-                    optionText = paragraphText.Substring(optionContentStartIndex, optionContentEndIndex - optionContentStartIndex).Trim();
-                }
-            }
-
-            return optionText;
-        }
-
-
-
-        private string GetAnswer(Paragraph paragraph)
-        {
-            string paragraphText = paragraph.Content.ToString();
-
-            // Tìm văn bản của đáp án trong đoạn văn
-            string answerText = string.Empty;
-            int answerStartIndex = paragraphText.IndexOf("Answer:");
-            if (answerStartIndex >= 0)
-            {
-                answerText = paragraphText.Substring(answerStartIndex + 7).Trim();
-            }
-
-            return answerText;
-        }
-
-
-
-
-
-
     }
 
 

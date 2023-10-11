@@ -1,0 +1,244 @@
+﻿
+
+@model List<DoAnCs.Models.Question>
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/asset/styles/css.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+    @using (Html.BeginForm("DeThi", "DeThi", FormMethod.Post, new { id = "examForm" }))
+    {
+
+
+
+        if (Model != null)
+        {
+            <div class="dem1">
+                <div class="demgio">
+
+                    <div data-id="@ViewBag.sophut" id="countdow"></div>
+
+                </div>
+            </div>
+
+            <div class="container mt-4 mb-4 dethii">
+                <div class="formthi" style="position:unset">
+                    <h5 class="text-center my-5">@*Thi trắc nghiệm*@</h5>
+                    <form class="form-section page-section">
+                        <div class="row dethiiiiii">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+
+                                    <h3>@ViewBag.tenbaithi</h3>
+
+
+                                    <label class="SoCauhoi" for="name">Số Câu Hỏi :</label> <span>@ViewBag.socauhoi</span>
+                                    <label for="name">Số Phút :</label> <span>@ViewBag.sophut</span>
+                                    <br />
+                                    <label class="full">Họ & Tên :</label> <span data-id-id="@Session["idstudent"]" class="hoten">@Session["Fullname"]</span>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label>Số Điểm:  </label><strong><span id="sodiem"> </span></strong>
+                                    <br />
+                                    <label>Số Câu Đúng:</label> <strong><span id="socaudung"></span></strong>
+                                    <br />
+                                    <label>Số Câu Sai: </label> <strong> <span id="socausai"></span></strong>
+                                    <br />
+                                    <label>Số Phút Thi:</label> <strong> <span id="thoigianlambai1"></span></strong>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <hr>
+                        @*Câu Hỏi*@
+                        @{ var questionNumber = 1;
+                            var countcauhoi = 0;}
+                        <div id="question">
+                            @foreach (var item in Model)
+                            {
+
+                                <div class="form-group question-container" id="@item.IdQuestion">
+
+
+                                    <h5 class="font-weight-bold" for="question@questionNumber" data-id-dap-an="@item.DapAn" id="@item.IdQuestion" style="">
+                                        Câu hỏi @questionNumber:
+                                        @{
+                                            if (!string.IsNullOrEmpty(item.Contentt))
+                                            {
+                                                // Lấy tất cả các thẻ <img> trong nội dung câu hỏi
+                                                var images = Regex.Matches(item.Contentt, @"<img.*?>");
+
+                                                // Duyệt qua tất cả các ảnh và gán kích thước cho chúng
+                                                foreach (Match image in images)
+                                                {
+                                                    var newImage = Regex.Replace(image.Value, "(width|height)=\".*?\"", "");
+                                                    newImage = newImage.Replace("<img", "<img style=\"width: 300px; height: 200px;\"");
+                                                    item.Contentt = item.Contentt.Replace(image.Value, newImage);
+                                                }
+                                            }
+                                        }
+                                        @* @Html.Raw(item.Contentt)*@
+                                        @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))
+
+                                        @if (!string.IsNullOrEmpty(item.HinhAnh))
+                                        {
+                                            <img src="@item.HinhAnh" style="width: 300px; height: 200px" alt="Ảnh câu hỏi">
+                                        }
+
+                                    </h5>
+
+
+
+                                    <div class="dscauhoi">
+                                        @if (item.optionA != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionA" type="radio" name="question-@item.IdQuestion" id="optionA-@item.IdQuestion" value="A">
+                                                <label class="A" for="optionA-@item.IdQuestion">
+                                                    A: @item.optionA
+                                                </label>
+                                            </div>
+                                        }
+                                        @if (item.optionB != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionB" type="radio" name="question-@item.IdQuestion" id="optionB-@item.IdQuestion" value="B">
+                                                <label class="B" for="optionB-@item.IdQuestion">
+                                                    B: @item.optionB
+                                                </label>
+                                            </div>
+                                        }
+
+                                        @if (item.optionC != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionC" type="radio" name="question-@item.IdQuestion" id="optionC-@item.IdQuestion" value="C">
+                                                <label class="C" for="optionC-@item.IdQuestion">
+                                                    C: @item.optionC
+                                                </label>
+                                            </div>
+                                        }
+
+                                        @if (item.optionD != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionD" type="radio" name="question-@item.IdQuestion" id="optionD-@item.IdQuestion" value="D">
+                                                <label class="D" for="optionD-@item.IdQuestion">
+                                                    D: @item.optionD
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="dscauhoi-column">
+                                        @if (item.optionE != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionE" type="radio" name="question-@item.IdQuestion" id="optionE-@item.IdQuestion" value="E">
+                                                <label class="E" for="optionE-@item.IdQuestion">
+                                                    E: @item.optionE
+                                                </label>
+                                            </div>
+                                        }
+                                        @if (item.optionF != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionF" type="radio" name="question-@item.IdQuestion" id="optionF-@item.IdQuestion" value="F">
+                                                <label class="F" for="optionF-@item.IdQuestion">
+                                                    F: @item.optionF
+                                                </label>
+                                            </div>
+                                        }
+                                        @if (item.optionG != null)
+                                        {
+                                            <div class="form-check">
+                                                <input class="rdoptionG" type="radio" name="question-@item.IdQuestion" id="optionG-@item.IdQuestion" value="G">
+                                                <label class="G" for="optionG-@item.IdQuestion">
+                                                    G: @item.optionG
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+
+
+
+
+                                    <div class="form-check">
+
+                                        <label class="dapan" style="display:none" for="question@questionNumber">
+                                            Đáp Án Đúng  <label id="dapan">@item.DapAn</label>
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <hr>
+                                countcauhoi++;
+                                questionNumber++;
+
+                            }
+
+
+
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <button type="button" id="btnquaylai" name="name" class="btn btn-danger">Quay lại</button>
+
+                            <button type="button" id="btnnop" class="btn btn-success">Nộp Bài</button>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        }
+    }
+
+
+
+    <script src="~/Content/asset/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/popper.js"></script>
+    <script src="~/Content/asset/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/Content/asset/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/Content/asset/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Content/asset/plugins/easing/easing.js"></script>
+    <script src="~/Content/asset/js/custom.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@RenderSection("scripts", required: true)*@
+    <script src="~/Scripts/JavaScript1.js"></script>
+
+</body>
+</html>
+
+<style>
+</style>

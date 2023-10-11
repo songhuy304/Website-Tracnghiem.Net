@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
+
 @section naviheader{
     <h1>Quản Lý Đề Thi</h1>
     <ul class="breadcrumb">
@@ -20,10 +21,13 @@
 <div class="order">
     <div class="head">
 
-        <i class="bx bx-search"></i>
-        <i class="bx bx-filter"></i>
-        <a href="/admin/DeThi/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
+       
+        <a href="/admin/DeThi/Addtest" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
+        <button @*data-id="@item.IdExam" data-modal-id="modal-@item.IdExam"*@ class="myBtn btn btn-primary">Add</button>
 
+        <div @*id="modal-@item.IdExam"*@ class="myModal modal">
+            @Html.Action("Partial_CauHoi", "DeThi")
+        </div>
 
     </div>
     @if (Model.Any() && Model != null)
@@ -37,17 +41,27 @@
                     <th>Thời Gian</th>
                     <th>Số Lượng Câu Hỏi</th>
                     <th>Thuộc Môn Học</th>
+                    <th></th>  
                     <th class="float-right"></th>
                 </tr>
             </thead>
             <tbody>
-
+             
                 @foreach (var item in Model)
                 {
+                    var strCheck = item.isactive
+                     ? "<i class='fa fa-check text-success'></i>"
+                     : "<i class='fas fa-times text-danger'></i>";
 
                     <tr>
                         <td>
-                            <p>@i</p>
+                            <p>
+                                <div class="form-check">
+                                    <input class="cbkItem1" type="checkbox" value="@item.IdExam" id="flexCheckDefault">
+                                  
+                                </div>
+                                @i
+                            </p>
                         </td>
                         <td>@item.NameExam</td>
                         <td>@item.Time</td>
@@ -56,21 +70,22 @@
 
 
 
-
+                        <td><a href="#" data-id="@item.IdExam" class="btnActive">@Html.Raw(strCheck)</a></td>  
                         <td class="float-right">
-                            <a href="/admin/DeThi/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>
-                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/delete/@item.IdExam'" class=" btn btn-danger">Xóa</a>
-                            <a href="@Url.Action("Addquestion", new { id = item.IdExam })" data-id="1" class="btnhe btn btn-danger">add</a>
+                            @*<a href="/admin/DeThi/edit/@item.IdExam " class=" btn btn-primary">Sửa</a>*@
+                            <a href="/admin/DeThi/chitiet/@item.IdExam " class="btn btn-primary">view</a>
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/DeThi/delete/@item.IdExam'" class=" btn btn-danger">Delete</a>
+                            
 
 
-                            @*  @Html.ActionLink("addcauhoi", "Addquestion", new { @id = item.IdExam })*@
+
                         </td>
                     </tr>
 
                     i++;
                 }
 
-                
+
 
             </tbody>
         </table>
@@ -83,6 +98,197 @@
 </div>
 @section scripts{
     <script>
+
+        
+
+        // Get all modals
+        var modals = document.querySelectorAll(".myModal");
+
+        // Get all buttons that open the modals
+        var buttons = document.querySelectorAll(".myBtn");
+
+        // Get the <span> elements that close the modals
+        var spans = document.querySelectorAll(".close");
+
+        // Loop through each button to attach the click event
+        buttons.forEach(function (button) {
+            button.onclick = function () {
+                var modal = this.nextElementSibling; // Lấy modal ngay sau nút button
+                modal.style.display = "block";
+            };
+        });
+
+        // Loop through each <span> to attach the click event
+        spans.forEach(function (span) {
+            span.onclick = function () {
+                var modal = this.closest(".myModal");
+                modal.style.display = "none";
+            };
+        });
+
+        // When the user clicks anywhere outside of a modal, close it
+        window.onclick = function (event) {
+            modals.forEach(function (modal) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        };
+
+
+
+       //phan trang
+
+
+
+
+        $(document).ready(function () {
+
+
+            $('body').on('click', '.btnActive', function (e) {
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data("id");
+
+                // Thay đổi trạng thái của nút ngay khi người dùng click
+                if (btn.html().includes("fa-check")) {
+                    btn.html("<i class='fas fa-times text-danger'></i>");
+                } else {
+                    btn.html("<i class='fa fa-check text-success'></i>");
+                }
+
+                // Gửi yêu cầu đến máy chủ để cập nhật trạng thái
+                $.ajax({
+                    url: '/admin/Dethi/Isactive',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (!rs.success) {
+                            // Nếu có lỗi, hoặc máy chủ trả về lỗi, bạn có thể hoàn ngược trạng thái của nút ở đây.
+                            if (btn.html().includes("fa-check")) {
+                                btn.html("<i class='fas fa-times text-danger'></i>");
+                            } else {
+                                btn.html("<i class='fa fa-check text-success'></i>");
+                            }
+                        }
+                    }
+                });
+            });
+
+        function loadPage(page) {
+            $.ajax({
+                url: '@Url.Action("Partial_CauHoi","DeThi")',
+                data: { page: page },
+                success: function (data) {
+                    $('#Preview').html(data);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        loadPage(@ViewBag.Page);
+
+        $(document).on('click', '.btn-page', function () {
+            var page = $(this).data('page');
+            loadPage(page);
+        });
+
+
+
+
+            function addCauHoi(idExam, questionIds) {
+                var xhr = new XMLHttpRequest();
+
+                // Chuyển danh sách questionIds thành một chuỗi query string
+                var queryString = questionIds.map(questionId => "questionIds=" + questionId).join("&");
+
+             
+                xhr.open("GET", "/Admin/DeThi/setcauhoi?id=" + idExam + "&" + queryString, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+
+                            alert("Thêm câu hỏi thành công!");
+                        } else {
+                            // Hiển thị thông báo lỗi
+                            alert("Không thể thêm câu hỏi. Mã lỗi: " + xhr.status);
+                        }
+                    }
+                };
+                xhr.send();
+            }
+
+            $('body').on('click', '#AddAllQuestion1', function (e) {
+                e.preventDefault();
+                var str1 = "";
+                var Checkbox1 = $('tr td input.cbkItem1:checkbox');
+                var i1 = 0;
+
+                Checkbox1.each(function () {
+                    if (this.checked) {
+                        var _id = $(this).val();
+                        if (i1 === 0) {
+                            str1 += _id;
+                        } else {
+                            str1 += "," + _id;
+                        }
+                        i1++;
+                    }
+                });
+
+                var str2 = "";
+                var Checkbox = $(this).closest('.modal').find('tr td input:checkbox');
+                var i2 = 0;
+
+                Checkbox.each(function () {
+                    if (this.checked) {
+                        var _id = $(this).val();
+                        if (i2 === 0) {
+                            str2 += _id;
+                        } else {
+                            str2 += "," + _id;
+                        }
+                        i2++;
+                    }
+                });
+
+                var finalStr = str1;
+                if (str2.length > 0) {
+                    if (str1.length > 0) {
+                        finalStr += "," + str2;
+                    } else {
+                        finalStr += str2;
+                    }
+                }
+
+                var idsArray = finalStr.split(",");
+                var idExam = idsArray[0]; // idExam sẽ là phần tử đầu tiên của mảng
+                var questionIds = idsArray.slice(1); // Các phần tử còn lại là danh sách questionIds
+                //alert(finalStr);
+                console.log(questionIds, "vl");
+                addCauHoi(idExam, questionIds);
+            });
+
+
+            });
+
+
+            $('body').on('change', '#SelecAll', function () {
+                var checkStatus = this.checked;
+                var Checkbox = $(this).parents('.modal-body').find('tr td input:checkbox');
+                Checkbox.each(function () {
+                    this.checked = checkStatus;
+                    if (this.checked) {
+                        Checkbox.attr('selected', 'checked');
+                    }
+                    else {
+
+                    }
+                });
+            });
+
 
     </script>
 }

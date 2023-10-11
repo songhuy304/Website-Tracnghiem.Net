@@ -9,33 +9,42 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
 
-@section naviheader{
-    <h1>Quản Lý Môn Học</h1>
-    <ul class="breadcrumb">
-        <li>
-            <a class="active" href="/admin/home">Home</a>
-        </li>
-        <li><i class='bx bx-chevron-right'></i></li>
-        <li>
-            <a class="active" href="/Admin/Question/Index">Câu Hỏi</a>
-        </li>
-    </ul>
 
-
-}
 <div class="order">
-    <div class="head">
+   
+    
 
+ 
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["Loi"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Loi"]
+        </div>
+    }
+
+    <div class="head">
         @using (Html.BeginForm("Index", "Question", FormMethod.Get))
         {
-
             @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
             <input type="submit" value="Search" class="btn btn-default" />
         }
+        @using (Html.BeginForm("UploadExcel", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken() <!-- Thêm dòng này -->
+            <div class="form-group">
+                <label for="file">Chọn tệp Excel:</label>
+                <input type="file" name="excelFile" id="file" class="form-control" />
+            </div>
+            <input type="submit" value="Tải lên" class="btn btn-primary" />
+        }
         <i class="bx bx-filter"></i>
-        <a href="/admin/Question/Create" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
-
-
+        <a href="/admin/Question/savejson" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
     </div>
     @if (Model.Any() && Model != null)
     {
@@ -44,11 +53,9 @@
         <table>
             <thead>
                 <tr class="text-center">
+                    <th><input class="checkbox1" type="checkbox"> </th>
                     <th>STT</th>
                     <th>Tên Câu Hỏi</th>
-                    <th>Tên Môn Học</th>
-                 
-
 
                     <th class="float-right"></th>
                 </tr>
@@ -60,27 +67,30 @@
 
                     <tr>
                         <td>
+                            <div class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox" name="group1">
+                            </div>
+                        </td>
+                        <td>
                             <p>@i</p>
                         </td>
                         <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
                         <td>
-                            @if (item.IdExam != null)
-                            {
-                                @item.Exam.NameExam
-                            }
                         </td>
-                      
-
-                    <td class="float-right">
-
-                        <a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
-        <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
-
-        <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
-                        
 
 
-                    </td>
+                        <td class="float-right">
+
+                            <a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
+                            <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
+
+
+
+                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
+
+
+
+                        </td>
                     </tr>
 
                     i++;
@@ -98,3 +108,8 @@
         <p>Không Có Gì</p>
     }
 </div>
+
+@section scripts{
+  
+}
+

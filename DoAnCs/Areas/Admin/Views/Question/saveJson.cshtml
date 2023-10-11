@@ -1,0 +1,186 @@
+﻿@model List<DoAnCs.Models.Viewmodel.SubjectItem>
+
+@{
+    ViewBag.Title = "Luu Cau Hoi";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+
+<div class="order">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">thêm mới câu Hỏi</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+
+                    @using (Html.BeginForm("saveJson", "Question", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Tên Câu Hỏi</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" name="contenntt" id="inputContentt"></textarea>
+                                    @*@Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })*@
+                                    @*<input type="text" id="contenntt" name="contenntt" class="form-control" />*@
+                                </div>
+                            </div>
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        @Html.LabelFor(model => model[i].Content, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-6">
+                                            @Html.EditorFor(model => model[i].Content, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model[i].Content, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-check">
+
+
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model[i].Trueis)
+                                                    @Html.ValidationMessageFor(model => model[i].Trueis, "", new { @class = "text-danger" })
+                                                </div>
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            }
+
+
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="addSubjec1t">Thêm</button>
+                                <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    
+    <script>
+
+        CKEDITOR.replace("inputContentt");
+
+
+
+
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = URlHinhAnh;
+            finder.popup();
+        }
+        function URlHinhAnh(url) {
+            $("input[name=HinhAnh]").val(url);
+        }
+
+        $(document).ready(function () {
+
+            var i = @Model.Count;
+            var subjectCount = 0;
+            $("#addSubjec1t").click(function () {
+                i++;
+                // Lấy tham chiếu đến phần tử input checkbox bằng cách sử dụng id của nó
+                subjectCount++;
+             
+                var newFormGroup = `
+                <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-2 control-label">Đáp Án</label>
+                        <div class="col-sm-6">
+                              <input type="text" name="[${subjectCount}].Content" class="form-control" id="Content" value="" />
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-check">
+
+                        <input class="check-box" data-val="true" data-val-required="The Trueis field is required." name="[${subjectCount}].Trueis" type="checkbox" value="true">
+                         <input name="[${subjectCount}].Trueis" type="hidden" value="false">
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+
+
+                
+
+                $(".form-group:last").before(newFormGroup);
+            });
+
+
+
+
+             @*$("#submitForm").click(function () {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Serialize the form data
+            var formData = $("#yourFormId").serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("SaveJson", "Question")",
+                data: formData,
+                success: function (data) {
+                    if (data.success) {
+                        // Handle success, e.g., display a success message
+                        alert("Data successfully saved!");
+                    } else {
+                        // Handle failure, e.g., display an error message
+                        alert("Error saving data");
+                    }
+                },
+                error: function () {
+                    // Handle AJAX error
+                    alert("Error occurred during AJAX request");
+                }
+            });
+        });*@
+
+        });
+
+
+
+
+    </script>
+}
+
+
+
+
+
+
+
+

@@ -20,12 +20,14 @@
 }
 <div class="order">
     <div class="head">
-      
+
         <i class="bx bx-search"></i>
         <i class="bx bx-filter"></i>
         <a href="/admin/MonHoc/Add" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
+        <a href="/admin/MonHoc/UploadExcel" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
 
-       
+
+
     </div>
     @if (Model.Any() && Model != null)
     {
@@ -49,7 +51,9 @@
                         </td>
                         <td>@item.NameSubject</td>
                         <td class="float-right">
-                            <a href="/admin/productcategory/edit/@item.IdSubject " class=" btn btn-primary">Sửa</a>
+                            <a href="/admin/MonHoc/edit/@item.IdSubject " class=" btn btn-primary">Sửa</a>
+                            <a href="@Url.Action("DisplayQuestion", "MonHoc", new { subjectId = item.IdSubject })" class="btn btn-primary">Vào đây</a>
+
                             <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/productcategory/delete/@item.IdSubject'" class=" btn btn-danger">Xóa</a>
                         </td>
                     </tr>

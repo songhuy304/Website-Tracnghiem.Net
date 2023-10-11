@@ -1,0 +1,73 @@
+﻿@model List<DoAnCs.Models.Viewmodel.SubjectItem>
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+@using (Html.BeginForm("addsubjectitem", "MonHoc", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="NameSubject">Name Subject:</label>
+        <input type="text" id="Namesubjectss" name="Namesubjectss" class="form-control" />
+    </div>
+
+
+
+    for (var i = 0; i < Model.Count; i++)
+    { <div id="subjectInputs">
+            <div class="subject">
+
+                <label for="ci_@(i)__Content">Name:</label>
+                <input type="text" name="ci[@(i)].Content" id="ci_@(i)__Content" value="@Model[i].Content" />
+
+                @*<label for="ci_@(i)__DapAnA">DapAnA:</label>
+                <textarea name="ci[@(i)].DapAnA" id="ci_@(i)__DapAnA">@Model[i].DapAnA</textarea>*@
+            </div>
+        </div>
+
+    }
+
+    <button type="button" id="addSubjec1t">Add Subject</button>
+
+
+    <input type="submit" value="Save" />
+}
+
+@if (ViewBag.Message != null)
+{
+    <div>@ViewBag.Message</div>
+}
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+            var subjectCount = 0;
+
+            $("#addSubjec1t").click(function () {
+                subjectCount++;
+
+                var newSubjectHtml = `
+                                <div class="subject">
+
+
+                                    <label for="ci_${subjectCount}__Content">Name:</label>
+                                    <input type="text" name="ci[${subjectCount}].Content" id="ci_${subjectCount}__Content" value="" />
+
+                                    //<label for="ci_${subjectCount}__DapAnA">JSON:</label>
+                                    //<textarea name="ci[${subjectCount}].DapAnA" id="ci_${subjectCount}__DapAnA"></textarea>
+                                </div>
+                                `;
+
+                $("#subjectInputs").append(newSubjectHtml);
+            });
+        });
+
+
+
+
+    </script>
+}

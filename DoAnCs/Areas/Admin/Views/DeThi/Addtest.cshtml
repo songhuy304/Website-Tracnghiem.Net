@@ -1,0 +1,210 @@
+﻿@model DoAnCs.Models.Exam
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+@section naviheader{
+    <h1>Quản Lý Đề Thi</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Quản Lý Đề Thi</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Thêm Đề Thi</a>
+        </li>
+    </ul>
+
+
+}
+<div class="order">
+    <div class="head">
+
+    
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thông Tin thêm mới</h3>
+            <button type="button" id="submitcl123" style="float:right;" class="btn btn-success">Thêm Đề Thi</button>
+
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form id="examForm" method="post">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label class="text-primary" for="exampleInputEmail1">Tên Đề Thi</label>
+                                @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học", @required = "required" })
+                                @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label class="text-primary">Tên Môn Học</label>
+
+                                @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-md-4">
+                                    <label class="text-primary" for="Time">Thời Gian</label>
+                                    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-primary" for="">Số Câu Hỏi</label>
+                                    @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control", @Value = 0, @id = "socauhoi1" })
+                                    @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-primary" for="d">Ngày Tạo</label>
+                                    <input type="text" class="form-control" name="d" value="@ViewBag.datetimnow" readonly />
+                                </div>
+
+                            </div>
+                            <div class="form-check">
+                                <label class="text-primary">Hiển Thị</label>
+
+                                @Html.EditorFor(x => x.isactive, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.isactive, null, new { @class = "text-danger" })
+
+                            </div>
+
+
+
+                            <hr />
+
+                            <h4 class="text-info">Chọn Câu Hỏi </h4>
+                            <h6 class="text-info socauchon">Số Câu Đã Chọn : <span id="socauchon">0</span></h6>
+
+                            <table class="table">
+
+                                @Html.Action("Partial_CauHoi123", "DeThi")
+
+                            </table>
+
+
+                            <div class="form-group">
+                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
+
+
+                            </div>
+                        </div>
+
+                </form>
+
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('#selectAllCheckbox').change(function () {
+                // Lấy giá trị tích hay không tích của checkbox "selectAllCheckbox"
+                var isChecked = $(this).prop('checked');
+
+                // Tìm tất cả các checkbox với class "cbkItem" và thiết lập giá trị tích dựa vào giá trị của "selectAllCheckbox"
+                $('.cbkItem').prop('checked', isChecked);
+                updateSelectedCount();
+            
+                $('.cbkItem').change(function () {
+                    updateSelectedCount();
+                });
+
+                function updateSelectedCount() {
+                    var selectedCount = $('.cbkItem:checked').length;
+                    $('#socauchon').text(selectedCount);
+                    $('#socauhoi1').val(selectedCount);
+                }
+            });
+
+            $('#submitcl123').click(function () {
+              
+                var checkedValues = [];
+                $('.cbkItem:checked').each(function () {
+                    checkedValues.push($(this).val());
+                });
+
+
+                var queryString = checkedValues.map(questionId => "questionIds=" + questionId).join("&");
+                console.log(queryString);
+
+                var examData = $('#examForm').serialize(); 
+                console.log(examData);
+                    $.ajax({
+                    type: "POST",
+                        url: "/Admin/DeThi/AddExamWithQuestions" ,
+                    //data: {
+                    //    exam: examData,
+                    //    questionIds: checkedValues
+                    //},
+                        data: examData + "&" + queryString,
+                    success: function (re) {
+                        alert("Theem Thanh Cong");
+                        },
+                         error: function (error) {
+                            console.error(error);
+                        }
+                });
+
+
+
+
+            });
+
+
+            //$('#submitcl').click(function () {
+            //    var data = $('#examForm').serialize();
+            //    $.ajax({
+            //        type: "POST",
+            //        url: "/Admin/DeThi/AddExamWithQuestions",
+            //        data: data,
+            //        success: function (re) {
+                       
+            //        }
+            //    })
+
+            //});
+        });
+            
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+}

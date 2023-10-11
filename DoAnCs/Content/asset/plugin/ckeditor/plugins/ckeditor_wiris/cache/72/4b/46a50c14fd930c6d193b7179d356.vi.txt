@@ -1,0 +1,1 @@
+{"result":{"text":"bevelled fraction numerator 3 over denominator 5 space plus space open vertical bar 34 close vertical bar end fraction"},"status":"ok"}
