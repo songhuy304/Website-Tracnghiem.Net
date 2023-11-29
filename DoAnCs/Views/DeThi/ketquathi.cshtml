@@ -1,0 +1,215 @@
+﻿
+@model List<DoAnCs.Models.Viewmodel.QuestionAnswer>
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="~/Content/asset/styles/KetQua.css" rel="stylesheet" />
+    <link href="~/Content/asset/styles/formthi.css" rel="stylesheet" />
+</head>
+
+
+<body>
+
+        @if (Model != null)
+        {
+
+
+
+
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card shadow text-center" id="cardketqua">
+                            <div class="card-body">
+                                <h4 style="color:red" class="card-title font-weight-bold">Kết Quả</h4>
+                                <p class="card-text  font-weight-bold text-success">Điểm Số :<span>@ViewBag.score </span> </p>
+                                <p class="card-text  font-weight-bold text-success">Số Câu Đúng : <span id="socaudung"> </span> </p>
+                                <p class="card-text  font-weight-bold text-success">Thời gian Làm :  @ViewBag.Time </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card shadow text-center" id="cardtendethi">
+                            <div class="card-body">
+                                <h3 style="color:red" class="card-title">@ViewBag.TenBaiThi</h3>
+                              
+                                    <p class="card-text  font-weight-bold">Số Câu:@ViewBag.SocauHoiKetQua </p>
+                                    <p class="card-text  font-weight-bold">Thời gian:@ViewBag.ThoiGian </p>
+                               
+                              
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="vl">
+                <div id="result">
+
+                </div>
+                <div class="container formthi" style="padding-top:50px">
+
+
+                    @{ var questionNumber = 1;
+                        var countcauhoi = 0;
+                        int trueCount = 0;
+                        int lastQuestionNumber = 0; // Khởi tạo biến tạm thời để lưu trữ giá trị cuối cùng
+
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="card shadow p-3 mb-2" id="cardcauhoiformthi">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Câu @item.QuestionNumber</h5>
+                                        @*<p class="card-text">Độ Khó </p>*@
+
+                                    </div>
+                                </div>
+
+                                <div class="card dungsai" id="correct_@item.QuestionNumber">
+
+
+                                    @{var s = @item.CorrectAnswerIndex == @item.UserAnswerIndex;}
+
+                                    @if (s)
+                                    {
+                                        <div style="background-color:lightgreen;border-radius:16px; height:24px;">
+                                            <p style="color:black" class="text-center"><i class="fa-solid fa-check fa-xl" style="color: #2fda90;"></i> Đúng</p>
+                                        </div>
+                                        trueCount++;
+                                    }
+                                    else
+                                    {
+                                <div style="background-color:lightcoral;;border-radius:16px; height:24px; ">
+                                    <p style="color:black" class="text-center"><i class="fa-solid fa-xmark" style="color: #f10404;"></i> Sai</p>
+                                </div>
+
+                                    }
+
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-sm-8">
+                                <div id="cardformthi" class="card p-3 mb-5">
+                                    <div style="padding: 0.25rem"  class="card-body">
+                                        <h4 id="noidungthi" class="card-title">
+
+                                            @{
+                                                if (!string.IsNullOrEmpty(item.QuestionContent))
+                                                {
+
+                                                    var images = Regex.Matches(item.QuestionContent, @"<img.*?>");
+
+
+                                                    foreach (Match image in images)
+                                                    {
+                                                        var newImage = Regex.Replace(image.Value, "(width|height)=\".*?\"", "");
+                                                        newImage = newImage.Replace("<img", "<img style=\"width: 300px; height: 200px;\"");
+                                                        item.QuestionContent = item.QuestionContent.Replace(image.Value, newImage);
+                                                    }
+                                                }
+                                            }
+
+                                            @Html.Raw(HttpUtility.HtmlDecode(item.QuestionContent.Trim()))
+                                        </h4>
+                                        @{
+                                            int correctAnswerIndex = item.CorrectAnswerIndex;
+                                            int userAnswerIndex = item.UserAnswerIndex;
+                                        }
+                                        @if (item.Choices != null)
+                                        {
+                                            for (int i = 0; i < item.Choices.Count; i++)
+                                            {
+                                                var choice = item.Choices[i];
+
+
+                                                if (i == correctAnswerIndex)
+                                                {
+                                                    <div class=" form-control mb-2 hienthidapan" style="background-color:lightgreen" data-id="@i" name="@choice">
+                                                        @Html.Raw(item.Choices[i])
+                                                    </div>
+                                                }
+                                                else if (i == userAnswerIndex && i == correctAnswerIndex)
+                                                {
+                                                    <div class="form-control mb-2 hienthidapan" style="background-color:lightgreen" data-id="@i" name="@choice">
+                                                        @Html.Raw(item.Choices[i])
+
+                                                    </div>
+                                                }
+                                                else if (i == userAnswerIndex)
+                                                {
+                                                    <div class="form-control mb-2 hienthidapan" style="background-color:lightcoral" data-id="@i" name="@choice">
+                                                        @Html.Raw(item.Choices[i])
+
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="form-control mb-2 hienthidapan"  data-id="@i" name="@choice">
+                                                        @Html.Raw(item.Choices[i])
+
+                                                    </div>
+
+                                                }
+                                             
+                                            }
+                                        }
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        countcauhoi++;
+                        questionNumber++;
+                        lastQuestionNumber = item.QuestionNumber;
+
+                    }
+                    <h3 hidden id="truecount">@trueCount</h3>
+                    <h3 hidden id="lastQuestionNumber">@lastQuestionNumber</h3>
+                    <br>
+                </div>
+            </div>
+
+
+
+        }
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="~/Content/asset/js/custom.js"></script>
+    @section scripts{
+        <script>
+            var s = document.getElementById("truecount").textContent;
+            var socaudung = document.getElementById("socaudung");
+            socaudung.innerHTML = s;
+        </script>
+        
+        }
+    
+
+</body>
+</html>
+
+

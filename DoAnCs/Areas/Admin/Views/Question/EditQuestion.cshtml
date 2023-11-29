@@ -1,0 +1,156 @@
+﻿@model DoAnCs.Models.Viewmodel.QuestionViewModel
+
+
+
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+@section naviheader{
+    <h1>Quản Lý Câu Hỏi</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Câu Hỏi</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Chỉnh Sửa Đề Thi</a>
+        </li>
+    </ul>
+
+
+}<div class="order">
+    <div class="head">
+        <i class="bx bx-search"></i>
+        <i class="bx bx-filter"></i>
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("EditQuestion", "Question", FormMethod.Post, new { }))
+
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        @Html.HiddenFor(x => x.Question.IdQuestion)
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-primary">Câu Hỏi</label>
+                                @Html.TextAreaFor(x => x.Question.Contentt, new { @class = "form-control", @id = "inputContentt" })
+                                @*<textarea class="form-control" name="Question.Contentt" id="inputContentt"></textarea>*@
+
+
+                            </div>
+                            <hr />
+                            <h3>Đáp Án Câu Hỏi</h3>
+                            <div id="dapan">
+                                @for (var i = 0; i < Model.SubjectItems.Count; i++)
+                                {
+                                    <div class="row">
+                                        <label for="exampleInputEmail1">Đáp Án:@i</label>
+                                        <div class="col-md-8">
+
+                                            <div class="form-group">
+
+                                                <textarea class="form-control inpContent" name="SubjectItems[@i].Content" id="inputContentt2-@i">@Model.SubjectItems[i].Content</textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-check">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(x => x.SubjectItems[i].Trueis)
+                                                    @Html.ValidationMessageFor(x => x.SubjectItems[i].Trueis, "", new { @class = "text-danger" })
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                }
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <a href="/admin/DeThi" class="btn btn-danger">Quay Lại</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            
+
+
+
+            var editorConfig = {
+                removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+            };
+            function initCKEditor() {
+                document.querySelectorAll('.inpContent').forEach((element) => {
+                    CKEDITOR.replace(element, editorConfig);
+                });
+            }
+            initCKEditor();
+
+            CKEDITOR.replace('inputContentt', {
+                removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord'
+            });
+            CKEDITOR.replace('inputContentt2', {
+                removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+
+            });
+            function BrowseServer() {
+                var finder = new CKFinder();
+                finder.selectActionFunction = URlHinhAnh;
+                finder.popup();
+            }
+            function URlHinhAnh(url) {
+                $("input[name=HinhAnh]").val(url);
+            }
+
+        });
+
+    </script>
+
+}
+
+
+
+

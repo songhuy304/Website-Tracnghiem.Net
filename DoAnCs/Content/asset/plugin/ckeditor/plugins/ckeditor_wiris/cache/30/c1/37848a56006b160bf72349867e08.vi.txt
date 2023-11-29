@@ -1,0 +1,1 @@
+{"result":{"text":"fraction numerator e to the power of x minus 1 over denominator x end fraction"},"status":"ok"}

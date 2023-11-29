@@ -1,0 +1,1 @@
+{"result":{"text":"x to the power of negative square root of 2 end exponent"},"status":"ok"}

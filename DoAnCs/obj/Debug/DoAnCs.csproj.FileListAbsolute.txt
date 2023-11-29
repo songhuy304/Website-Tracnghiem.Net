@@ -1,0 +1,1140 @@
+D:\doan\doancs27\DoAnCs\bin\DoAnCs.dll.config
+D:\doan\doancs27\DoAnCs\bin\DoAnCs.dll
+D:\doan\doancs27\DoAnCs\bin\DoAnCs.pdb
+D:\doan\doancs27\DoAnCs\bin\roslyn\csc.exe
+D:\doan\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+D:\doan\doancs27\DoAnCs\bin\roslyn\csc.rsp
+D:\doan\doancs27\DoAnCs\bin\roslyn\csi.exe
+D:\doan\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+D:\doan\doancs27\DoAnCs\bin\roslyn\csi.rsp
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\doan\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\doan\doancs27\DoAnCs\bin\roslyn\vbc.exe
+D:\doan\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+D:\doan\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+D:\doan\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+D:\doan\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+D:\doan\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+D:\doan\doancs27\DoAnCs\bin\EntityFramework.dll
+D:\doan\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+D:\doan\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+D:\doan\doancs27\DoAnCs\bin\Owin.dll
+D:\doan\doancs27\DoAnCs\bin\PagedList.dll
+D:\doan\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.Razor.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+D:\doan\doancs27\DoAnCs\bin\WebGrease.dll
+D:\doan\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\doan\doancs27\DoAnCs\bin\PagedList.xml
+D:\doan\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.Razor.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+D:\doan\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+D:\doan\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+D:\doan\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+D:\doan\doancs27\DoAnCs\bin\EntityFramework.xml
+D:\doan\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\doan\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+D:\doan\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+D:\doan\doancs27\DoAnCs\bin\CKFinder.dll
+D:\doan\doancs27\DoAnCs\bin\CKFinder.pdb
+E:\DoAnCs\doancs27\DoAnCs\bin\DoAnCs.dll.config
+E:\DoAnCs\doancs27\DoAnCs\bin\DoAnCs.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\DoAnCs.pdb
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csc.exe
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csc.rsp
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csi.exe
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\csi.rsp
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\vbc.exe
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+E:\DoAnCs\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAnCs\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\EntityFramework.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Owin.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\PagedList.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Razor.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\WebGrease.dll
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\PagedList.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.Razor.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+E:\DoAnCs\doancs27\DoAnCs\bin\EntityFramework.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\DoAnCs\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+E:\DoAnCs\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+D:\doan\doancs27\DoAnCs\bin\WIRIScommon.dll
+D:\doan\doancs27\DoAnCs\bin\WIRISplugin.dll
+E:\doancs27\DoAnCs\bin\DoAnCs.dll.config
+E:\doancs27\DoAnCs\bin\DoAnCs.dll
+E:\doancs27\DoAnCs\bin\DoAnCs.pdb
+E:\doancs27\DoAnCs\bin\roslyn\csc.exe
+E:\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+E:\doancs27\DoAnCs\bin\roslyn\csc.rsp
+E:\doancs27\DoAnCs\bin\roslyn\csi.exe
+E:\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+E:\doancs27\DoAnCs\bin\roslyn\csi.rsp
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+E:\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\doancs27\DoAnCs\bin\roslyn\vbc.exe
+E:\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+E:\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+E:\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+E:\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+E:\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+E:\doancs27\DoAnCs\bin\EntityFramework.dll
+E:\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+E:\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+E:\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+E:\doancs27\DoAnCs\bin\Owin.dll
+E:\doancs27\DoAnCs\bin\PagedList.dll
+E:\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+E:\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+E:\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+E:\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+E:\doancs27\DoAnCs\bin\System.Web.Razor.dll
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+E:\doancs27\DoAnCs\bin\WebGrease.dll
+E:\doancs27\DoAnCs\bin\WIRIScommon.dll
+E:\doancs27\DoAnCs\bin\WIRISplugin.dll
+E:\doancs27\DoAnCs\bin\CKFinder.pdb
+E:\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\doancs27\DoAnCs\bin\PagedList.xml
+E:\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+E:\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+E:\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+E:\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+E:\doancs27\DoAnCs\bin\System.Web.Razor.xml
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+E:\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+E:\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+E:\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+E:\doancs27\DoAnCs\bin\EntityFramework.xml
+E:\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+E:\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+E:\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+E:\doancs27\DoAnCs\bin\GemBox.Document.dll
+E:\doancs27\DoAnCs\bin\GemBox.Document.xml
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+E:\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll.config
+E:\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.pdb
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.rsp
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.rsp
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+E:\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\GemBox.Document.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Owin.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\WebGrease.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\WIRIScommon.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\WIRISplugin.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\GemBox.Document.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+E:\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.Interfaces.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.System.Drawing.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.xml
+E:\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll.config
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.pdb
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.rsp
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.rsp
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.Interfaces.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.System.Drawing.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\GemBox.Document.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Owin.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\WebGrease.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\WIRIScommon.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\WIRISplugin.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EPPlus.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\GemBox.Document.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+D:\DoAnCN\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll.config
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.rsp
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.rsp
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Owin.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WebGrease.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WIRIScommon.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WIRISplugin.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Linq.Dynamic.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.dll
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.xml
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.pdb
+E:\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll.config
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.rsp
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.rsp
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Owin.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Linq.Dynamic.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WebGrease.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WIRIScommon.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\WIRISplugin.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.ComponentModel.Annotations.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.dll
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.xml
+D:\DoAnCN\DoAnCS\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll.config
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\DoAnCs.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.exe.config
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csc.rsp
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.exe.config
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\csi.rsp
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Managed.Core.targets
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.AppContext.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Collections.Immutable.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Console.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Globalization.Calendars.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Http.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Net.Sockets.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Reflection.Metadata.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.ValueTuple.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XmlDocument.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.exe.config
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\vbc.rsp
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\roslyn\VBCSCompiler.exe.config
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Crypto.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Owin.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.ComponentModel.Annotations.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Linq.Dynamic.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\WebGrease.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\WIRIScommon.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\WIRISplugin.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\BouncyCastle.Cryptography.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OOXML.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXml4Net.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.OpenXmlFormats.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Optimization.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Razor.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Deployment.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.WebPages.Razor.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Antlr3.Runtime.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\EntityFramework.SqlServer.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.Migrations.upde1.resources
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.GenerateResource.cache
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompileInputs.cache
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb

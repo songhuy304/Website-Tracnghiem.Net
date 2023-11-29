@@ -1,0 +1,13 @@
+﻿body {
+}
+#employeeTable img {
+    width: 120px; /* Đặt chiều rộng ảnh */
+    height: 120px; /* Đặt chiều cao ảnh */
+}
+.first-column {
+    width: 10px; /* Đặt kích thước mong muốn, ví dụ 100px */
+}
+
+#employeeTable tbody{
+    height:200px;
+}

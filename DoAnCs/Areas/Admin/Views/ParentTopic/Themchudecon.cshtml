@@ -1,0 +1,31 @@
+﻿<div class="modal fade" id="chudecon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Chủ Đề phụ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="message-text" class="col-form-label text-success">Chủ Đề Chính</label>
+                    <select class="form-control" id="chudecon-select">
+                        @foreach (var item in ViewBag.IdParent)
+                        {
+                            <option data-id="@item.Value" value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                    <label for="message-text" class="col-form-label">Tên Chủ Đề phụ:</label>
+
+                    <div class="form-group">
+                        <input type="text" name="chudecon" class="form-control" id="txtchudecon" value="" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnthemchudecon" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>

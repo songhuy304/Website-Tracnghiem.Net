@@ -1,0 +1,1 @@
+{"result":{"text":"fourth root of 5 space plus space 4 subscript 2"},"status":"ok"}

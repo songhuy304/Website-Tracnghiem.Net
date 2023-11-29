@@ -1,0 +1,166 @@
+﻿@model IEnumerable<DoAnCs.Models.ParentTopic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+}
+
+@section naviheader{
+    <h1>Quản Lý Đề Thi</h1>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+            <a class="active" href="#">Quản Lý Đề Thi</a>
+        </li>
+    </ul>
+
+
+}
+
+
+<div class="order">
+    <div class="head">
+        <button id="themchudechinh" class="btn btn-primary">Thêm Chủ Đề Chính</button>
+        <button id="themchudephu" class="btn btn-primary">Thêm Chủ Đề phụ</button>
+
+
+    </div>
+    <select id="IdParent" name="IdParent">
+        <optgroup label="Kinh Tế">
+            <option value="kinh_te">Kinh Tế</option>
+            <option value="kinh_te_1" class="kinh_te_option">- Kinh Tế 1</option>
+            <option value="kinh_te_2" class="kinh_te_option">- Kinh Tế 2</option>
+        </optgroup>
+        <optgroup label="Tiếng Anh">
+            <option value="tieu_anh">Tiếng Anh</option>
+            <option value="tieu_anh_1" class="tieu_anh_option">- Tiếng Anh 1</option>
+            <option value="tieu_anh_2" class="tieu_anh_option">- Tiếng Anh 2</option>
+        </optgroup>
+    </select>
+    @Html.Partial("~/Areas/Admin/Views/ParentTopic/Add.cshtml")
+    @Html.Partial("~/Areas/Admin/Views/ParentTopic/Themchudecon.cshtml")
+
+    @if (Model.Any() && Model != null)
+    {
+        var i = 1;
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Chủ Đề</th>
+                    <th scope="col">Chủ Đề con</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var parentTopic in Model)
+                {
+
+                    <tr>
+                        <td>@i</td>
+                        <td>@parentTopic.NameParTopic <p class="text-success">(có : @(parentTopic.Topics.Count()) chủ đề)</p> </td>
+                        <td class="topics-column">
+                            @foreach (var topic in parentTopic.Topics)
+                            {
+                                <div class="topic-cell">
+                                    <span class="d-inline">@topic.NameTopic</span>
+                                    <p class="text-success d-inline ml-2">(Có : @(topic.Questions.Count()) câu hỏi)</p>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            </tbody>
+        </table>
+
+    }
+
+
+
+</div>
+
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#themchudechinh').click(function () {
+                $('#modalchudecha').modal('show');
+            });
+
+            $('#themchudephu').click(function () {
+                $('#chudecon').modal('show');
+            });
+            $('.close').click(function () {
+                $('#chudecon').modal('hide');
+                $('#modalchudecha').modal('hide');
+
+            });
+            $('#themchudecha').click(function () {
+                var content = $('#chudechinh').val();
+                var parentTopic = { NameParTopic: content };
+                $.ajax({
+                    url: "/Admin/Topic/themchude",
+                    type: "POST",
+                    data: parentTopic,
+                    success: function (result) {
+                        if (result.success) {
+                            toastr.success('Thêm Thành Công');
+                        }
+                        else {
+                            toastr.error('Thêm Thành Công');
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }); // Thêm dấu đóng ngoặc ở đây
+
+
+            $('#btnthemchudecon').click(function () {
+                var content = $('#txtchudecon').val();
+                var selectedValue = $('#chudecon-select option:selected').val(); // Lấy giá trị đã chọn từ dropdown/select box
+
+                var topic = {
+                    NameTopic: content,
+                   
+                };
+
+                var idchudecha = selectedValue; // Chú ý, nếu giá trị đã chọn là ID của chủ đề cha, hãy đảm bảo rằng nó chính xác
+
+                $.ajax({
+                    url: "/Admin/Topic/themchudecon",
+                    type: "POST",
+                    data: {
+                        topic: topic,
+                        idchudecha: idchudecha
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            toastr.success('Thêm Thành Công');
+                        }
+                        else {
+                            toastr.error('Thêm Thành Công');
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+           
+        });
+
+
+
+    </script>
+
+}

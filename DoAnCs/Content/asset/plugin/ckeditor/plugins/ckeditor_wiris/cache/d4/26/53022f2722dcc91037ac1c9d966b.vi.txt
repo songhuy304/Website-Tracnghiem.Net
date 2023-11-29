@@ -1,0 +1,1 @@
+{"result":{"text":"open parentheses x to the power of square root of 2 end exponent close parentheses squared"},"status":"ok"}

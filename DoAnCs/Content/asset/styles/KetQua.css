@@ -1,0 +1,47 @@
+﻿body {
+}
+#noidungthi p {
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+.card-text {
+    color: black;
+}
+#cardformthi {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 10px 10px lightblue;
+}
+
+#cardcauhoiformthi {
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+#cardketqua {
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+
+#cardtendethi {
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+.selected {
+    background-color: #ffcc00; /* Thay đổi màu sắc theo ý muốn */
+    color: #fff; /* Màu chữ */
+}
+.super_container {
+    background: #f4f7fe;
+}
+.hienthidapan p {
+    color:black;
+    font-size:16px;
+}
+.hienthidapan {
+    color: black;
+    font-size: 18px;
+}
+.dungsai{
+    border-radius:16px;
+}
