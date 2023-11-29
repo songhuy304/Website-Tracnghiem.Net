@@ -8,25 +8,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
 }
-
-
 <div class="order">
-   
-    
+    <input type="hidden" id="success" value="@TempData["SuccessMessage"]" />
+     <input type="hidden" id="Loi" value="@TempData["Loi"]" />
 
- 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["SuccessMessage"]
-        </div>
-    }
-    @if (TempData["Loi"] != null)
-    {
-        <div class="alert alert-danger">
-            @TempData["Loi"]
-        </div>
-    }
 
     <div class="head">
         @using (Html.BeginForm("Index", "Question", FormMethod.Get))
@@ -34,15 +19,9 @@
             @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
             <input type="submit" value="Search" class="btn btn-default" />
         }
-        @using (Html.BeginForm("UploadExcel", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken() <!-- Thêm dòng này -->
-            <div class="form-group">
-                <label for="file">Chọn tệp Excel:</label>
-                <input type="file" name="excelFile" id="file" class="form-control" />
-            </div>
-            <input type="submit" value="Tải lên" class="btn btn-primary" />
-        }
+        <button id="buttonThem" class="btn btn-success">Upfile</button>
+        @Html.Partial("~/Areas/Admin/Views/Question/updatepartiav.cshtml")
+
         <i class="bx bx-filter"></i>
         <a href="/admin/Question/savejson" class="btn btn-primary"> <i class="fa-solid fa-plus"></i></a>
     </div>
@@ -53,11 +32,12 @@
         <table>
             <thead>
                 <tr class="text-center">
-                    <th><input class="checkbox1" type="checkbox"> </th>
+                    <th><input id="checkAll" class="checkbox1" type="checkbox"> </th>
                     <th>STT</th>
                     <th>Tên Câu Hỏi</th>
-
-                    <th class="float-right"></th>
+                    <th>Chủ Đề</th>
+                    <th>Độ Khó</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +45,8 @@
                 @foreach (var item in Model)
                 {
 
-                    <tr>
+                  
+                    <tr id="row_@item.IdQuestion">
                         <td>
                             <div class="form-check">
                                 <input class="form-check-input custom-checkbox" type="checkbox" name="group1">
@@ -76,20 +57,37 @@
                         </td>
                         <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
                         <td>
+                            @if (@item.Topic.NameTopic != null)
+                            {
+                                @item.Topic.NameTopic
+                            }
+
+                        </td>
+                        <td>
+                            @if (@item.Difficult != null)
+                            {
+                                string nhanbiet = "Nhận Biết";
+                                if (item.Difficult == nhanbiet)
+                                {
+                                    <div class="rounded">
+                                        <h5><span class="badge bg-success text-white">@item.Difficult</span></h5>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="rounded">
+                                        <h5><span class="badge bg-danger text-white">@item.Difficult</span></h5>
+                                    </div>
+
+                                }
+                            }
                         </td>
 
-
-                        <td class="float-right">
-
-                            <a href="/admin/Question/edit/@item.IdQuestion"><i class="fa fa-edit"></i></a>
-                            <a href="/admin/Question/detail/@item.IdQuestion "><i class="fa fa-info"></i></a>
-
-
-
-                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/Question/delete/@item.IdQuestion'"><i class="fa fa-trash" style="color: #e60000;"></i></a>
-
-
-
+                        <td>
+                            <a href="/admin/Question/EditQuestion/@item.IdQuestion" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                            <a href="/admin/Question/Chitiet/@item.IdQuestion " class="btn btn-primary"><i class="fa fa-info"></i></a>
+                            <a href="#" class="btn btn-danger delete-button" data-id="@item.IdQuestion"><i class="fa fa-trash" style="color: white;"></i></a>
                         </td>
                     </tr>
 
@@ -110,6 +108,63 @@
 </div>
 
 @section scripts{
-  
+    <script src="~/Content/toaster/scripts/toastr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".delete-button").click(function () {
+                // Lấy giá trị "data-id" của nút "Delete" được click
+                var id = $(this).data("id");
+                if (confirm('Bạn Muốn Xóa Record này không nhỉ?')) {
+                    $.ajax({
+                        url: "/Admin/Question/Delete",
+                        type: "POST",
+                        data: { id: id },
+                        success: function (result) {
+                            if (result.success) {
+                                var rowId = "#row_" + id;
+                                $(rowId).remove();
+                                toastr.success('Xóa Thành Công');
+                            } else {
+                                toastr.error('Xóa Không Thành Công');
+                            }
+
+                        },
+                        error: function (error) {
+                            toastr.error('Xóa Không Thành Công');
+
+                            console.log(error);
+                        }
+                    });
+                }
+
+            });
+
+            $('#buttonThem').click(function () {
+                $('#exampleModalCenter').modal('show'); 
+               
+            });
+            $('.close').click(function () {
+                $('#exampleModalCenter').modal('hide');
+
+            });
+            thongbao();
+            function thongbao() {
+                if ($('#success').val()) {
+                    toastr.success("Thêm Thành Công");
+                }
+                else if ($('#Loi').val()) {
+                    toastr.error("Lỗi");
+                }
+            }
+           
+           
+            function triggerDownload() {
+                var downloadLink = document.getElementById('downloadLink');
+                downloadLink.click(); // Kích hoạt sự kiện click để tải xuống
+            }   
+        });
+    </script>
 }
 

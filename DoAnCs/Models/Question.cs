@@ -9,6 +9,7 @@
 
 namespace DoAnCs.Models
 {
+    using DoAnCs.Models.Viewmodel;
     using System;
     using System.Collections.Generic;
     
@@ -26,9 +27,14 @@ namespace DoAnCs.Models
         public string answer { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public string CreateBy { get; set; }
+        public Nullable<int> idtopic { get; set; }
         public Nullable<System.DateTime> MordifierDate { get; set; }
+        public string Difficult { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question_Exam> Question_Exam { get; set; }
+        public virtual Topic Topic { get; set; }
+        public List<SubjectItem> AnswerList { get; set; }
+
     }
 }

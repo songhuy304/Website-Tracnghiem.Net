@@ -31,11 +31,12 @@ namespace DoAnCs.Models
         public string CreateBy { get; set; }
         public Nullable<System.DateTime> ModifierDate { get; set; }
         public string MordifierBy { get; set; }
+        public string image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
+        public virtual Subject Subject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question_Exam> Question_Exam { get; set; }
-        public virtual Subject Subject { get; set; }
     }
 }

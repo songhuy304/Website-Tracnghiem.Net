@@ -1756,8 +1756,17 @@ section .dethi {
 }
 .dethii{
 	background-color:#FFFFFF;
+	margin-top: 90px; 
 }
 
-.dethii .container {
-	max-width:900px;
+/*.dethii .container {
+	max-width:940px;
+}*/
+#cardvaothi{
+	margin:17px;
 }
+	#cardvaothi img {
+		padding: 10px;
+		border-radius: 16px;
+	
+	}

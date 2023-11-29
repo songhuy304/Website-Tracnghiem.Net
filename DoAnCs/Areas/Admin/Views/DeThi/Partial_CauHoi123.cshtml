@@ -1,51 +1,42 @@
-﻿
-@model IEnumerable<DoAnCs.Models.Question>
-    @if (Model.Any() && Model != null)
-    {
-        var i = 1;
-            <thead>
-                <tr class="text-center">
-                    <th><input id="selectAllCheckbox" class="checkbox1" type="checkbox"> </th>
+﻿@model List<DoAnCs.Models.Question>
 
-                    <th>STT</th>
-                    <th>Tên Câu Hỏi</th>
+
+@if (Model.Any() && Model != null)
+{
+    var i = 1;
+    <table class="table" id="questionTable">
+        <thead>
+            <tr class="text-center">
+                <th><input id="selectAllCheckbox" class="checkbox1" type="checkbox"> </th>
+                <th>STT</th>
+                <th>Tên Câu Hỏi</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="form-check">
+                            <input class="cbkItem" type="checkbox" value="@item.IdQuestion" id="flexCheckDefault">
+                        </div>
+                    </td>
+                    <td>
+                        <p>@i</p>
+                    </td>
+                    <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
+                    <td>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <div class="form-check">
-                                <input class="cbkItem" type="checkbox" value="@item.IdQuestion" id="flexCheckDefault">
-
-                            </div>
-                        </td>
-                        <td>
-                            <p>@i</p>
-                        </td>
-                        <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
-                        <td>
-                        </td>
-                    </tr>
-
-                    i++;
-                }
-
-
-            </tbody>
-       
-      
-
-    }
-    else
-    {
-        <p>Không Có Gì</p>
-    }
-
-
-@section scripts{
-    
+                i++;
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Không Có Gì</p>
 }
 

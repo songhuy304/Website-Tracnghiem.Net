@@ -33,6 +33,8 @@
                     <th>STT</th>
                     <th>Tên Sinh Viên</th>
                     <th>Mật Khẩu</th>
+                    <th>Hoạt Động</th>
+                    <th>Online</th>
                     <th class="float-right"></th>
                 </tr>
             </thead>
@@ -47,10 +49,18 @@
                         </td>
                         <td>@item.Name</td>
                         <td>@item.Password</td>
+                        <td>
+                            @if (ViewBag.ThongTinKyThiForStudentId[item.IdStudent] != null)
+                            {
+                                <p>Đang Làm Bài Thi :@ViewBag.ThongTinKyThiForStudentId[student.IdStudent]</p>
+                            }
+                        </td>
 
-                        <td class="float-right">
-                            @*<a href="/admin/productcategory/edit/@item.IdSubject " class=" btn btn-primary">Sửa</a>
-                            <a href="#" onclick="if (confirm('are you sure') == true) location.href = '/admin/productcategory/delete/@item.IdSubject'" class=" btn btn-danger">Xóa</a>*@
+                        <td>
+                            @if (item.OnlineStd.HasValue && item.OnlineStd.Value)
+                            {
+                                <img src="~/Content/asset/css/online.png" style="width: 10px; height: auto;  ">
+                            }
                         </td>
                     </tr>
 

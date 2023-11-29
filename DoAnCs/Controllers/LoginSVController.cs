@@ -30,7 +30,8 @@ namespace DoAnCs.Controllers
             Student sv = db.Students.SingleOrDefault(n => n.Email == semail && n.Password == smatkhau);
             if (sv != null)
             {
-               
+                sv.OnlineStd = true; 
+                db.SaveChanges();
 
                 ViewBag.thongbao = "Bạn đã đăng nhập thành công";
                 Session["TaiKhoanSV"] = sv;
@@ -38,6 +39,9 @@ namespace DoAnCs.Controllers
                 Session["Email"] = sv.Email;
                 Session["Phone"] = sv.Phone;
                 Session["Addrress"] = sv.Address;
+                Session["OnlineS"] = sv.OnlineStd;
+                Session["Online"] = true;
+
                 ViewBag.thbao = ((Student)Session["TaiKhoanSV"]).Email;
                 return RedirectToAction("Index", "Home");
 
@@ -47,16 +51,29 @@ namespace DoAnCs.Controllers
         }
         public ActionResult DangXuat()
         {
+            if (Session["TaiKhoanSV"] != null)
+            {
+                Student sv = (Student)Session["TaiKhoanSV"];
+                try
+                {
+                    sv.OnlineStd = false;
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
 
-            Session.Clear(); // Xóa tất cả các session
-            Session.Abandon(); // Hủy tất cả các session
-            return RedirectToAction("Login", "LoginSV"); // Chuyển hướng đến login
+                    ViewBag.thongbao = "Bạn khong luu dc";
+                }
+                Session.Clear(); 
+                Session.Abandon(); 
+            }
+            return RedirectToAction("Login", "LoginSV"); 
         }
         public ActionResult LichSuThi(int? page)
         {
             if (Session["TaiKhoanSV"] == null)
             {
-                return RedirectToAction("Login", "Account"); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+                return RedirectToAction("Login", "Account"); 
             }
 
             var student = (Student)Session["TaiKhoanSV"];
@@ -71,5 +88,38 @@ namespace DoAnCs.Controllers
 
             return View(pagedLichSuDeThi);
         }
+        [HttpGet]
+        public ActionResult Dangky()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Dangky(Student st)
+        {
+            if (st != null)
+            {
+                
+                if (string.IsNullOrEmpty(st.Name) || string.IsNullOrEmpty(st.Email) || string.IsNullOrEmpty(st.Password) || string.IsNullOrEmpty(st.Address) || st.Phone == 0)
+                {
+                    ModelState.AddModelError("", "Vui lòng nhập đầy đủ thông tin đã cung cấp ở bên dưới.");
+                    return View(st); 
+                }
+
+                if (ModelState.IsValid)
+                {
+                    
+                    db.Students.Add(st);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Login");
+                }
+            }
+
+            ModelState.AddModelError("", "Dữ liệu không hợp lệ.");
+            return View(st); 
+        }
+
+
     }
 }

@@ -33,10 +33,13 @@ namespace DoAnCs.Models
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<Exam_Results> Exam_Results { get; set; }
         public virtual DbSet<Lecturer> Lecturers { get; set; }
+        public virtual DbSet<ParentTopic> ParentTopics { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Question_Exam> Question_Exam { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Table_1> Table_1 { get; set; }
+        public virtual DbSet<Topic> Topics { get; set; }
     }
 }

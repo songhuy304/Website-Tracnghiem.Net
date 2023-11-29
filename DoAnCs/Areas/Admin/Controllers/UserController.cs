@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -12,15 +13,22 @@ namespace DoAnCs.Areas.Admin.Controllers
 {
    
 
-    public class UserController : Controller
+    public class UserController : KtraLoginAdController
     {
         // GET: Admin/User
         private TracNghiemEntities1 db = new TracNghiemEntities1();
+        [HttpGet]
         public ActionResult Index()
-
         {
-            var item = db.Students.ToList();
-            return View(item);
+            var students = db.Students.ToList();
+            var onlines = Session["Online"];
+            var sortedStudents = students.OrderByDescending(s => s.OnlineStd).ToList();
+           
+
+            return View(sortedStudents);
         }
+        
+        
+
     }
 }

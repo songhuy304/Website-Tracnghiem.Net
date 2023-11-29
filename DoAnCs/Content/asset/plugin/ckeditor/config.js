@@ -19,7 +19,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.extraPlugins = 'youtube';
     config.youtube_responsive = true;
-
+    config.height = 100;  
     config.extraPlugins += (config.extraPlugins.length == 0 ? '' : ',') + 'ckeditor_wiris';
     config.allowedContent = true;
 };

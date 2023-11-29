@@ -591,3 +591,9 @@ body {
 		min-width: 420px;
 	}
 }
+
+
+.topic-cell {
+	border: 1px solid #ccc; /* ?? t?o ???ng vi?n gi?a các ô */
+	padding: 10px; /* Thêm padding ?? t?o kho?ng cách gi?a các ô */
+}

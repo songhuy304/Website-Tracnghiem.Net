@@ -16,14 +16,15 @@
 
     for (var i = 0; i < Model.Count; i++)
     { <div id="subjectInputs">
-            <div class="subject">
+          <div class="subject">
+         
 
-                <label for="ci_@(i)__Content">Name:</label>
-                <input type="text" name="ci[@(i)].Content" id="ci_@(i)__Content" value="@Model[i].Content" />
 
-                @*<label for="ci_@(i)__DapAnA">DapAnA:</label>
-                <textarea name="ci[@(i)].DapAnA" id="ci_@(i)__DapAnA">@Model[i].DapAnA</textarea>*@
-            </div>
+              <label for="ci_@(i)__Content">Name:</label>
+              <input type="text" name="ci[@(i)].Content" id="ci_@(i)__Content" value="@Model[i].Content" />
+
+
+          </div>
         </div>
 
     }
@@ -53,12 +54,10 @@
                 var newSubjectHtml = `
                                 <div class="subject">
 
-
+                                    <input type="hidden" name="ci[${subjectCount}].Id" id="ci_${subjectCount}__Id" value="" />
                                     <label for="ci_${subjectCount}__Content">Name:</label>
                                     <input type="text" name="ci[${subjectCount}].Content" id="ci_${subjectCount}__Content" value="" />
 
-                                    //<label for="ci_${subjectCount}__DapAnA">JSON:</label>
-                                    //<textarea name="ci[${subjectCount}].DapAnA" id="ci_${subjectCount}__DapAnA"></textarea>
                                 </div>
                                 `;
 

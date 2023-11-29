@@ -94,6 +94,12 @@ namespace DoAnCs.Controllers
        
             return RedirectToAction("Login", "Login");
         }
+        [HttpGet]
+        public ActionResult ChitietDeThi(int? id)
+        {
+            var exem = db.Exams.FirstOrDefault(x => x.IdExam == id);
+            return View(exem);
+        }
     }
 
 }

@@ -21,55 +21,81 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                            <div class="form-group">
-                                <label class="control-label col-md-2">Tên Câu Hỏi</label>
-                                <div class="col-md-10">
-                                    <textarea class="form-control" name="contenntt" id="inputContentt"></textarea>
-                                    @*@Html.ValidationMessageFor(model => model.Contentt, "", new { @class = "text-danger" })*@
-                                    @*<input type="text" id="contenntt" name="contenntt" class="form-control" />*@
-                                </div>
-                            </div>
-
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @for (int i = 0; i < Model.Count; i++)
-                            {
-
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        @Html.LabelFor(model => model[i].Content, htmlAttributes: new { @class = "col-sm-2 control-label" })
-                                        <div class="col-sm-6">
-                                            @Html.EditorFor(model => model[i].Content, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model[i].Content, "", new { @class = "text-danger" })
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="form-check">
-
-
-                                                <div class="checkbox">
-                                                    @Html.EditorFor(model => model[i].Trueis)
-                                                    @Html.ValidationMessageFor(model => model[i].Trueis, "", new { @class = "text-danger" })
-                                                </div>
-                                                
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                            }
-
-
-
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary" id="addSubjec1t">Thêm</button>
-                                <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 text-success">Tên Câu Hỏi</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="contenntt" id="inputContentt"></textarea>
                             </div>
                         </div>
+                        <div class="form-group border">
+                        <h5 class="text-success">Độ Khó</h5>
+                            <div class="form-check ml-5">
+                                <input class="form-check-input" type="radio" name="difficult" id="flexRadioDefault1" value="Nhận Biết">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Nhận Biết
+                                </label>
+                            </div>
+                            <div class="form-check ml-5">
+                                <input class="form-check-input" type="radio" name="difficult" id="flexRadioDefault2" value="Thông dụng">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Thông dụng
+                                </label>
+                            </div>
+                        </div>
+                       
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2  text-success"> Chủ Đề</label>
+                            <div class="col-md-6">
+                                <select name="IdTopic" class="form-control">
+
+                                    @foreach (var topic in (SelectList)ViewBag.IdTopic)
+                                    {
+                                        <option value="@topic.Value">@topic.Text</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </div>
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+
+
+                            <div class="form-group">
+                                <div class="row">
+
+                                    @Html.LabelFor(model => model[i].Content, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" name="[@i].Content" id="inputContentt2"></textarea>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <div class="checkbox">
+                                                @Html.EditorFor(model => model[i].Trueis)
+                                                @Html.ValidationMessageFor(model => model[i].Trueis, "", new { @class = "text-danger" })
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        }
+
+
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" id="addSubjec1t">Thêm</button>
+                            <a href="/admin/DeThi/Index" class="btn btn-danger">Quay Lại</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                     }
                 </div>
             </div>
@@ -80,7 +106,7 @@
         <div class="card-footer">
 
         </div>
-        <!-- /.card-footer-->
+
     </div>
 
 </div>
@@ -89,10 +115,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-    
-    <script>
 
-        CKEDITOR.replace("inputContentt");
+    <script>
+        var editorConfig = {
+            removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+        };
+        function initCKEditor() {
+            document.querySelectorAll('.inpContent').forEach((element) => {
+                CKEDITOR.replace(element);
+            });
+        }
+     
+
+         CKEDITOR.replace('inputContentt', {
+            removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord'
+        });
+        CKEDITOR.replace('inputContentt2', {
+            removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+
+        });
 
 
 
@@ -114,13 +155,17 @@
                 i++;
                 // Lấy tham chiếu đến phần tử input checkbox bằng cách sử dụng id của nó
                 subjectCount++;
-             
+
                 var newFormGroup = `
                 <div class="form-group">
                     <div class="row">
+
                         <label class="col-sm-2 control-label">Đáp Án</label>
                         <div class="col-sm-6">
-                              <input type="text" name="[${subjectCount}].Content" class="form-control" id="Content" value="" />
+                              @*<input type="text" name="[${subjectCount}].Content" class="form-control" id="Content" value="" />*@
+                               <textarea name="[${subjectCount}].Content" class="form-control inpContent"></textarea>
+
+
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check">
@@ -133,54 +178,16 @@
                 </div>`;
 
 
-
-                
-
                 $(".form-group:last").before(newFormGroup);
+                //CKEDITOR.replace(`[${subjectCount}].Content`);
+                CKEDITOR.replace(`[${subjectCount}].Content`, editorConfig);
+               //initCKEditor();
             });
-
-
-
-
-             @*$("#submitForm").click(function () {
-            // Prevent the default form submission
-            event.preventDefault();
-
-            // Serialize the form data
-            var formData = $("#yourFormId").serialize();
-
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("SaveJson", "Question")",
-                data: formData,
-                success: function (data) {
-                    if (data.success) {
-                        // Handle success, e.g., display a success message
-                        alert("Data successfully saved!");
-                    } else {
-                        // Handle failure, e.g., display an error message
-                        alert("Error saving data");
-                    }
-                },
-                error: function () {
-                    // Handle AJAX error
-                    alert("Error occurred during AJAX request");
-                }
-            });
-        });*@
+            initCKEditor();
 
         });
 
 
-
-
     </script>
 }
-
-
-
-
-
-
-
 

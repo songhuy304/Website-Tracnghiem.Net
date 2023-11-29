@@ -15,16 +15,23 @@
         text-align: center;
         line-height: 200px; /* Giống với chiều cao của hình tròn */
     }
-
+#noidungthi p{
+    font-size:20px;
+    font-weight:500;
+    color:black;
+}
 p {
     margin: 0; /* Loại bỏ khoảng cách mặc định của đoạn văn bản */
 }
 #cardformthi {
-    background-color: rgb(77 45 45 / 7%);
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 10px 10px lightblue;
 }
 
 #cardcauhoiformthi {
-    background-color: rgb(77 45 45 / 7%);
+    background-color: #ffffff;
+    border-radius: 16px;
 }
 .main_slider {
     margin-bottom: 200px;
@@ -72,34 +79,36 @@ body {
 
 
 .dem1 {
-    background-color: whitesmoke;
-    position: fixed;
-    top: 0px;
-    left: 610px;
-    height: 50px;
-    width: 235px;
-    border: solid 1px;
     display: flex;
-    justify-content: center;
+    position: fixed;
+    top: -2px;
+    left: 400px;
+    height: auto;
+    width: 700px;
+ 
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+  
+    border: solid 1px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 999;
 }
 
 
 
 
 .demgio{
-   
+   margin-left:20px;
 }
 .demgio label {
     font-size: 25px;
     margin-top:15px;
 }
-.demgio #countdow {
-    padding-top:15px;
-    padding-left:15px;
-    color: red;
-    font-size: 50px;
-}
+    .demgio #countdow {
+        color: black;
+        font-size: 30px;
+    }
 #question .question-container h5 p {
     color: black;
 }
@@ -120,4 +129,52 @@ body {
 .dethii .dethiiiiii span {
     color: black;
     font-weight: 700;
+}
+#cotdanhsach {
+    position: absolute;
+    top: 339px;
+    left: 1063px;
+    
+
+}
+#cotdanhsachcon {
+    border-radius: 16px;
+    background-color: #ffffff;
+}
+    #cotdanhsachcon .butoon1 {
+        margin: 5px;
+        border-radius: 9px;
+        background-color: #e7e7e7;
+        color: black;
+        width: 57px;
+        height: 29px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border:none
+    }
+        #cotdanhsachcon .butoon1:hover{
+            background-color:lightblue;
+        }
+        
+        
+        
+        .hienthidapan p {
+            margin-bottom: 0;
+            color: black;
+            font-size: 17px;
+        }
+
+.hienthidapan {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    color: black;
+}
+.super_container {
+    background: #f4f7fe;
+}
+#cotdanhsachcon .answered {
+    background-color: green; /* Thay đổi màu sắc ở đây */
+    color: white; /* Màu chữ */
 }

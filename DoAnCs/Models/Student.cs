@@ -26,6 +26,7 @@ namespace DoAnCs.Models
         public Nullable<int> Phone { get; set; }
         public string Address { get; set; }
         public string Password { get; set; }
+        public Nullable<bool> OnlineStd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }

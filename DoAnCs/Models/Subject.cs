@@ -17,8 +17,8 @@ namespace DoAnCs.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Subject()
         {
-            this.Lecturers = new HashSet<Lecturer>();
             this.Exams = new HashSet<Exam>();
+            this.Lecturers = new HashSet<Lecturer>();
         }
     
         public int IdSubject { get; set; }
@@ -27,8 +27,8 @@ namespace DoAnCs.Models
         public string HinhAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Lecturer> Lecturers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lecturer> Lecturers { get; set; }
     }
 }

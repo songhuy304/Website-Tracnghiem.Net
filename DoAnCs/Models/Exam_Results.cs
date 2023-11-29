@@ -19,6 +19,8 @@ namespace DoAnCs.Models
         public Nullable<int> IdExam { get; set; }
         public Nullable<decimal> Score { get; set; }
         public Nullable<System.DateTime> ExamDay { get; set; }
+        public string KetQuaThi { get; set; }
+        public string Time { get; set; }
     
         public virtual Exam Exam { get; set; }
         public virtual Student Student { get; set; }

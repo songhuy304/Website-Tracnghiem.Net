@@ -26,7 +26,7 @@
 <div class="order">
     <div class="head">
 
-    
+
     </div>
     <div class="card">
         <div class="card-header">
@@ -38,8 +38,9 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-
-                    <form id="examForm" method="post">
+                    @using (Html.BeginForm("AddExamWithQuestions", "DeThi", FormMethod.Post, new { id = "examForm", enctype = "multipart/form-data" }))
+                    {
+                        @*<form id="examForm" method="post" enctype="multipart/form-data">*@
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         <!-- your steps content here -->
@@ -49,19 +50,30 @@
                                 @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học", @required = "required" })
                                 @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
                             </div>
-                            <div class="form-group">
-                                <label class="text-primary">Tên Môn Học</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="text-primary">Tên Môn Học</label>
 
-                                @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
+                                        @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @*<textarea class="form-control" name="image1" id="inputContentt2"></textarea>
+                                        @Html.TextAreaFor(x => x.image, new { @class = "form-control", @id= "inputContentt" })*@
+
+                                </div>
 
                             </div>
+
                             <div class="row">
 
 
                                 <div class="col-md-4">
                                     <label class="text-primary" for="Time">Thời Gian</label>
-                                    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                                    @Html.TextBoxFor(x => x.Time, new { @class = "form-control", @type = "number", @min = 0, @max = 100 })
                                     @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
                                 </div>
                                 <div class="col-md-4">
@@ -83,33 +95,69 @@
 
                             </div>
 
+                            <h3>Lựa Chọn</h3>
 
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="radiothemcauhoi" value="option1">
 
-                            <hr />
+                                <label class="form-check-label" for="radiothemcauhoi">
+                                    Thêm câu hỏi bằng cách chọn
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="options" id="radiomatrande" value="option2">
 
-                            <h4 class="text-info">Chọn Câu Hỏi </h4>
-                            <h6 class="text-info socauchon">Số Câu Đã Chọn : <span id="socauchon">0</span></h6>
-
-                            <table class="table">
-
-                                @Html.Action("Partial_CauHoi123", "DeThi")
-
-                            </table>
-
-
-                            <div class="form-group">
-                                <a href="/admin/productcategory" class="btn btn-danger">Quay Lại</a>
-
+                                <label class="form-check-label" for="radiomatrande">
+                                    Lấy từ ma trận đề
+                                </label>
 
                             </div>
+                         
+                            <section id="matrande" style="display:none;">
+                                <div class="form-group">
+                                    @Html.DropDownList("chudecha", ViewBag.IdParent as SelectList, "--Chọn Chủ Đề --", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownList("chudecon", new SelectList(" "), htmlAttributes: new { @class = "form-control" })
+                                </div>
+
+
+                            </section>
+
+                            <section id="divthemcauhoi" style="display:none;">
+                                <h4 class="text-info">Chọn Câu Hỏi </h4>
+                                <h6 class="text-info socauchon">Số Câu Đã Chọn : <span id="socauchon">0</span></h6>
+
+
+                                <table id="employeeTable" class="display questionTable" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th class="first-column"><input id="selectAllCheckbox" class="checkbox1" type="checkbox"></th>
+                                            <th>Name</th>
+                                            <th>Topic</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Topic</th>
+
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </section>
+                            <hr />
+
+
                         </div>
 
-                </form>
 
-
-
-
-
+                        @*</form>*@
+                    }
                 </div>
             </div>
 
@@ -120,13 +168,59 @@
     </div>
 
 </div>
+<link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css" rel="stylesheet" />
 @section scripts{
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-
-
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.semanticui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
     <script>
         $(document).ready(function () {
+            var globalData;
+            checkradio();
+            $("#employeeTable").DataTable({
 
+                "ajax": {
+                    "url": "/Admin/DeThi/GetList",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    {
+                        "orderable": false,
+                        "data": "IdQuestion",
+
+                        "render": function (data, type, row) {
+                            // Thêm một checkbox vào cột đầu tiên
+                            return ' <div class="form-check"><input class="cbkItem" type="checkbox" value="' + data + '" id="flexCheckDefault"></div>';
+                        },
+                        "searchable": false, // Vô hiệu hóa chức năng tìm kiếm trên cột này
+                        "autoFill": true
+                    },
+
+                    { "data": "Contentt" },
+                    { "data": "TopicName" }
+
+                ],
+
+                "serverSide": "true",
+                "order": [0, "asc"],
+                "processing": "true",
+                "language": {
+                    "processing": "processing... please wait"
+                },
+
+            });
+            // sự kiện load lại dữ liệu vẫn dùng
+            $("#employeeTable").on("draw.dt", function () {
+                // Xử lý sự kiện khi DataTables được vẽ lại sau tìm kiếm hoặc phân trang
+                $(".cbkItem").change(function () {
+                    var checkedCheckboxes = $(".cbkItem:checked");
+                    var count = checkedCheckboxes.length;
+                    updateSelectedCount();
+                });
+            });
+            // click all checked
             $('#selectAllCheckbox').change(function () {
                 // Lấy giá trị tích hay không tích của checkbox "selectAllCheckbox"
                 var isChecked = $(this).prop('checked');
@@ -134,67 +228,176 @@
                 // Tìm tất cả các checkbox với class "cbkItem" và thiết lập giá trị tích dựa vào giá trị của "selectAllCheckbox"
                 $('.cbkItem').prop('checked', isChecked);
                 updateSelectedCount();
-            
-                $('.cbkItem').change(function () {
-                    updateSelectedCount();
-                });
-
-                function updateSelectedCount() {
-                    var selectedCount = $('.cbkItem:checked').length;
-                    $('#socauchon').text(selectedCount);
-                    $('#socauhoi1').val(selectedCount);
-                }
             });
 
-            $('#submitcl123').click(function () {
-              
+            // thay đổi số câu hỏi
+            function updateSelectedCount() {
+                var selectedCount = $('.cbkItem:checked').length;
+                $('#socauchon').text(selectedCount);
+                $('#socauhoi1').val(selectedCount);
+            }
+            // hàm lấy giá trị id câu hỏi đưa vào mảng
+            function getCheckedValues() {
                 var checkedValues = [];
                 $('.cbkItem:checked').each(function () {
                     checkedValues.push($(this).val());
                 });
+                return checkedValues;
+            }
+            //thêm bài thi cùng câu hỏi bằng ajax
 
 
-                var queryString = checkedValues.map(questionId => "questionIds=" + questionId).join("&");
-                console.log(queryString);
 
-                var examData = $('#examForm').serialize(); 
-                console.log(examData);
+
+            $('#submitcl123').click(function () {
+                var checkvalue = getCheckedValues();
+                var queryString = checkvalue.map(questionId => "questionIds=" + questionId).join("&");
+                var examData = $('#examForm').serialize(); // các trường thêm Exam
+                //trường thêm câu hỏi bằng chọn
+                if ($('#radiothemcauhoi').is(':checked')) {
                     $.ajax({
-                    type: "POST",
-                        url: "/Admin/DeThi/AddExamWithQuestions" ,
-                    //data: {
-                    //    exam: examData,
-                    //    questionIds: checkedValues
-                    //},
+                        type: "POST",
+                        url: "/Admin/DeThi/AddExamWithQuestions",
                         data: examData + "&" + queryString,
-                    success: function (re) {
-                        alert("Theem Thanh Cong");
+                        success: function (re) {
+                            if (re.success) {
+                                toastr.success('Thêm Thành Công', 'Title');
+                            } else {
+                                toastr.error('Thêm Thất bại ', 'Title');
+                            }
                         },
-                         error: function (error) {
+                        error: function (error) {
+                            toastr.error('Thêm Thất Bại', 'Title');
                             console.error(error);
                         }
-                });
+                    });
 
+                // trường Thêm câu hỏi từ ma trận
+                } else if ($('#radiomatrande').is(':checked')) {
+                    var queryString1 = globalData.map(questionId => "questionIds=" + questionId).join("&");
 
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Admin/Dethi/Themcauhoitumatran',
+                        data: examData + "&" + queryString1,
+                        success: function (response) {
+                            if (response.success) {
+                                toastr.success('Thêm Thành Công', 'Title');
+                            } else {
+                                toastr.error('Thêm Thất bại ', 'Title');
+
+                            }
+                          
+
+                        },
+                        error: function (error) {
+                            console.log('Đã xảy ra lỗi:', error);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Admin/DeThi/AddExamWithQuestions",
+                        data: examData + "&" + queryString,
+                        success: function (re) {
+                            if (re.success) {
+                                toastr.success('Thêm Thành Công', 'Title');
+                            } else {
+                                toastr.error('Thêm Thất bại ', 'Title');
+                            }
+                        },
+                        error: function (error) {
+                            toastr.error('Thêm Thất Bại', 'Title');
+                            console.error(error);
+                        }
+                    });
+                }
 
 
             });
+            //radio thêm dạng câu hỏi
+            function checkradio() {
+                $("input[name='options']").change(function () {
+                    var selectedOption = $("input[name='options']:checked").val();
+
+                    if (selectedOption === "option1") {
+                        $("#divthemcauhoi").show();
+                        $("#matrande").hide();
+                    } else {
+                        $("#matrande").show();
+                        $("#divthemcauhoi").hide();
+                    }
+                });
+            };
+            //jquery lấy Topic Con từ Topic cha
+            $('#chudecha').change(function () {
+                var idchudecha = $(this).val();
+                if (idchudecha !== '') {
+                    populateChuDeCon(idchudecha);
+
+                }
+                $.get("/Admin/Dethi/GetStateList", { TopicPrId: $("#chudecha").val() }, function (data) {
+                    $("#chudecon").empty();
+                    $.each(data, function (index, row) {
+                        $('#chudecon').append("<option value='" + row.idTopic + "'>" + row.NameTopic + " - Questions: " + "</option>");
+                    });
+                });
+            });
+            // Lấy Câu hỏi Từ MainTopic
+            function populateChuDeCon(topicId) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Admin/Dethi/Getquestionbytopic/' + topicId,
+                    dataType: 'json',
+                    success: function (data) {
+                        globalData = data;
+                    },
+                    error: function (error) {
+                        console.log('Đã xảy ra lỗi:', error);
+                    }
+                });
+            }
 
 
-            //$('#submitcl').click(function () {
-            //    var data = $('#examForm').serialize();
+            //function layquestiontuchude(data) {
+            //    // Xử lý dữ liệu ở đây, ví dụ:
+            //    var examData1 = $('#examForm').serialize(); // các trường thêm Exam
             //    $.ajax({
-            //        type: "POST",
-            //        url: "/Admin/DeThi/AddExamWithQuestions",
-            //        data: data,
-            //        success: function (re) {
-                       
+            //        type: 'POST',
+            //        url: '/Admin/Dethi/Themcauhoitumatran', // Địa chỉ action cần gửi dữ liệu đến
+            //        data: { exam: examData1, questionIds: data }, // Dữ liệu cần gửi lên máy chủ
+            //        dataType: 'json',
+            //        success: function (response) {
+            //            console.log('Kết quả từ máy chủ:', response);
+            //        },
+            //        error: function (error) {
+            //            console.log('Đã xảy ra lỗi:', error);
             //        }
-            //    })
+            //    });
 
+            //}
+            function layquestionTheoChudeCha(topicPrId) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Admin/Dethi/GetQuestionsByParentTopic/' + topicPrId,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data); // Hiển thị kết quả trong console
+                    },
+                    error: function (error) {
+                        console.log('Đã xảy ra lỗi:', error);
+                    }
+                });
+            }
+               //$('#chudecon').change(function () {
+            //    //var selectedTopicId = $(this).val();
+            //    //if (selectedTopicId !== '') {
+            //    //    populateChuDeCon(selectedTopicId);
+            //    //}
             //});
         });
-            
+
+
 
 
     </script>

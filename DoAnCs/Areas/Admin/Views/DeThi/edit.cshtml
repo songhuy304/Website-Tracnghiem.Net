@@ -27,12 +27,17 @@
 }<div class="order">
     <div class="head">
 
-        <i class="bx bx-search"></i>
-        <i class="bx bx-filter"></i>
+ 
+
+
     </div>
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Thông Tin thêm mới</h3>
+            <div class="form-group">
+                <a href="/admin/DeThi" class="btn btn-danger">Quay Lại</a>
+                <button type="submit" id="submit" class="btn btn-primary">Thêm</button>
+            </div>
         </div>
 
         <div class="card-body">
@@ -43,7 +48,7 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
-                        @Html.HiddenFor(x => x.IdExam)
+                        @Html.HiddenFor(x => x.IdExam, new { @id = "idexamne" })
 
                         <!-- your steps content here -->
                     <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
@@ -67,14 +72,19 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Số Câu Hỏi</label>
                             @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
+                           
 
                         </div>
-
-
                         <div class="form-group">
-                            <a href="/admin/DeThi" class="btn btn-danger">Quay Lại</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <label for="exampleInputEmail1">ảnh</label>
+                            <textarea class="form-control" name="image" id="inputContentt"></textarea>
+
                         </div>
+                        <hr />
+
+
+
+
                     </div>
                     }
                 </div>
@@ -90,4 +100,33 @@
     </div>
 
 </div>
+
+
+@section scripts{
+
+
+    <script>
+        
+     
+       
+
+
+        CKEDITOR.replace('inputContentt', {
+            removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+
+        });
+ 
+
+
+
+        function BrowseServer() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = URlHinhAnh;
+            finder.popup();
+        }
+        function URlHinhAnh(url) {
+            $("input[name=HinhAnh]").val(url);
+        }
+    </script>
+}
 
