@@ -95,36 +95,10 @@
 
                             </div>
 
-                            <h3>Lựa Chọn</h3>
+                          
+                            
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" id="radiothemcauhoi" value="option1">
-
-                                <label class="form-check-label" for="radiothemcauhoi">
-                                    Thêm câu hỏi bằng cách chọn
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" id="radiomatrande" value="option2">
-
-                                <label class="form-check-label" for="radiomatrande">
-                                    Lấy từ ma trận đề
-                                </label>
-
-                            </div>
-                         
-                            <section id="matrande" style="display:none;">
-                                <div class="form-group">
-                                    @Html.DropDownList("chudecha", ViewBag.IdParent as SelectList, "--Chọn Chủ Đề --", htmlAttributes: new { @class = "form-control" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.DropDownList("chudecon", new SelectList(" "), htmlAttributes: new { @class = "form-control" })
-                                </div>
-
-
-                            </section>
-
-                            <section id="divthemcauhoi" style="display:none;">
+                            <section id="divthemcauhoi">
                                 <h4 class="text-info">Chọn Câu Hỏi </h4>
                                 <h6 class="text-info socauchon">Số Câu Đã Chọn : <span id="socauchon">0</span></h6>
 
@@ -176,8 +150,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
     <script>
         $(document).ready(function () {
-            var globalData;
-            checkradio();
+          
+        
             $("#employeeTable").DataTable({
 
                 "ajax": {
@@ -254,7 +228,6 @@
                 var queryString = checkvalue.map(questionId => "questionIds=" + questionId).join("&");
                 var examData = $('#examForm').serialize(); // các trường thêm Exam
                 //trường thêm câu hỏi bằng chọn
-                if ($('#radiothemcauhoi').is(':checked')) {
                     $.ajax({
                         type: "POST",
                         url: "/Admin/DeThi/AddExamWithQuestions",
@@ -271,130 +244,8 @@
                             console.error(error);
                         }
                     });
-
-                // trường Thêm câu hỏi từ ma trận
-                } else if ($('#radiomatrande').is(':checked')) {
-                    var queryString1 = globalData.map(questionId => "questionIds=" + questionId).join("&");
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '/Admin/Dethi/Themcauhoitumatran',
-                        data: examData + "&" + queryString1,
-                        success: function (response) {
-                            if (response.success) {
-                                toastr.success('Thêm Thành Công', 'Title');
-                            } else {
-                                toastr.error('Thêm Thất bại ', 'Title');
-
-                            }
-                          
-
-                        },
-                        error: function (error) {
-                            console.log('Đã xảy ra lỗi:', error);
-                        }
-                    });
-                } else {
-                    $.ajax({
-                        type: "POST",
-                        url: "/Admin/DeThi/AddExamWithQuestions",
-                        data: examData + "&" + queryString,
-                        success: function (re) {
-                            if (re.success) {
-                                toastr.success('Thêm Thành Công', 'Title');
-                            } else {
-                                toastr.error('Thêm Thất bại ', 'Title');
-                            }
-                        },
-                        error: function (error) {
-                            toastr.error('Thêm Thất Bại', 'Title');
-                            console.error(error);
-                        }
-                    });
-                }
-
-
             });
-            //radio thêm dạng câu hỏi
-            function checkradio() {
-                $("input[name='options']").change(function () {
-                    var selectedOption = $("input[name='options']:checked").val();
-
-                    if (selectedOption === "option1") {
-                        $("#divthemcauhoi").show();
-                        $("#matrande").hide();
-                    } else {
-                        $("#matrande").show();
-                        $("#divthemcauhoi").hide();
-                    }
-                });
-            };
-            //jquery lấy Topic Con từ Topic cha
-            $('#chudecha').change(function () {
-                var idchudecha = $(this).val();
-                if (idchudecha !== '') {
-                    populateChuDeCon(idchudecha);
-
-                }
-                $.get("/Admin/Dethi/GetStateList", { TopicPrId: $("#chudecha").val() }, function (data) {
-                    $("#chudecon").empty();
-                    $.each(data, function (index, row) {
-                        $('#chudecon').append("<option value='" + row.idTopic + "'>" + row.NameTopic + " - Questions: " + "</option>");
-                    });
-                });
-            });
-            // Lấy Câu hỏi Từ MainTopic
-            function populateChuDeCon(topicId) {
-                $.ajax({
-                    type: 'GET',
-                    url: '/Admin/Dethi/Getquestionbytopic/' + topicId,
-                    dataType: 'json',
-                    success: function (data) {
-                        globalData = data;
-                    },
-                    error: function (error) {
-                        console.log('Đã xảy ra lỗi:', error);
-                    }
-                });
-            }
-
-
-            //function layquestiontuchude(data) {
-            //    // Xử lý dữ liệu ở đây, ví dụ:
-            //    var examData1 = $('#examForm').serialize(); // các trường thêm Exam
-            //    $.ajax({
-            //        type: 'POST',
-            //        url: '/Admin/Dethi/Themcauhoitumatran', // Địa chỉ action cần gửi dữ liệu đến
-            //        data: { exam: examData1, questionIds: data }, // Dữ liệu cần gửi lên máy chủ
-            //        dataType: 'json',
-            //        success: function (response) {
-            //            console.log('Kết quả từ máy chủ:', response);
-            //        },
-            //        error: function (error) {
-            //            console.log('Đã xảy ra lỗi:', error);
-            //        }
-            //    });
-
-            //}
-            function layquestionTheoChudeCha(topicPrId) {
-                $.ajax({
-                    type: 'GET',
-                    url: '/Admin/Dethi/GetQuestionsByParentTopic/' + topicPrId,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data); // Hiển thị kết quả trong console
-                    },
-                    error: function (error) {
-                        console.log('Đã xảy ra lỗi:', error);
-                    }
-                });
-            }
-               //$('#chudecon').change(function () {
-            //    //var selectedTopicId = $(this).val();
-            //    //if (selectedTopicId !== '') {
-            //    //    populateChuDeCon(selectedTopicId);
-            //    //}
-            //});
+      
         });
 
 

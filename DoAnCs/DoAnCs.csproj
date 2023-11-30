@@ -288,9 +288,6 @@
     <Reference Include="Microsoft.Owin.Security.Google">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.2.2\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
       <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.2.2\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
@@ -378,6 +375,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DeThiController.cs" />
+    <Compile Include="Controllers\Hard\PasswordHasher.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KtraLoginSVController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -464,13 +462,13 @@
     <Compile Include="Models\Viewmodel\QuestionAnswer.cs" />
     <Compile Include="Models\Viewmodel\QuestionItem.cs" />
     <Compile Include="Models\Viewmodel\QuestionList.cs" />
+    <Compile Include="Models\Viewmodel\QuestionTopic.cs" />
     <Compile Include="Models\Viewmodel\QuestionViewModel.cs" />
     <Compile Include="Models\Viewmodel\SubjectItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\1.jpg" />
     <Content Include="Content\asset\css\background6.jpg" />
     <Content Include="Content\asset\css\background7.jpg" />
     <Content Include="Content\asset\css\dangky.css" />
@@ -1512,11 +1510,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\huy.gif" />
     <Content Include="Content\Images\1sli.png" />
     <Content Include="Content\Images\2sli.png" />
     <Content Include="Content\Images\3sli.png" />
-    <Content Include="Content\Loading_icon.gif" />
     <Content Include="Content\modal.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\script.js" />
@@ -1749,8 +1745,6 @@
     <Content Include="Content\toaster\content\toastr.scss" />
     <Content Include="Content\toaster\scripts\toastr.min.js.map" />
     <Content Include="Areas\Admin\Views\Question\updatepartiav.cshtml" />
-    <Content Include="Content\Mau.docx" />
-    <Content Include="Areas\Admin\Views\DeThi\CauHoiThuocBaiThi.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\CauHoiKhongthuocBaiThi.cshtml" />
     <Content Include="Areas\Admin\Views\ParentTopic\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ParentTopic\Themchudecha.cshtml" />
@@ -1765,6 +1759,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Question\DisplayQuestion.cshtml" />
+    <Content Include="Areas\Admin\Views\DeThi\AddquestionMatran.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />

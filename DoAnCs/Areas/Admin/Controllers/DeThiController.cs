@@ -340,13 +340,15 @@ namespace DoAnCs.Areas.Admin.Controllers
         {
             ViewBag.datetimnow = DateTime.Now.ToString("yyyy-MM-dd");
             ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
-            var parentTopics = db.ParentTopics.Select(pt => new {
+            var parentTopics = db.ParentTopics.Select(pt => new
+            {
                 IdParTopic = pt.IdParTopic,
                 NameParTopic = pt.NameParTopic,
                 ChildTopicCount = pt.Topics.Count()
             }).ToList();
 
-            var parentTopicsWithCount = parentTopics.Select(pt => new {
+            var parentTopicsWithCount = parentTopics.Select(pt => new
+            {
                 IdParTopic = pt.IdParTopic,
                 NameParTopic = $"{pt.NameParTopic} ({pt.ChildTopicCount})"
             });
@@ -358,7 +360,7 @@ namespace DoAnCs.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        public ActionResult AddExamWithQuestions(Exam exam, int?[] questionIds = null  )
+        public ActionResult AddExamWithQuestions(Exam exam, int?[] questionIds = null)
         {
             if (ModelState.IsValid)
             {
@@ -416,8 +418,8 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             if (exam != null)
             {
-                exam.image = Image; 
-                db.SaveChanges(); 
+                exam.image = Image;
+                db.SaveChanges();
 
                 return Json(new { msg = "Thành công" });
             }
@@ -440,20 +442,63 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             return Json(new { success = false, msg = "Không Tìm Thấy id" });
         }
-        //public ActionResult Getquestionbytopic(int id)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var questionIds = db.Questions
-        //        .Where(x => x.idtopic == id)
-        //        .Select(x => x.IdQuestion)
-        //        .ToList();
-        //        return Json(questionIds, JsonRequestBehavior.AllowGet);
+        [HttpPost]
+        public ActionResult Getquestionsbytopics(List<QuestionTopic> ids, string nameExam, int monHoc, int thoiGian)
+        {
+            if (ids == null || ids.Count == 0 || string.IsNullOrWhiteSpace(nameExam) || monHoc <= 0 || thoiGian <= 0)
+            {
+                return Json(new { success = false, msg = "Invalid input data" });
+            }
 
-        //    }
-        //    return Json(new { success = false, msg = "Không Tìm Thấy id" });
-        //}
-     
+           
+
+            var questionIds = new List<int>();
+            foreach (var id in ids)
+            {
+                if (id.Socauhoi <= 0)
+                {
+                    continue;
+                }
+
+                var questionsForId = db.Questions
+                    .Where(q => q.idtopic == id.idTopic)
+                    .Select(q => q.IdQuestion)
+                    .Take(id.Socauhoi)
+                    .ToList();
+
+                questionIds.AddRange(questionsForId);
+            }
+
+            var exam = new Exam()
+            {
+                Exam_date = DateTime.Now,
+                ModifierDate = DateTime.Now,
+                NameExam = nameExam,
+                IdSubject = monHoc,
+                Time = thoiGian,
+                NumberQ = questionIds.Count()
+            };
+
+            db.Exams.Add(exam);
+            db.SaveChanges();
+            int examId = exam.IdExam;
+
+            foreach (var itemId in questionIds)
+            {
+                var exam_question = new Question_Exam()
+                {
+                    IdExam = examId,
+                    IdQuestion = itemId
+                };
+                db.Question_Exam.Add(exam_question);
+            }
+
+            db.SaveChanges();
+
+            return Json(new { success = true, message = "Thêm Thành Công" });
+
+           
+        }
 
         [HttpPost]
         public ActionResult Themcauhoitumatran(Exam exam, int[] questionIds)
@@ -505,6 +550,28 @@ namespace DoAnCs.Areas.Admin.Controllers
             return Json(topicsWithQuestionCount, JsonRequestBehavior.AllowGet);
         }
         // Xây Dựng Api
-     
+        [HttpGet]
+        public ActionResult AddquestionMatran()
+        {
+            ViewBag.datetimnow = DateTime.Now.ToString("yyyy-MM-dd");
+            ViewBag.IdSubject = new SelectList(db.Subjects, "IdSubject", "NameSubject");
+            var parentTopics = db.ParentTopics.Select(pt => new
+            {
+                IdParTopic = pt.IdParTopic,
+                NameParTopic = pt.NameParTopic,
+                ChildTopicCount = pt.Topics.Count()
+            }).ToList();
+
+            var parentTopicsWithCount = parentTopics.Select(pt => new
+            {
+                IdParTopic = pt.IdParTopic,
+                NameParTopic = $"{pt.NameParTopic} ({pt.ChildTopicCount})"
+            });
+
+            ViewBag.IdParent = new SelectList(parentTopicsWithCount, "IdParTopic", "NameParTopic");
+            return View();
+        }
+
+
     }
 }

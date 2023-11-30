@@ -32,7 +32,8 @@
                 <tr class="text-center">
                     <th>STT</th>
                     <th>Tên Sinh Viên</th>
-                    <th>Mật Khẩu</th>
+                    <th>Tài Khoản</th>
+                    <th>Địa Chỉ</th>
                     <th>Hoạt Động</th>
                     <th>Online</th>
                     <th class="float-right"></th>
@@ -48,13 +49,12 @@
                             <p>@i</p>
                         </td>
                         <td>@item.Name</td>
-                        <td>@item.Password</td>
+                        <td>@item.Email</td>
                         <td>
-                            @if (ViewBag.ThongTinKyThiForStudentId[item.IdStudent] != null)
-                            {
-                                <p>Đang Làm Bài Thi :@ViewBag.ThongTinKyThiForStudentId[student.IdStudent]</p>
-                            }
+                            @item.Address
                         </td>
+                        <td></td>
+
 
                         <td>
                             @if (item.OnlineStd.HasValue && item.OnlineStd.Value)

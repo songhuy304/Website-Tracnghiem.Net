@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 
 using PagedList.Mvc;
+using DoAnCs.Controllers.Hard;
+
 namespace DoAnCs.Controllers
 {
     public class LoginSVController : Controller
@@ -27,24 +29,20 @@ namespace DoAnCs.Controllers
         {
             string semail = f["txtEmail"].ToString();
             string smatkhau = f["txtMatKhau"].ToString();
-            Student sv = db.Students.SingleOrDefault(n => n.Email == semail && n.Password == smatkhau);
+            Student sv = db.Students.SingleOrDefault(n => n.Email == semail);
             if (sv != null)
             {
-                sv.OnlineStd = true; 
+                sv.OnlineStd = true;
                 db.SaveChanges();
 
                 ViewBag.thongbao = "Bạn đã đăng nhập thành công";
                 Session["TaiKhoanSV"] = sv;
                 Session["Fullname"] = sv.Name;
-                Session["Email"] = sv.Email;
-                Session["Phone"] = sv.Phone;
-                Session["Addrress"] = sv.Address;
                 Session["OnlineS"] = sv.OnlineStd;
                 Session["Online"] = true;
 
                 ViewBag.thbao = ((Student)Session["TaiKhoanSV"]).Email;
                 return RedirectToAction("Index", "Home");
-
             }
             ViewBag.thongbao = "Tên Email hoặc mật khẩu không đúng !";
             return View();
@@ -61,7 +59,6 @@ namespace DoAnCs.Controllers
                 }
                 catch (Exception ex)
                 {
-
                     ViewBag.thongbao = "Bạn khong luu dc";
                 }
                 Session.Clear(); 
@@ -108,14 +105,26 @@ namespace DoAnCs.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    
-                    db.Students.Add(st);
-                    db.SaveChanges();
 
-                    return RedirectToAction("Login");
+                    var check = db.Students.FirstOrDefault(p => p.Name == st.Name);
+                    if (check == null)
+                    {
+
+                        //st.Password = PasswordHasher.HashPassword(st.Password);
+                        db.Students.Add(st);
+                        db.SaveChanges();
+                        return RedirectToAction("Login", "LoginSV");
+
+                    }
+                    else
+                    {
+                        string message = "Tên Người Dùng Đã Tồn Tại!";
+                        string script = "alert('" + message + "');";
+                        return Content("<script type='text/javascript'>" + script + "window.location.href='/LoginSV/Dangky';</script>");
+
+                    }
                 }
             }
-
             ModelState.AddModelError("", "Dữ liệu không hợp lệ.");
             return View(st); 
         }

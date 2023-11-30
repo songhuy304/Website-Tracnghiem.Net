@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
 using DoAnCs.Models;
 using PagedList;
 using System.IO;
 using DoAnCs.Models.Viewmodel;
 using Newtonsoft.Json;
-using com.wiris.std;
-using System.Xml.Linq;
-using System.Windows.Xps.Packaging;
 using System.Linq.Dynamic;
-
 using NPOI.XWPF.UserModel;
 using NPOI.SS.Formula.Functions;
 using System.Text.RegularExpressions;
