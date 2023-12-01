@@ -1,0 +1,75 @@
+﻿@model DoAnCs.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/asset/css/Loginc.css" rel="stylesheet" />
+    <title>Dangnhap</title>
+</head>
+<body>
+    <section background-position: center; background-size: cover; >
+        <div class="form-box">
+            <div class="form-value">
+                <form method="post" action="">
+                    <h2>Login</h2>
+
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true);
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <span>Tai Khoan</span> <br />
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tài khoản" })
+                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <span>Mật Khẩu</span> <br />
+
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+
+                </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="icheck-primary">
+                                    @*<input type="checkbox" id="remember">*@
+                                    @Html.CheckBoxFor(x => x.RememberMe)
+                                    <label for="remember">
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                    }
+
+                    <div class="register">
+                        <p style="color:red"> @ViewBag.ThongBao</p>
+                        <p>Don't have a account <a href="#">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
+

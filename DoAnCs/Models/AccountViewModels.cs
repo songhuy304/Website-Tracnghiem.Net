@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace DoAnCs.Models
 {
@@ -49,9 +50,9 @@ namespace DoAnCs.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+   
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -61,9 +62,15 @@ namespace DoAnCs.Models
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
-
-    public class RegisterViewModel
+    public class CreateAccountViewModel
     {
+        [Required]
+        public string UserName { get; set; }
+     
+
+        public string Phone { get; set; }
+        public string Role { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +86,34 @@ namespace DoAnCs.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+    public class RegisterViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage = "Password must contain only letters and numbers")]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.")]
+        [Display(Name = "Fullname")]
+        public string Fullname { get; set; }
+        [Required(ErrorMessage = "PhoneNumber is required")]
+        [StringLength(11, ErrorMessage = "Số Điện thoại từ 10 - 11 số", MinimumLength = 10)]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+
     }
 
     public class ResetPasswordViewModel

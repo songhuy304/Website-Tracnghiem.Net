@@ -6,8 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using PagedList.Mvc;
-using DoAnCs.Controllers.Hard;
 
 namespace DoAnCs.Controllers
 {
@@ -59,6 +57,7 @@ namespace DoAnCs.Controllers
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine($"Processing failed: {ex.Message}");
                     ViewBag.thongbao = "Bạn khong luu dc";
                 }
                 Session.Clear(); 

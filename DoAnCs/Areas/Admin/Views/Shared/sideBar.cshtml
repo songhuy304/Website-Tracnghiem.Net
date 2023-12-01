@@ -2,6 +2,17 @@
     <i class='bx bxs-smile'></i>
 
 </a>
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        <h3 class="text-center text-primary">Xin Chào, @User.Identity.Name!</h3>
+
+    }
+    else
+    {
+        <text>Welcome, Guest!</text>
+    }
+}
 <ul class="side-menu top">
     <li class="">
         <a href="/Admin/Home">
@@ -27,7 +38,7 @@
             <span class="text">Quản Lý Đề Thi</span>
         </a>
 
-       
+
     </li>
     <li>
         <a href="/Admin/Question/Index">
@@ -42,9 +53,15 @@
         </a>
     </li>
     <li>
-        <a href="/Admin/user/index">
+        <a href="/Admin/account/index">
             <i class='bx bxs-group'></i>
             <span class="text">Quản Lý Khách Hàng</span>
+        </a>
+    </li>
+    <li>
+        <a href="/Admin/Roles/index">
+            <i class='bx bxs-group'></i>
+            <span class="text">Quản Lý Quyền</span>
         </a>
     </li>
 </ul>
@@ -56,9 +73,17 @@
         </a>
     </li>
     <li>
-        <a href="@Url.Action("DangXuat","LoginAd")" class="logout">
+        <a href="javascript:document.getElementById('logOffForm').submit()" class="nav-link">
             <i class='bx bxs-log-out-circle'></i>
-            <span class="text">Logout</span>
+            <span class="text-danger">Logout</span>
         </a>
     </li>
 </ul>
+@if (Request.IsAuthenticated)
+{
+    <div style="display:none">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
+        {
+            @Html.AntiForgeryToken()}
+    </div>}
+

@@ -9,11 +9,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoAnCs.Models.Viewmodel;
-
+using DoAnCs.Areas.Admin.Controllers.customAuthen;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class MonHocController : KtraLoginAdController
+    [CustomAuthorize(Roles = "Admin")]
+
+    public class MonHocController : Controller
     {
         TracNghiemEntities1 db = new TracNghiemEntities1();
 
@@ -38,7 +40,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             catch(Exception e)
             {
-                
+                Console.WriteLine($"Processing failed: {e.Message}");
             }
 
             return View();

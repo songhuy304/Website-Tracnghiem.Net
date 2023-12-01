@@ -13,7 +13,7 @@ namespace DoAnCs.Areas.Admin.Controllers
 {
    
 
-    public class UserController : KtraLoginAdController
+    public class UserController : Controller
     {
         // GET: Admin/User
         private TracNghiemEntities1 db = new TracNghiemEntities1();

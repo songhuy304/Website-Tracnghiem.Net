@@ -12,13 +12,11 @@ using DoAnCs.Models.Viewmodel;
 using Newtonsoft.Json;
 using System.Linq.Dynamic;
 using NPOI.XWPF.UserModel;
-using NPOI.SS.Formula.Functions;
 using System.Text.RegularExpressions;
-using System.Data.Entity.Infrastructure;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class QuestionController : KtraLoginAdController
+    public class QuestionController : Controller
     {
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 
@@ -40,7 +38,6 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 //lấy ds sản phẩm theo từ khóa
                 item = db.Questions.Where(x => x.Contentt.Contains(searchString) || searchString == null).ToList();
-
             }
             else
             {
@@ -124,7 +121,9 @@ namespace DoAnCs.Areas.Admin.Controllers
                 }
             }
             catch (Exception ex)
+
             {
+                Console.WriteLine($"Processing failed: {ex.Message}");
                 return Json(new { success = false, message = "Lỗi khi xóa câu hỏi." });
             }
         }

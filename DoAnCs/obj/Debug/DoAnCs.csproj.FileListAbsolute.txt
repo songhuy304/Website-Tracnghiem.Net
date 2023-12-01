@@ -1012,16 +1012,7 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Core.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNet.Identity.Owin.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.dll
@@ -1032,7 +1023,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebo
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Web.Infrastructure.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Newtonsoft.Json.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.dll
@@ -1046,7 +1036,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.ComponentModel.Annotations.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Linq.Dynamic.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.dll
@@ -1055,7 +1044,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.dll
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.dll
@@ -1073,16 +1061,7 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Enums.NET.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.pdb
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\ICSharpCode.SharpZipLib.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\MathNet.Numerics.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Authorization.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Connections.Abstractions.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.Http.Features.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Common.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Core.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.AspNetCore.SignalR.Protocols.Json.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Logging.Abstractions.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Options.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Extensions.Primitives.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.IO.RecyclableMemoryStream.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\NPOI.Core.pdb
@@ -1098,7 +1077,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\PagedList.Mvc.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.Fonts.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\SixLabors.ImageSharp.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Buffers.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.IO.Pipelines.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Memory.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Numerics.Vectors.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Runtime.CompilerServices.Unsafe.xml
@@ -1106,7 +1084,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.AccessControl.
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Cryptography.Xml.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Security.Principal.Windows.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Text.Encoding.CodePages.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Channels.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Threading.Tasks.Extensions.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Helpers.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\System.Web.Mvc.xml
@@ -1128,7 +1105,6 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Facebook.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Cookies.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Google.xml
-E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.Twitter.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Microsoft.Owin.Security.OAuth.xml
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.AssemblyReference.cache

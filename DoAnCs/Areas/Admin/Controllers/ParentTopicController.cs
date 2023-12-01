@@ -1,4 +1,5 @@
-﻿using DoAnCs.Models;
+﻿using DoAnCs.Areas.Admin.Controllers.customAuthen;
+using DoAnCs.Models;
 using NPOI.POIFS.Properties;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class ParentTopicController : KtraLoginAdController
+    [CustomAuthorize(Roles = "Admin")]
+
+    public class ParentTopicController : Controller
     {
         TracNghiemEntities1 db = new TracNghiemEntities1();
         // GET: Admin/BaiThi

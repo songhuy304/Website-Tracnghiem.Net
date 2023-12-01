@@ -15,10 +15,14 @@ using DoAnCs.Models.Viewmodel;
 using System.Data.Entity.Infrastructure;
 using System.Windows.Interop;
 using Org.BouncyCastle.Asn1.Crmf;
+using DoAnCs.Areas.Admin.Controllers.customAuthen;
+using System.Web.Security;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
-    public class DeThiController : KtraLoginAdController
+    [CustomAuthorize(Roles = "Admin")]
+
+    public class DeThiController : Controller
     {
         TracNghiemEntities1 db = new TracNghiemEntities1();
         // GET: Admin/BaiThi
@@ -65,9 +69,14 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 db.Exams.Attach(exem);
                 db.Entry(exem).State = System.Data.Entity.EntityState.Modified;
-                var lectured = (Lecturer)Session["TaiKhoanGV"];
+                //var lectured = (Lecturer)Session["TaiKhoanGV"];
                 exem.ModifierDate = DateTime.Now;
-                exem.MordifierBy = lectured.Name;
+                if (User.Identity.IsAuthenticated)
+                {
+                    var userName = User.Identity.Name;
+                    exem.MordifierBy = userName;
+                }
+
                 db.SaveChanges();
                 return Json(new { success = true });
             }
@@ -108,7 +117,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
 
                 TempData["warning"] = "Có lỗi xảy ra khi xóa bản ghi.";
-
+                Console.WriteLine($"Processing failed: {e.Message}");
                 return Json(new { success = false, message = "Có lỗi xảy ra khi xóa bản ghi." });
 
             }
@@ -366,8 +375,11 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 exam.Exam_date = DateTime.Now;
                 exam.ModifierDate = DateTime.Now;
-                var lectur = (Lecturer)Session["TaiKhoanGV"];
-                exam.CreateBy = lectur.Name;
+                if (User.Identity.IsAuthenticated)
+                {
+                    var userName = User.Identity.Name;
+                    exam.CreateBy = userName;
+                }
                 db.Exams.Add(exam);
                 db.SaveChanges();
                 int examId = exam.IdExam;
@@ -507,8 +519,12 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 exam.Exam_date = DateTime.Now;
                 exam.ModifierDate = DateTime.Now;
-                var lectur = (Lecturer)Session["TaiKhoanGV"];
-                exam.CreateBy = lectur.Name;
+                if (User.Identity.IsAuthenticated)
+                {
+                    var userName = User.Identity.Name;
+                    exam.CreateBy = userName;
+                }
+            
                 db.Exams.Add(exam);
                 db.SaveChanges();
                 int examId = exam.IdExam;
