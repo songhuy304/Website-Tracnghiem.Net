@@ -80,7 +80,7 @@ $(document).ready(function () {
                 },
                 error: function (error) {
                     alert(error);
-                    console.log(error);
+                    
                 }
             });
             localStorage.clear();

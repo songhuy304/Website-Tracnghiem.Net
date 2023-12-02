@@ -9,6 +9,7 @@
 
 namespace DoAnCs.Models
 {
+    using DoAnCs.Models.Viewmodel;
     using System;
     using System.Collections.Generic;
     
@@ -30,5 +31,6 @@ namespace DoAnCs.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
+
     }
 }

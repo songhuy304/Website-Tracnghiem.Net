@@ -13,9 +13,12 @@ using Newtonsoft.Json;
 using System.Linq.Dynamic;
 using NPOI.XWPF.UserModel;
 using System.Text.RegularExpressions;
+using DoAnCs.Areas.Admin.Controllers.customAuthen;
+using System.Web.Security;
 
 namespace DoAnCs.Areas.Admin.Controllers
 {
+    [CustomAuthorize(Roles = "Admin")]
     public class QuestionController : Controller
     {
         private TracNghiemEntities1 db = new TracNghiemEntities1();

@@ -17,7 +17,7 @@
         <div class="form-box">
             <div class="form-value">
                 <form method="post" action="">
-                    <h2>Login</h2>
+                    <h2>Đăng Nhập</h2>
 
                     @using (Html.BeginForm("Login", "Account", FormMethod.Post))
 
@@ -26,16 +26,14 @@
                         @Html.ValidationSummary(true);
                 <div class="inputbox">
                     <ion-icon name="mail-outline"></ion-icon>
-                    <span>Tai Khoan</span> <br />
-                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tài khoản" })
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", autocomplete = "off", @placeholder = "Tài khoản" })
                     @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
 
                 </div>
                 <div class="inputbox">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <span>Mật Khẩu</span> <br />
 
-                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", autocomplete = "off",@placeholder = "Mật khẩu" })
                     @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
                 </div>
@@ -60,7 +58,7 @@
 
                     <div class="register">
                         <p style="color:red"> @ViewBag.ThongBao</p>
-                        <p>Don't have a account <a href="#">Register</a></p>
+                      
                     </div>
                 </form>
             </div>

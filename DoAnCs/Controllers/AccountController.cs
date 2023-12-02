@@ -152,15 +152,16 @@ namespace DoAnCs.Controllers
             if (ModelState.IsValid)
             {   
                 var user = new ApplicationUser { 
-                UserName = model.Fullname, 
+                UserName = model.UserName, 
                 Email = model.Email ,
-                PhoneNumber = model.PhoneNumber
+                PhoneNumber = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    UserManager.AddToRole(user.Id, "User");
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

@@ -88,6 +88,7 @@
     <Property Name="ExamDay" Type="datetime" />
     <Property Name="KetQuaThi" Type="nvarchar(max)" />
     <Property Name="Time" Type="nvarchar" MaxLength="8" />
+    <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="Lecturer">
     <Key>

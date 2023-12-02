@@ -91,6 +91,7 @@
     <Property Name="Time" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Results_Exam1" FromRole="Exam_Results" ToRole="Exam" />
     <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Results_Student1" FromRole="Exam_Results" ToRole="Student" />
+    <Property Name="IdUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Lecturer">
     <Key>

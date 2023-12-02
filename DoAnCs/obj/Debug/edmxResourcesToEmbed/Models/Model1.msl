@@ -76,6 +76,7 @@
     <EntitySetMapping Name="Exam_Results">
       <EntityTypeMapping TypeName="TracNghiemModel.Exam_Results">
         <MappingFragment StoreEntitySet="Exam_Results">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
           <ScalarProperty Name="IdResult" ColumnName="IdResult" />
           <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
           <ScalarProperty Name="IdExam" ColumnName="IdExam" />

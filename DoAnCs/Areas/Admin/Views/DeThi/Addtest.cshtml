@@ -73,12 +73,12 @@
 
                                 <div class="col-md-4">
                                     <label class="text-primary" for="Time">Thời Gian</label>
-                                    @Html.TextBoxFor(x => x.Time, new { @class = "form-control", @type = "number", @min = 0, @max = 100 })
+                                    @Html.TextBoxFor(x => x.Time, new { @class = "form-control", @type = "number", @min = 0, @max = 100, @required = "required" })
                                     @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
                                 </div>
                                 <div class="col-md-4">
                                     <label class="text-primary" for="">Số Câu Hỏi</label>
-                                    @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control", @Value = 0, @id = "socauhoi1" })
+                                    @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control", @Value = 0, @id = "socauhoi1"  })
                                     @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
                                 </div>
                                 <div class="col-md-4">
@@ -95,8 +95,8 @@
 
                             </div>
 
-                          
-                            
+
+
 
                             <section id="divthemcauhoi">
                                 <h4 class="text-info">Chọn Câu Hỏi </h4>
@@ -142,16 +142,30 @@
     </div>
 
 </div>
-<link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css" rel="stylesheet" />
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+@*<link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css" rel="stylesheet" />*@
 @section scripts{
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <!-- jQuery (cần cho Bootstrap và Datatables) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Datatables JS -->
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+
+    @*<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.semanticui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>*@
     <script>
         $(document).ready(function () {
-          
-        
+
+
             $("#employeeTable").DataTable({
 
                 "ajax": {
@@ -228,24 +242,24 @@
                 var queryString = checkvalue.map(questionId => "questionIds=" + questionId).join("&");
                 var examData = $('#examForm').serialize(); // các trường thêm Exam
                 //trường thêm câu hỏi bằng chọn
-                    $.ajax({
-                        type: "POST",
-                        url: "/Admin/DeThi/AddExamWithQuestions",
-                        data: examData + "&" + queryString,
-                        success: function (re) {
-                            if (re.success) {
-                                toastr.success('Thêm Thành Công', 'Title');
-                            } else {
-                                toastr.error('Thêm Thất bại ', 'Title');
-                            }
-                        },
-                        error: function (error) {
-                            toastr.error('Thêm Thất Bại', 'Title');
-                            console.error(error);
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/DeThi/AddExamWithQuestions",
+                    data: examData + "&" + queryString,
+                    success: function (re) {
+                        if (re.success) {
+                            toastr.success('Thêm Thành Công', 'Title');
+                        } else {
+                            toastr.error('Thêm Thất bại ', 'Title');
                         }
-                    });
+                    },
+                    error: function (error) {
+                        toastr.error('Thêm Thất Bại', 'Title');
+                        console.error(error);
+                    }
+                });
             });
-      
+
         });
 
 

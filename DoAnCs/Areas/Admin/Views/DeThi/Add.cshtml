@@ -46,24 +46,24 @@
                     <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên Đề Thi</label>
-                            @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                            @Html.TextBoxFor(x => x.NameExam, new { @class = "form-control", @placeholder = "Tên Môn Học", @required = "required" })
                             @Html.ValidationMessageFor(x => x.NameExam, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label class="">Tên Môn Học</label>
 
-                            @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("IdSubject", null, htmlAttributes: new { @class = "form-control", @required = "required" })
                             @Html.ValidationMessageFor(model => model.IdSubject, "", new { @class = "text-danger" })
 
                         </div>
                         <div class="form-group">
                             <label for="Time">Thời Gian</label>
-                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+                            @Html.TextBoxFor(x => x.Time, new { @class = "form-control", @required = "required" })
                             @Html.ValidationMessageFor(x => x.Time, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Số Câu Hỏi</label>
-                            @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control" })
+                            @Html.TextBoxFor(x => x.NumberQ, new { @class = "form-control", @required = "required" })
                             @Html.ValidationMessageFor(x => x.NumberQ, null, new { @class = "text-danger" })
                         </div>
 

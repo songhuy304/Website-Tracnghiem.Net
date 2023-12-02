@@ -1,5 +1,7 @@
-﻿using DoAnCs.Models;
+﻿using DoAnCs.Controllers.AuthenClient;
+using DoAnCs.Models;
 using DoAnCs.Models.Viewmodel;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using PagedList;
 using System;
@@ -13,7 +15,9 @@ using System.Windows.Input;
 
 namespace DoAnCs.Controllers
 {
-    public class DeThiController : KtraLoginSVController
+
+    [ClientAuthen("User", "Admin")]
+    public class DeThiController : Controller
     {
         // GET: DeThi
         private TracNghiemEntities1 db = new TracNghiemEntities1();
@@ -35,7 +39,6 @@ namespace DoAnCs.Controllers
             {
                 //lấy ds sản phẩm theo từ khóa
                 item = db.Exams.Where(x => x.NameExam.Contains(searchString) || searchString == null).ToList();
-
             }
             else
             {
@@ -81,11 +84,7 @@ namespace DoAnCs.Controllers
                     question.AnswerList = JsonConvert.DeserializeObject<List<SubjectItem>>(question.answer);
                 }
 
-                var student = (Student)Session["TaiKhoanSV"];
-                if (student != null)
-                {
-                    Session["ThongTinKyThiCuaSinhVien"] = exam.NameExam;
-                }
+              
 
 
                 Session["cauhoi"] = questions;
@@ -109,23 +108,23 @@ namespace DoAnCs.Controllers
         {
             try
             {
-                if (socaudung == null || examResults == null || Session["bathi"] == null || Session["TaiKhoanSV"] == null)
+                if (socaudung == null || examResults == null || Session["bathi"] == null)
                 {
                     // Trả lỗi nếu thiếu thông tin cần thiết.
                     return Json(new { error = "Lỗi: Thiếu thông tin cần thiết." });
                 }
 
                 var exam = (Exam)Session["bathi"];
-                var student = (Student)Session["TaiKhoanSV"];
+                //var student = (Student)Session["TaiKhoanSV"];
 
-
+                // Lấy thời gian thi
                 TimeSpan thoigianthiStr = TimeSpan.Parse(thoigianthi);
                 TimeSpan ThoiGian = TimeSpan.FromMinutes(exam.Time);
                 TimeSpan ketQua = ThoiGian - thoigianthiStr;
 
-
+                //Tính thời gian đã thi
                 string ketQuaString = ketQua.ToString(@"hh\:mm\:ss");
-
+                // Tính Điểm 
                 double TongDiem = (double)socaudung * (100.0 / exam.NumberQ);
                 TongDiem = Math.Floor(TongDiem * 2) / 2;
                 decimal diemDecimal = Convert.ToDecimal(TongDiem);
@@ -136,11 +135,14 @@ namespace DoAnCs.Controllers
                 }
 
                 string json = JsonConvert.SerializeObject(examResults);
+                // Lấy ra id Người dùng
+                var userId = User.Identity.GetUserId();
 
                 var examResult = new Exam_Results
                 {
                     IdExam = exam.IdExam,
-                    IdStudent = student.IdStudent,
+                    //IdStudent = student.IdStudent,
+                    IdUser = userId,
                     KetQuaThi = json,
                     Score = diemDecimal,
                     Time = ketQuaString,
@@ -166,17 +168,7 @@ namespace DoAnCs.Controllers
         }
 
 
-        public ActionResult LichSuThi()
-        {
-            if (Session["TaiKhoanSV"] == null)
-            {
-                return RedirectToAction("Login", "Account"); 
-            }
-            var student = (Student)Session["TaiKhoanSV"];
-            
-            var lichsudethi  = db.Exam_Results.Where(e=> e.IdStudent == student.IdStudent).ToList();
-            return View(lichsudethi);
-        }
+       
         public ActionResult ketquathi(int? id)
             { 
                 var idn = db.Exam_Results.FirstOrDefault(x => x.IdResult == id);

@@ -19,221 +19,222 @@
 
 }
 
-<div class="modal fade" id="ThemAnh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm Mới</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="Content" id="inputContentt2"></textarea>
+    <div class="modal fade" id="ThemAnh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm Mới</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="Content" id="inputContentt2"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="buttonthemanh" class="btn btn-primary">Hoàn Thành</button>
+                <div class="modal-footer">
+                    <button type="button" id="buttonthemanh" class="btn btn-primary">Hoàn Thành</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="order">
-    <div class="head">
+    <div class="order">
+        <div class="head">
 
 
-        <a href="/admin/DeThi/Addtest" class="btn btn-primary">Thêm Đề Thi</a>
-        <a href="/admin/DeThi/AddquestionMatran" class="btn btn-primary">Thêm Đề Thi Ma trận</a>
+            <a href="/admin/DeThi/Addtest" class="btn btn-primary">Thêm Đề Thi</a>
+            <a href="/admin/DeThi/AddquestionMatran" class="btn btn-primary">Thêm Đề Thi Ma trận</a>
 
-    </div>
-    @if (Model.Any() && Model != null)
-    {
-        var i = 1;
-        <table>
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Tên Đề thi</th>
-                    <th>Thời Gian</th>
-                    <th>Số Lượng Câu Hỏi</th>
-                    <th>Môn Học</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
-                    var strCheck = item.isactive
-                     ? "<i class='fa fa-check text-success'></i>"
-                     : "<i class='fas fa-times text-danger'></i>";
-
-                    <tr id="row_@item.IdExam">
-                        <td>
-                            <p>
-                                <div class="form-check">
-                                    <input class="cbkItem1" type="checkbox" value="@item.IdExam" id="flexCheckDefault">
-
-                                </div>
-                                @i
-                            </p>
-                        </td>
-                        <td ondblclick="editItem('@item.IdExam')">@item.NameExam</td>
-                        <td>@item.Time</td>
-                        <td>@item.NumberQ</td>
-                        <td>@item.Subject.NameSubject</td>
-
-
-
-                        <td><a href="#" data-id="@item.IdExam" class="btnActive">@Html.Raw(strCheck)</a></td>
-                        <td>
-                            <a href="/admin/DeThi/edit/@item.IdExam" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="/admin/DeThi/chitiet/@item.IdExam" class="btn btn-primary"><i class="fa fa-info"></i></a>
-                            <a href="#" class="btn btn-danger delete-button" data-id="@item.IdExam"><i class="fa fa-trash" style="color: white;"></i></a>
-                        </td>
+        </div>
+        @if (Model.Any() && Model != null)
+        {
+            var i = 1;
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên Đề thi</th>
+                        <th>Thời Gian</th>
+                        <th>Số Lượng Câu Hỏi</th>
+                        <th>Môn Học</th>
+                        <th></th>
+                        <th></th>
                     </tr>
+                </thead>
+                <tbody>
 
-                    i++;
+                    @foreach (var item in Model)
+                    {
+                        var strCheck = item.isactive
+                         ? "<i class='fa fa-check text-success'></i>"
+                         : "<i class='fas fa-times text-danger'></i>";
+
+                        <tr id="row_@item.IdExam">
+                            <td>
+                                <p>
+                                    <div class="form-check">
+                                        <input class="cbkItem1" type="checkbox" value="@item.IdExam" id="flexCheckDefault">
+
+                                    </div>
+                                    @i
+                                </p>
+                            </td>
+                            <td ondblclick="editItem('@item.IdExam')">@item.NameExam</td>
+                            <td>@item.Time</td>
+                            <td>@item.NumberQ</td>
+                            <td>@item.Subject.NameSubject</td>
+
+
+
+                            <td><a href="#" data-id="@item.IdExam" class="btnActive">@Html.Raw(strCheck)</a></td>
+                            <td>
+                                <a href="/admin/DeThi/edit/@item.IdExam" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="/admin/DeThi/chitiet/@item.IdExam" class="btn btn-primary"><i class="fa fa-info"></i></a>
+                                <a href="#" class="btn btn-danger delete-button" data-id="@item.IdExam"><i class="fa fa-trash" style="color: white;"></i></a>
+                            </td>
+                        </tr>
+
+                        i++;
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>Không Có Gì</p>
+        }
+    </div>
+
+
+    @section scripts{
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                CKEDITOR.replace('inputContentt2', {
+                    removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
+
+                });
+                function BrowseServer() {
+                    var finder = new CKFinder();
+                    finder.selectActionFunction = URlHinhAnh;
+                    finder.popup();
+                }
+                function URlHinhAnh(url) {
+                    $("input[name=HinhAnh]").val(url);
                 }
 
 
+                $('body').on('click', '.btnActive', function (e) {
+                    e.preventDefault();
+                    var btn = $(this);
+                    var id = btn.data("id");
+                    // Thay đổi trạng thái của nút ngay khi người dùng click
+                    if (btn.html().includes("fa-check")) {
+                        btn.html("<i class='fas fa-times text-danger'></i>");
+                        toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
+                    } else {
+                        btn.html("<i class='fa fa-check text-success'></i>");
+                        toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
+                    }
+                    // Gửi yêu cầu đến máy chủ để cập nhật trạng thái
+                    $.ajax({
+                        url: '/admin/Dethi/Isactive',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (!rs.success) {
+                                // Nếu có lỗi, hoặc máy chủ trả về lỗi, bạn có thể hoàn ngược trạng thái của nút ở đây.
+                                if (btn.html().includes("fa-check")) {
+                                    btn.html("<i class='fas fa-times text-danger'></i>");
+                                    toastr.error('Lỗi Thay Đổi Trạng Thái', 'Title');
+                                } else {
 
-            </tbody>
-        </table>
+                                    btn.html("<i class='fa fa-check text-success'></i>");
+                                    toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
 
-    }
-    else
-    {
-        <p>Không Có Gì</p>
-    }
-</div>
-
-
-@section scripts{
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <script>
-        $(document).ready(function () {
-            CKEDITOR.replace('inputContentt2', {
-                removeButtons: 'Link,Unlink,Anchor,Form,Checkbox,Textarea,Button,ImageButton,HiddenField,TextField,SelectAll,Replace,Find,Redo,Undo,Paste,Copy,Cut,Templates,Print,Preview,Save,NewPage,Smiley,Flash,Maximize,ShowBlocks,Scayt,Indent,Outdent,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,SpecialChar,Smiley,HorizontalRule,Radio,Select,PasteText,PasteFromWord,Source,Bold,Italic,Underline,Strike,Superscript,Subscript,CopyFormatting,RemoveFormat,NumberedList,BulletedList,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Table,Styles,Format,Font,FontSize,TextColor,BGColor,About'
-
-            });
-            function BrowseServer() {
-                var finder = new CKFinder();
-                finder.selectActionFunction = URlHinhAnh;
-                finder.popup();
-            }
-            function URlHinhAnh(url) {
-                $("input[name=HinhAnh]").val(url);
-            }
-
-
-            $('body').on('click', '.btnActive', function (e) {
-                e.preventDefault();
-                var btn = $(this);
-                var id = btn.data("id");
-                // Thay đổi trạng thái của nút ngay khi người dùng click
-                if (btn.html().includes("fa-check")) {
-                    btn.html("<i class='fas fa-times text-danger'></i>");
-                    toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
-                } else {
-                    btn.html("<i class='fa fa-check text-success'></i>");
-                    toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
-                }
-                // Gửi yêu cầu đến máy chủ để cập nhật trạng thái
-                $.ajax({
-                    url: '/admin/Dethi/Isactive',
-                    type: 'POST',
-                    data: { id: id },
-                    success: function (rs) {
-                        if (!rs.success) {
-                            // Nếu có lỗi, hoặc máy chủ trả về lỗi, bạn có thể hoàn ngược trạng thái của nút ở đây.
-                            if (btn.html().includes("fa-check")) {
-                                btn.html("<i class='fas fa-times text-danger'></i>");
-                                toastr.error('Lỗi Thay Đổi Trạng Thái', 'Title');
-                            } else {
-
-                                btn.html("<i class='fa fa-check text-success'></i>");
-                                toastr.success('Thay Đổi Trạng Thái Thành Công', 'Title');
-
+                                }
                             }
                         }
+                    });
+                });
+            });
+            $('body').on('change', '#SelecAll', function () {
+                var checkStatus = this.checked;
+                var Checkbox = $(this).parents('.modal-body').find('tr td input:checkbox');
+                Checkbox.each(function () {
+                    this.checked = checkStatus;
+                    if (this.checked) {
+                        Checkbox.attr('selected', 'checked');
+                    }
+                    else {
                     }
                 });
             });
-        });
-        $('body').on('change', '#SelecAll', function () {
-            var checkStatus = this.checked;
-            var Checkbox = $(this).parents('.modal-body').find('tr td input:checkbox');
-            Checkbox.each(function () {
-                this.checked = checkStatus;
-                if (this.checked) {
-                    Checkbox.attr('selected', 'checked');
-                }
-                else {
-                }
-            });
-        });
 
-        $(".delete-button").click(function () {
-            // Lấy giá trị "data-id" của nút "Delete" được click
-            var id = $(this).data("id");
-            if (confirm('Bạn Muốn Xóa Bản Ghi này')) {
-                $.ajax({
-                    url: "/Admin/Dethi/Delete1",
-                    type: "POST",
-                    data: { id: id },
-                    success: function (result) {
-                        if (result.success) {
-                            var rowId = "#row_" + id;
-                            $(rowId).remove();
-                            toastr.success('Xóa Thành Công');
-                        } else {
+            $(".delete-button").click(function () {
+                // Lấy giá trị "data-id" của nút "Delete" được click
+                var id = $(this).data("id");
+                if (confirm('Bạn Muốn Xóa Bản Ghi này')) {
+                    $.ajax({
+                        url: "/Admin/Dethi/Delete1",
+                        type: "POST",
+                        data: { id: id },
+                        success: function (result) {
+                            if (result.success) {
+                                var rowId = "#row_" + id;
+                                $(rowId).remove();
+                                toastr.success('Xóa Thành Công');
+                            } else {
+                                toastr.error('Xóa Không Thành Công');
+                            }
+
+                        },
+                        error: function (error) {
                             toastr.error('Xóa Không Thành Công');
+
+                            console.log(error);
                         }
+                    });
+                }
 
-                    },
-                    error: function (error) {
-                        toastr.error('Xóa Không Thành Công');
+            });
 
-                        console.log(error);
-                    }
+            function editItem(itemId) {
+                $('#ThemAnh').modal('show');
+
+
+                $('#buttonthemanh').on('click', function () {
+                    var ckEditorValue = CKEDITOR.instances.inputContentt2.getData();
+
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Admin/Dethi/setAnh', // Thay đổi 'ControllerName' thành tên thực sự của Controller trong ứng dụng của bạn
+                        data: { id: itemId, Image: ckEditorValue },
+                        success: function (response) {
+
+                            $('#ThemAnh').modal('hide');
+                            toastr.success('Thêm Ảnh Thành Công', 'Title');
+
+                        },
+                        error: function (error) {
+                            console.log('Error:', error);
+                        }
+                    });
                 });
             }
 
-        });
-
-        function editItem(itemId) {
-            $('#ThemAnh').modal('show');
-
-
-            $('#buttonthemanh').on('click', function () {
-                var ckEditorValue = CKEDITOR.instances.inputContentt2.getData();
-               
-
-                
-                $.ajax({
-                    type: 'POST',
-                    url: '/Admin/Dethi/setAnh', // Thay đổi 'ControllerName' thành tên thực sự của Controller trong ứng dụng của bạn
-                    data: { id: itemId, Image: ckEditorValue },
-                    success: function (response) {
-                        
-                        $('#ThemAnh').modal('hide'); 
-                        toastr.success('Thêm Ảnh Thành Công', 'Title');
-
-                    },
-                    error: function (error) {
-                        console.log('Error:', error);
-                    }
-                });
-            });
-        }
-
-    </script>
-}
+        </script>
+    }

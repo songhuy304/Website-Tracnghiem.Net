@@ -279,7 +279,6 @@
     <Compile Include="Areas\Admin\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\topicController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cas.aspx.cs">
       <DependentUpon>cas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -341,10 +340,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthenClient\ClientAuthen.cs" />
     <Compile Include="Controllers\DeThiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KtraLoginSVController.cs" />
-    <Compile Include="Controllers\LoginSVController.cs" />
+    <Compile Include="Controllers\InforController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1690,7 +1689,6 @@
     <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\package.json" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\README.md" />
     <Content Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\VERSION" />
-    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Question\Partial_SanPham.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\Partial_CauHoi.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\Partial_CauHoi123.cshtml" />
@@ -1713,7 +1711,6 @@
     <Content Include="Areas\Admin\Views\ParentTopic\Themchudecha.cshtml" />
     <Content Include="Areas\Admin\Views\ParentTopic\Themchudecon.cshtml" />
     <Content Include="Areas\Admin\Views\ParentTopic\Add.cshtml" />
-    <Content Include="Areas\Admin\Views\User\OnlineStudents.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1778,20 +1775,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\DeThi\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\DeThi\DeThi.cshtml" />
-    <Content Include="Views\LoginSV\Login.cshtml" />
     <Content Include="Views\DeThi\LichSuThi.cshtml" />
-    <Content Include="Views\LoginSV\LichSuThi.cshtml" />
     <Content Include="Views\Menu\Partial_Mon.cshtml" />
     <Content Include="Temp\New Microsoft Word Document.docx" />
     <Content Include="Views\Account\View.cshtml" />
     <Content Include="Views\DeThi\ketquathi.cshtml" />
     <Content Include="Views\DeThi\modalconfirmThi.cshtml" />
     <Content Include="Views\Shared\Loading.cshtml" />
-    <Content Include="Views\LoginSV\Dangky.cshtml" />
+    <Content Include="Views\Infor\LichSuThi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

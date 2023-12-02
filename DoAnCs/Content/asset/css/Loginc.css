@@ -19,7 +19,7 @@ section {
 .form-box{
     position: relative;
     width: 400px;
-    height: 450px;
+    height: 100%;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 20px;

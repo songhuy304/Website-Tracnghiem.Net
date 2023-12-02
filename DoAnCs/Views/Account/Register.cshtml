@@ -1,89 +1,94 @@
 ﻿@model DoAnCs.Models.RegisterViewModel
+
 @{
-    ViewBag.Title = "Register";
     Layout = null;
 }
-<link href="~/Content/asset/css/dangky.css" rel="stylesheet" />
+
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Dangky</title>
+    <link href="~/Content/asset/css/Loginc.css" rel="stylesheet" />
+    <title>Đăng Ký Tài Khoản</title>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Registration</div>
-        <div class="content">
-            <form method="post" action="">
+    <section background-position: center; background-size: cover;>
+        <div class="form-box">
+            <div class="form-value">
+                <form method="post" action="">
+                    <h2>Đăng Ký</h2>
 
-                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 
-                {
-                    <div class="user-details">
+                    {
                         @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.ValidationSummary(true);
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="inputbox">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Tài khoản" })
+                                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
 
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="inputbox">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+                                    @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
 
-                        <div class="input-box">
-                            @Html.LabelFor(model => model.Fullname, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="inputbox">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Mật Khẩu" })
+                                    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
 
-                        <div class="input-box">
-                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-md-5">
+                                <div class="inputbox">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control", @placeholder = "Xác Nhận mật khẩu" })
+                                    @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
 
-                        <div class="input-box">
-                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
-                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-
-
-                        <div class="input-box">
-                            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="input-box">
-                            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
                             </div>
                         </div>
 
 
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "phone" })
+                            @Html.ValidationMessageFor(x => x.Phone, null, new { @class = "text-danger" })
+
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">Đăng Ký</button>
+                            </div>
+                        </div>
+
+                    }
+
+                    <div class="register">
+                        <p style="color:red"> @ViewBag.ThongBao</p>
+                        <p>Bạn Đã Có tài khoản<a href="/account/Login">Đăng Nhập</a></p>
                     </div>
-                    <div class="button">
-
-                        <input type="submit" value="Create" class="btn btn-default" />
-
-                    </div>
-
-                }
-
-                <div>
-                    @Html.ActionLink("Back to List", "Login")
-                </div>
-
-
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+
+

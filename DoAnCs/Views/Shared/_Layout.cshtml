@@ -46,22 +46,24 @@
                                 <ul class="navbar_menu">
                                     <li><a href="/Home/index">Trang Chủ</a></li>
                                     <li><a href="/DeThi/Index">Luyện Thi</a></li>
-                                    <li><a href="#">Tài Liệu </a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Infor/LichSuthi">Thông Tin</a>
+                                    </li>
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" href="/DeThi/Index" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Luyện Thi
                                         </a>
                                         @Html.Action("Partial_Mon", "Menu")
 
-               
+
                                     </li>
                                 </ul>
-                             
-                                @if (Session["TaiKhoanSV"] == null)
+
+                                @if (!User.Identity.IsAuthenticated)
                                 {
 
                                     <ul class="navbar_user">
-                                        <li><a href="@Url.Action("Login","LoginSV")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Url.Action("Login","Account")"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 
                                     </ul>
                                 }
@@ -69,16 +71,21 @@
                                 {
                                     <div class="dropdown show">
                                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @Session["FullName"]
+                                            @User.Identity.Name
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="/LoginSV/LichSuthi">Thông Tin</a>
-                                            <a class="dropdown-item" href="/loginSV/DangXuat">Đăng Xuất</a>
+                                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <button class="dropdown-item" type="submit">Logout</button>
+                                            }
                                         </div>
                                     </div>
-             
+
                                 }
+
+                                  
                                 <div class="hamburger_container">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                 </div>

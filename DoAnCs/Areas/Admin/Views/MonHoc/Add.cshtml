@@ -24,7 +24,7 @@
                         <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên Môn Học</label>
-                                @Html.TextBoxFor(x => x.NameSubject, new { @class = "form-control", @placeholder = "Tên Môn Học" })
+                                @Html.TextBoxFor(x => x.NameSubject, new { @class = "form-control", @placeholder = "Tên Môn Học", @required = "required" })
                                 @Html.ValidationMessageFor(x => x.NameSubject, null, new { @class = "text-danger" })
                             </div>
                             <div class="form-group">

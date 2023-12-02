@@ -48,7 +48,7 @@
                         <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="text-primary">Câu Hỏi</label>
-                                @Html.TextAreaFor(x => x.Question.Contentt, new { @class = "form-control", @id = "inputContentt" })
+                                @Html.TextAreaFor(x => x.Question.Contentt, new { @class = "form-control", @id = "inputContentt", @required = "required" })
                                 @*<textarea class="form-control" name="Question.Contentt" id="inputContentt"></textarea>*@
 
 
@@ -64,7 +64,7 @@
 
                                             <div class="form-group">
 
-                                                <textarea class="form-control inpContent" name="SubjectItems[@i].Content" id="inputContentt2-@i">@Model.SubjectItems[i].Content</textarea>
+                                                <textarea class="form-control inpContent" name="SubjectItems[@i].Content" required id="inputContentt2-@i">@Model.SubjectItems[i].Content</textarea>
                                             </div>
 
                                         </div>

@@ -21,6 +21,7 @@ namespace DoAnCs.Models
         public Nullable<System.DateTime> ExamDay { get; set; }
         public string KetQuaThi { get; set; }
         public string Time { get; set; }
+        public string IdUser { get; set; }
     
         public virtual Exam Exam { get; set; }
         public virtual Student Student { get; set; }

@@ -93,6 +93,7 @@
           <Property Name="ExamDay" Type="datetime" />
           <Property Name="KetQuaThi" Type="nvarchar(max)" />
           <Property Name="Time" Type="nvarchar" MaxLength="8" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="Lecturer">
           <Key>
@@ -496,6 +497,7 @@
           <Property Name="Time" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Results_Exam1" FromRole="Exam_Results" ToRole="Exam" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Results_Student1" FromRole="Exam_Results" ToRole="Student" />
+          <Property Name="IdUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Lecturer">
           <Key>
@@ -867,6 +869,7 @@
           <EntitySetMapping Name="Exam_Results">
             <EntityTypeMapping TypeName="TracNghiemModel.Exam_Results">
               <MappingFragment StoreEntitySet="Exam_Results">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="IdResult" ColumnName="IdResult" />
                 <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
                 <ScalarProperty Name="IdExam" ColumnName="IdExam" />
