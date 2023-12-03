@@ -65,6 +65,8 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -81,6 +83,7 @@
           <Property Name="ModifierDate" Type="datetime" />
           <Property Name="MordifierBy" Type="nvarchar" MaxLength="50" />
           <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="Viewcount" Type="int" />
         </EntityType>
         <EntityType Name="Exam_Results">
           <Key>
@@ -174,6 +177,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idquestion" Type="int" />
           <Property Name="idtopic" Type="int" />
+        </EntityType>
+        <EntityType Name="ThongKe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="SoTruyCap" Type="int" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -352,6 +363,7 @@
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongKe" EntityType="Self.ThongKe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -464,6 +476,8 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="FullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserRole" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -483,6 +497,7 @@
           <NavigationProperty Name="Exam_Results" Relationship="Self.FK_Exam_Results_Exam1" FromRole="Exam" ToRole="Exam_Results" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Exam_Subject1" FromRole="Exam" ToRole="Subject" />
           <NavigationProperty Name="Question_Exam" Relationship="Self.FK_Question_Exam_Exam" FromRole="Exam" ToRole="Question_Exam" />
+          <Property Name="Viewcount" Type="Int32" />
         </EntityType>
         <EntityType Name="Exam_Results">
           <Key>
@@ -787,7 +802,16 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="ThongKes" EntityType="TracNghiemModel.ThongKe" />
         </EntityContainer>
+        <EntityType Name="ThongKe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="SoTruyCap" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -834,6 +858,8 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="TracNghiemModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
@@ -852,6 +878,7 @@
           <EntitySetMapping Name="Exams">
             <EntityTypeMapping TypeName="TracNghiemModel.Exam">
               <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="Viewcount" ColumnName="Viewcount" />
                 <ScalarProperty Name="IdExam" ColumnName="IdExam" />
                 <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
                 <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
@@ -985,6 +1012,15 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="ThongKes">
+            <EntityTypeMapping TypeName="TracNghiemModel.ThongKe">
+              <MappingFragment StoreEntitySet="ThongKe">
+                <ScalarProperty Name="SoTruyCap" ColumnName="SoTruyCap" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

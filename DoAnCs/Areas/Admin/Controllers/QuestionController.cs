@@ -487,7 +487,8 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             db.Questions.AddRange(questions1);
             db.SaveChanges();
-            return RedirectToAction("index");
+            return RedirectToAction("Index", "Question");
+
 
         }
         //View Đọc File

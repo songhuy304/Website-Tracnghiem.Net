@@ -60,6 +60,8 @@
     <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserRole" Type="nvarchar" MaxLength="256" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>
@@ -76,6 +78,7 @@
     <Property Name="ModifierDate" Type="datetime" />
     <Property Name="MordifierBy" Type="nvarchar" MaxLength="50" />
     <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="Viewcount" Type="int" />
   </EntityType>
   <EntityType Name="Exam_Results">
     <Key>
@@ -169,6 +172,14 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idquestion" Type="int" />
     <Property Name="idtopic" Type="int" />
+  </EntityType>
+  <EntityType Name="ThongKe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="SoTruyCap" Type="int" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>
@@ -347,6 +358,7 @@
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongKe" EntityType="Self.ThongKe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />

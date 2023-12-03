@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             <label>Quyền</label>
-            @Html.DropDownListFor(x => x.Role, ViewBag.Role as SelectList, "- Chọn quyền -", new { @class = "form-control" })
+            @Html.DropDownListFor(x => x.Role, ViewBag.Role as SelectList, "- Chọn quyền -", new { @class = "form-control" ,@multiple = "multiple"})
             @Html.ValidationMessageFor(x => x.Role, null, new { @class = "text-danger" })
 
         </div>

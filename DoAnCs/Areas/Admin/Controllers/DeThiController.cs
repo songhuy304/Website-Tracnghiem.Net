@@ -375,6 +375,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 exam.Exam_date = DateTime.Now;
                 exam.ModifierDate = DateTime.Now;
+                exam.Viewcount = 0;
                 if (User.Identity.IsAuthenticated)
                 {
                     var userName = User.Identity.Name;
@@ -488,6 +489,7 @@ namespace DoAnCs.Areas.Admin.Controllers
                 NameExam = nameExam,
                 IdSubject = monHoc,
                 Time = thoiGian,
+                Viewcount = 0,
                 NumberQ = questionIds.Count()
             };
 
@@ -519,6 +521,7 @@ namespace DoAnCs.Areas.Admin.Controllers
             {
                 exam.Exam_date = DateTime.Now;
                 exam.ModifierDate = DateTime.Now;
+                exam.Viewcount = 0;
                 if (User.Identity.IsAuthenticated)
                 {
                     var userName = User.Identity.Name;

@@ -32,6 +32,7 @@
         <AssociationConnector Association="TracNghiemModel.FK_Question_Exam_Question" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.FK_Question_Topic" ManuallyRouted="false" />
         <AssociationConnector Association="TracNghiemModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TracNghiemModel.ThongKe" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

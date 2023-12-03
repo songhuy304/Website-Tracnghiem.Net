@@ -1114,3 +1114,5 @@ E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CoreCompil
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.csproj.CopyComplete
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.dll
 E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\obj\Debug\DoAnCs.pdb
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Dapper.dll
+E:\doancsMoiNhat\doancs27 (2)\doancs27\DoAnCs\bin\Dapper.xml

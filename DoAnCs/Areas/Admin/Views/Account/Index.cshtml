@@ -1,6 +1,6 @@
-﻿@using Microsoft.AspNet.Identity.EntityFramework
-@model IEnumerable<DoAnCs.Models.ApplicationUser>
-
+﻿@*@using Microsoft.AspNet.Identity.EntityFramework*@
+@*@model IEnumerable<DoAnCs.Models.ApplicationUser>*@
+@model List<DoAnCs.Models.Viewmodel.UserWithRolesViewModel>
 @{
     ViewBag.Title = "Danh sách Quyền";
     Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
@@ -18,7 +18,7 @@
                     <th>Tài khoản</th>
 
                     <th>Email</th>
-                    @*<th>Role</th>*@
+                    <th>Role</th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,13 +30,19 @@
                     {
                         <tr>
                             <td>@i</td>
-                            <td>@item.UserName</td>
-                           <td>@item.Email</td>
-                            @*<td>@item.Roles</td>*@
+                            <td>@item.Username</td>
+                            <td>@item.Email</td>
+                            <td>
+                                @foreach (var role in item.Roles)
+                                {
+                                    @role  <br />
+                                }
+                            </td>
+
 
                             <td>
-                                <a href="/admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
-                                <a href="#" data-user="@item.UserName" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                <a href="/admin/account/edit/@item.UserId" class="btn btn-sm btn-primary">Sửa</a>
+                                <a href="#" data-user="@item.UserId" class="btn btn-sm btn-danger btnDelete">Xóa</a>
                             </td>
                         </tr>
                         i++;

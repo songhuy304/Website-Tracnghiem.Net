@@ -8,8 +8,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-    <div id="carouselExampleControls" class="carousel slide" style="margin:80px; "  data-ride="carousel">
-        <div class="carousel-inner shadow-lg"  style="height:200px;">
+    <div id="carouselExampleControls" class="carousel slide" style="margin:80px; " data-ride="carousel">
+        <div class="carousel-inner shadow-lg" style="height:200px;">
             <div class="carousel-item active shadow-lg">
                 <img class="d-block w-100 shadow-lg" style="border-radius:16px" src="~/Content/Images/1sli.png" alt="First slide">
             </div>
@@ -30,6 +30,7 @@
         </a>
     </div>
 </div>
+
 
 @*<section class="dethii">
         <div class="container" style="display: flex; justify-content: end;">
@@ -57,6 +58,7 @@
                         <div class="card-body">
                             <strong>@item.NameExam</strong>
                             <p style="color:red;" data-id="@item.Time" class="card-text">Số Lượng Câu Hỏi:@item.NumberQ - Số Phút: @item.Time </p>
+                            <p class="card-text">Lượt Thi: @item.Viewcount </p>
                             <button style="width:100%" class="btn btn-primary chitiet" data-subject-id="@item.IdExam" data-name="@item.NameExam">Vào Thi</button>
                         </div>
 

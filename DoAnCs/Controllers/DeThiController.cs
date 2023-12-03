@@ -73,6 +73,12 @@ namespace DoAnCs.Controllers
                 {
                     return HttpNotFound();
                 }
+                if(exam != null)
+                {
+                    exam.Viewcount = exam.Viewcount + 1;
+                    db.SaveChanges();
+                }
+
                 var questionIds = db.Question_Exam.Where(mapping => mapping.IdExam == exam.IdExam).Select(mapping => mapping.IdQuestion).ToList();
                 // Sử dụng một seed ngẫu nhiên để tránh việc lặp lại kết quả ngẫu nhiên
                 var seed = Guid.NewGuid().GetHashCode();

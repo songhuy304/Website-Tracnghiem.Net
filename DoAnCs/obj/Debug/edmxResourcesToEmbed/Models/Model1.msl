@@ -41,6 +41,8 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="TracNghiemModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
@@ -59,6 +61,7 @@
     <EntitySetMapping Name="Exams">
       <EntityTypeMapping TypeName="TracNghiemModel.Exam">
         <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="Viewcount" ColumnName="Viewcount" />
           <ScalarProperty Name="IdExam" ColumnName="IdExam" />
           <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
           <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
@@ -192,5 +195,14 @@
         <ScalarProperty Name="Id" ColumnName="UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ThongKes">
+      <EntityTypeMapping TypeName="TracNghiemModel.ThongKe">
+        <MappingFragment StoreEntitySet="ThongKe">
+          <ScalarProperty Name="SoTruyCap" ColumnName="SoTruyCap" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

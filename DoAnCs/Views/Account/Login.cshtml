@@ -40,7 +40,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-4">
                                 <div class="icheck-primary">
                                     @*<input type="checkbox" id="remember">*@
                                     @Html.CheckBoxFor(x => x.RememberMe)
@@ -48,20 +48,23 @@
                                         Remember Me
                                     </label>
                                 </div>
+                              
+
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                </div>
+                                <!-- /.col -->
                             </div>
-                            <!-- /.col -->
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                            </div>
-                            <!-- /.col -->
-                        </div>
 
                     }
 
-                    <div class="register">
-                        <p style="color:red"> @ViewBag.ThongBao</p>
-                        <p>Don't have a account <a href="/Account/Register">Register</a></p>
-                    </div>
+                <div class="register">
+                    <p style="color:red"> @ViewBag.ThongBao</p>
+                    <p>Don't have a account <a href="/Account/Register">Register</a></p>
+                    <p><a href="/Account/ForgotPassword">Forget Password</a></p>
+                </div>
                 </form>
             </div>
         </div>
