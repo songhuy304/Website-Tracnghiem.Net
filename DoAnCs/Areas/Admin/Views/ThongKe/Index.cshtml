@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "";
+    Layout = "~/Areas/Admin/Views/Shared/_layout.cshtml";
+
+
+
+}
+<div class="order">
+    
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h5 class="card-title">
+                                    Bài Thi đã làm : @if (@ViewBag.ExamCountInCurrentMonth != null)
+                                    {
+                                        @ViewBag.ExamCountInCurrentMonth
+                                    }
+
+                                </h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-solid fa-folder fa-2xl" style="color: #005eff;"></i>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+              
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h5 class="card-title">
+                                    Đề Thi Mới : @if (ViewBag.DethiCountInCurrentMonth != null)
+                                    {
+                                        @ViewBag.DethiCountInCurrentMonth
+                                    }
+
+                                </h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-solid fa-clipboard fa-xl" style="color: #0056eb;"></i>
+                            </div>
+                           
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h5 class="card-title">
+                                    Sinh Viên Mới :  @if (@ViewBag.Sosinhvienthangnay != null)
+                                    {
+                                        @ViewBag.Sosinhvienthangnay
+                                    }
+
+                                </h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-solid fa-user fa-2xl" style="color: #005eff;"></i>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<!-- /.content -->

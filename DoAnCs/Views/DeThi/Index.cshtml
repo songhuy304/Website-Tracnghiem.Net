@@ -1,5 +1,7 @@
 ﻿@model PagedList.PagedList<DoAnCs.Models.Exam>
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
+
 @using PagedList.Mvc;
 @using System.Text.RegularExpressions;
 
@@ -44,35 +46,44 @@
     </section>*@
 
 <section class="dethii">
-    @if (Model != null && Model.Any())
-    {
+    <div class="row">
+        <div style="border-radius: 16px; margin-left:95px" class="col-md-2  shadow-lg">
 
-        <div class="container">
-            <h3>Đề Thi Mới Nhất</h3>
-            <div class="row">
-                @foreach (var item in Model)
-                {
-
-                    <div class="card shadow-lg" id="cardvaothi" style="width: 18rem; border-radius:16px;">
-                        @Html.Raw(item.image)
-                        <div class="card-body">
-                            <strong>@item.NameExam</strong>
-                            <p style="color:red;" data-id="@item.Time" class="card-text">Số Lượng Câu Hỏi:@item.NumberQ - Số Phút: @item.Time </p>
-                            <p class="card-text">Lượt Thi: @item.Viewcount </p>
-                            <button style="width:100%" class="btn btn-primary chitiet" data-subject-id="@item.IdExam" data-name="@item.NameExam">Vào Thi</button>
-                        </div>
-
-
-
-                    </div>
-
-
-                }
-            </div>
-            @Html.PagedListPager(Model, page => Url.Action("Index",
-               new { page, currentFilter = ViewBag.CurrentFilter }))
+            @Html.Action("PartialView_sidebar","Dethi")
         </div>
-    }
+        <div class="col-md-9">
+            @if (Model != null && Model.Any())
+            {
+
+                <div class="container">
+                    <h3>Đề Thi Mới Nhất</h3>
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="card shadow-lg" id="cardvaothi" style="width: 18rem; border-radius:16px;">
+                                @Html.Raw(item.image)
+                                <div class="card-body">
+                                    <strong>@item.NameExam</strong>
+                                    <p style="color:red;" data-id="@item.Time" class="card-text">Số Lượng Câu Hỏi:@item.NumberQ - Số Phút: @item.Time </p>
+                                    <p class="card-text">Lượt Thi: @item.Viewcount </p>
+                                    <button style="width:100%" class="btn btn-primary chitiet" data-subject-id="@item.IdExam" data-name="@item.NameExam">Vào Thi</button>
+                                </div>
+
+
+
+                            </div>
+
+
+                        }
+                    </div>
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                       new { page, currentFilter = ViewBag.CurrentFilter }))
+                </div>
+            }
+        </div>
+    </div>
+
 
 
 

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DoAnCs.Models.Subject>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/categories_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/asset/styles/categories_responsive.css">
+
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar_section">
+            <div class="sidebar_title">
+                <h5 class="mt-3"> <i class="fa-solid fa-tag"></i>tag</h5>
+            </div>
+
+            <ul class="sidebar_categories">
+                @foreach (var item in Model)
+                {
+                    <li><a  class="text-primary font-weight-bold" href="@Url.Action("Index", "DeThi", new { idSubject = item.IdSubject })">@item.NameSubject</a></li>
+
+
+                }
+            </ul>
+
+            </div>
+
+        <!-- Price Range Filtering -->
+        <!-- Color -->
+        <div class="sidebar_section">
+            <div class="sidebar_title">
+                <h5>Số Lượt truy cập</h5>
+            </div>
+            @Html.Action("Refresh", "Dethi")
+
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+

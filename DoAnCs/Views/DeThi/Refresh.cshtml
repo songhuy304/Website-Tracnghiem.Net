@@ -1,0 +1,22 @@
+﻿@model DoAnCs.Models.Viewmodel.ThongKeModel
+@if (Model != null)
+{
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Hôm Nay
+            <span class="badge badge-primary badge-pill">@Model.HomNay</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Đang online
+            <span class="badge badge-primary badge-pill">@ViewBag.Visitors_online</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Tháng Này
+            <span class="badge badge-primary badge-pill">@Model.ThangNay</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Tất cả
+            <span class="badge badge-primary badge-pill">@Model.TatCa</span>
+        </li>
+    </ul>
+}

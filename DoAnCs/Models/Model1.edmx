@@ -67,6 +67,7 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="256" />
           <Property Name="UserRole" Type="nvarchar" MaxLength="256" />
+          <Property Name="CreateDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -478,6 +479,7 @@
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
           <Property Name="FullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="UserRole" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -858,6 +860,7 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="TracNghiemModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="UserRole" ColumnName="UserRole" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

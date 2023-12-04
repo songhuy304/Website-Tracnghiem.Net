@@ -281,6 +281,7 @@
     <Compile Include="Areas\Admin\Controllers\ParentTopicController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuestionController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\topicController.cs" />
     <Compile Include="Content\asset\plugin\ckeditor\plugins\ckeditor_wiris\integration\cas.aspx.cs">
       <DependentUpon>cas.aspx</DependentUpon>
@@ -1738,6 +1739,7 @@
     <Content Include="Areas\Admin\Views\Home\Refresh.cshtml" />
     <Content Include="Content\Mau.docx" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />
@@ -1799,6 +1801,8 @@
     <Content Include="Views\Shared\Loading.cshtml" />
     <Content Include="Views\Infor\LichSuThi.cshtml" />
     <Content Include="Views\Home\Refresh.cshtml" />
+    <Content Include="Views\DeThi\PartialView_sidebar.cshtml" />
+    <Content Include="Views\DeThi\Refresh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

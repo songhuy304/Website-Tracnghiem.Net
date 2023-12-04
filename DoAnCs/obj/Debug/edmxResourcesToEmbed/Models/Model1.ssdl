@@ -62,6 +62,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="256" />
     <Property Name="UserRole" Type="nvarchar" MaxLength="256" />
+    <Property Name="CreateDate" Type="datetime" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>

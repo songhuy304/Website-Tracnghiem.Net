@@ -47,16 +47,9 @@
                                     <li><a href="/Home/index">Trang Chủ</a></li>
                                     <li><a href="/DeThi/Index">Luyện Thi</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="/Infor/LichSuthi">Thông Tin</a>
+                                        <a class="" href="/Infor/LichSuthi">Thông Tin</a>
                                     </li>
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" href="/DeThi/Index" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Luyện Thi
-                                        </a>
-                                        @Html.Action("Partial_Mon", "Menu")
-
-
-                                    </li>
+                                 
                                 </ul>
 
                                 @if (!User.Identity.IsAuthenticated)

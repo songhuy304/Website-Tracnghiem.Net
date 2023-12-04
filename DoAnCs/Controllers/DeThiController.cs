@@ -22,7 +22,7 @@ namespace DoAnCs.Controllers
         // GET: DeThi
         private TracNghiemEntities1 db = new TracNghiemEntities1();
 
-        public ActionResult Index(string currentFilter, int? page, string searchString ,int? idSubject)
+        public ActionResult Index(string currentFilter, int? page, string searchString, int? idSubject)
         {
             var item = new List<Exam>();
 
@@ -45,7 +45,7 @@ namespace DoAnCs.Controllers
 
                 item = db.Exams.ToList();
             }
-            if(idSubject != null)
+            if (idSubject != null)
             {
                 item = db.Exams.Where(x => x.IdSubject == idSubject).ToList();
             }
@@ -73,7 +73,7 @@ namespace DoAnCs.Controllers
                 {
                     return HttpNotFound();
                 }
-                if(exam != null)
+                if (exam != null)
                 {
                     exam.Viewcount = exam.Viewcount + 1;
                     db.SaveChanges();
@@ -90,7 +90,7 @@ namespace DoAnCs.Controllers
                     question.AnswerList = JsonConvert.DeserializeObject<List<SubjectItem>>(question.answer);
                 }
 
-              
+
 
 
                 Session["cauhoi"] = questions;
@@ -110,7 +110,7 @@ namespace DoAnCs.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeThi(List<QuestionAnswer> examResults, FormCollection form, int? socaudung , string thoigianthi)
+        public ActionResult DeThi(List<QuestionAnswer> examResults, FormCollection form, int? socaudung, string thoigianthi)
         {
             try
             {
@@ -159,8 +159,8 @@ namespace DoAnCs.Controllers
                 db.SaveChanges();
 
                 int idResult = examResult.IdResult;
-                Session.Remove("bathi"); 
-                Session.Remove("cauhoi"); 
+                Session.Remove("bathi");
+                Session.Remove("cauhoi");
                 Session.Remove("bathiId");
                 Session.Remove("ThongTinKyThiCuaSinhVien");
                 return Json(new { redirectTo = Url.Action("ketquathi", new { id = idResult }) });
@@ -174,27 +174,27 @@ namespace DoAnCs.Controllers
         }
 
 
-       
-        public ActionResult ketquathi(int? id)
-            { 
-                var idn = db.Exam_Results.FirstOrDefault(x => x.IdResult == id);
-                
-            
-                
-                if (idn != null)
-                {
-                    var questionData = JsonConvert.DeserializeObject<List<QuestionAnswer>>(idn.KetQuaThi);
-                    ViewBag.questionData = questionData;
-                    ViewBag.TenBaiThi = idn.Exam.NameExam;
-                    ViewBag.Score = idn.Score;
-                    ViewBag.Time = idn.Time;
-                    ViewBag.SocauHoiKetQua = idn.Exam.NumberQ;
-                    ViewBag.ThoiGian = idn.Exam.Time;
-                    return View(questionData);
-                }
 
-                return View();
+        public ActionResult ketquathi(int? id)
+        {
+            var idn = db.Exam_Results.FirstOrDefault(x => x.IdResult == id);
+
+
+
+            if (idn != null)
+            {
+                var questionData = JsonConvert.DeserializeObject<List<QuestionAnswer>>(idn.KetQuaThi);
+                ViewBag.questionData = questionData;
+                ViewBag.TenBaiThi = idn.Exam.NameExam;
+                ViewBag.Score = idn.Score;
+                ViewBag.Time = idn.Time;
+                ViewBag.SocauHoiKetQua = idn.Exam.NumberQ;
+                ViewBag.ThoiGian = idn.Exam.Time;
+                return View(questionData);
             }
+
+            return View();
+        }
         [HttpGet]
         public ActionResult modalconfirmThi(int id)
         {
@@ -205,7 +205,26 @@ namespace DoAnCs.Controllers
             }
             return Json(new { error = "Không tìm thấy bài kiểm tra" });
         }
-      
+
+        public ActionResult PartialView_sidebar()
+        {
+            var items = db.Subjects.ToList();
+            return PartialView( items);
+        }
+        public ActionResult Refresh()
+        {
+            var item = new ThongKeModel();
+
+            ViewBag.Visitors_online = HttpContext.Application["visitors_online"];
+            var hn = HttpContext.Application["HomNay"];
+            item.HomNay = HttpContext.Application["HomNay"].ToString();
+            item.HomQua = HttpContext.Application["HomQua"].ToString();
+            item.TuanNay = HttpContext.Application["TuanNay"].ToString();
+            item.TuanTruoc = HttpContext.Application["TuanTruoc"].ToString();
+            item.ThangNay = HttpContext.Application["ThangNay"].ToString();
+            item.ThangTruoc = HttpContext.Application["ThangTruoc"].ToString();
+            item.TatCa = HttpContext.Application["TatCa"].ToString();
+            return PartialView(item);
+        }
     }
-   
 }

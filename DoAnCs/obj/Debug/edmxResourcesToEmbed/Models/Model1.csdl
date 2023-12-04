@@ -60,6 +60,7 @@
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
     <Property Name="FullName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="UserRole" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>

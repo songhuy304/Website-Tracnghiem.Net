@@ -41,6 +41,7 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="TracNghiemModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="UserRole" ColumnName="UserRole" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />

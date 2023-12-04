@@ -15,6 +15,7 @@ namespace DoAnCs.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        TracNghiemEntities1 db = new TracNghiemEntities1();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -161,7 +162,12 @@ namespace DoAnCs.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     UserManager.AddToRole(user.Id, "User");
-
+                    var item = db.AspNetUsers.FirstOrDefault(x=>x.Email == user.Email);
+                   if(item != null)
+                    {
+                        item.UserRole = DateTime.Now.ToString();
+                    }
+                    db.SaveChanges();
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
