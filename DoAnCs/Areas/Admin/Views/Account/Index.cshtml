@@ -43,6 +43,7 @@
                             <td>
                                 <a href="/admin/account/edit/@item.UserId" class="btn btn-sm btn-primary">Sửa</a>
                                 <a href="#" data-user="@item.UserId" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+
                             </td>
                         </tr>
                         i++;
@@ -56,3 +57,34 @@
 
 <!-- Main content -->
 <!-- /.content -->
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.btnDelete').click(function (e) {
+                e.preventDefault();
+                var userId = $(this).data('user');
+
+                // Hiển thị hộp thoại xác nhận trước khi xóa
+                if (confirm("Bạn có chắc chắn muốn xóa người dùng này không?")) {
+                    // Nếu người dùng đồng ý, thực hiện xóa
+                    $.ajax({
+                        url: '/Admin/Account/Delete', // Thay đổi đường dẫn tương ứng với endpoint xóa người dùng của bạn
+                        method: 'POST',
+                        data: { userId: userId },
+                        success: function (response) {
+                            // Xử lý phản hồi nếu cần
+                            alert('Người dùng đã được xóa');
+                        },
+                        error: function (error) {
+                            // Xử lý lỗi nếu có
+                            alert('Lỗi khi xóa người dùng', error);
+                        }
+                    });
+                } else {
+                    // Nếu người dùng không đồng ý, không thực hiện xóa
+                    alert('Hành động xóa đã bị hủy bỏ');
+                }
+            });
+        });
+    </script>
+    }

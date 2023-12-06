@@ -225,7 +225,7 @@ namespace DoAnCs.Controllers
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 DoAnCs.Models.common.Common.SendMail("Website Trắc Nghiệm", "Đặt Lại Mật Khẩu",
-                "Hi Man<br>Need to reset your password?<br>Use your secret code!<br>Bạn Click vào  <button href=\"" + callbackUrl + "\">Đây</button> để đổi mới mật khẩu",
+                "Bạn Click vào  <a href=\"" + callbackUrl + "\">Đây</a> để đổi mới mật khẩu",
                 model.Email);
 
                 //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");

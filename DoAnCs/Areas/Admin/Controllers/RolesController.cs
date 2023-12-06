@@ -49,7 +49,7 @@ namespace DoAnCs.Areas.Admin.Controllers
         }
 
         // GET: Admin/Roles/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
             var item = db1.Roles.Find(id);
             return View(item);
@@ -61,13 +61,41 @@ namespace DoAnCs.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db1));
                 roleManager.Update(model);
                 return RedirectToAction("Index");
             }
             return View(model);
         }
-       
+        public ActionResult Delete(string roleId)
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db1));
+            var role = roleManager.FindById(roleId);
+
+            if (role != null)
+            {
+                var result = roleManager.Delete(role);
+
+                if (result.Succeeded)
+                {
+                    // Xóa role thành công
+                    return RedirectToAction("Index", "Roles"); // Chuyển hướng đến trang Index của các roles
+                }
+                else
+                {
+                    // Xảy ra lỗi khi xóa role
+                    // Xử lý lỗi tại đây nếu cần thiết
+                }
+            }
+            else
+            {
+                // Không tìm thấy role cần xóa
+                // Xử lý khi không tìm thấy role
+            }
+
+            return RedirectToAction("Index", "Roles"); // Chuyển hướng đến trang Index của các roles
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

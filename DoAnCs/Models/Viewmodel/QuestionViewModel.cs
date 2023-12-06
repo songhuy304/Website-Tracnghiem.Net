@@ -9,5 +9,6 @@ namespace DoAnCs.Models.Viewmodel
     {
         public Question Question { get; set; }
         public List<SubjectItem> SubjectItems { get; set; }
+        public int idTopic { get; set; }
     }
 }

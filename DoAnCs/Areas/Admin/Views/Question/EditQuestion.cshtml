@@ -45,54 +45,61 @@
 
                         @Html.HiddenFor(x => x.Question.IdQuestion)
                         <!-- your steps content here -->
-                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1" class="text-primary">Câu Hỏi</label>
-                                @Html.TextAreaFor(x => x.Question.Contentt, new { @class = "form-control", @id = "inputContentt", @required = "required" })
-                                @*<textarea class="form-control" name="Question.Contentt" id="inputContentt"></textarea>*@
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-primary">Câu Hỏi</label>
+                            @Html.TextAreaFor(x => x.Question.Contentt, new { @class = "form-control", @id = "inputContentt", @required = "required" })
+                            @*<textarea class="form-control" name="Question.Contentt" id="inputContentt"></textarea>*@
 
 
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="control-label col-md-2  text-success"> Chủ Đề</label>
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(x => x.idTopic, (SelectList)ViewBag.IdTopic, htmlAttributes: new { @class = "form-control" })
                             </div>
-                            <hr />
-                            <h3>Đáp Án Câu Hỏi</h3>
-                            <div id="dapan">
-                                @for (var i = 0; i < Model.SubjectItems.Count; i++)
-                                {
-                                    <div class="row">
-                                        <label for="exampleInputEmail1">Đáp Án:@i</label>
-                                        <div class="col-md-8">
 
-                                            <div class="form-group">
+                        </div>
+                        <h3>Đáp Án Câu Hỏi</h3>
+                        <div id="dapan">
+                            @for (var i = 0; i < Model.SubjectItems.Count; i++)
+                            {
+                                <div class="row">
+                                    <label for="exampleInputEmail1">Đáp Án:@i</label>
+                                    <div class="col-md-8">
 
-                                                <textarea class="form-control inpContent" name="SubjectItems[@i].Content" required id="inputContentt2-@i">@Model.SubjectItems[i].Content</textarea>
-                                            </div>
+                                        <div class="form-group">
 
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="form-check">
-                                                <div class="checkbox">
-                                                    @Html.EditorFor(x => x.SubjectItems[i].Trueis)
-                                                    @Html.ValidationMessageFor(x => x.SubjectItems[i].Trueis, "", new { @class = "text-danger" })
-                                                </div>
-
-
-                                            </div>
+                                            <textarea class="form-control inpContent" name="SubjectItems[@i].Content" required id="inputContentt2-@i">@Model.SubjectItems[i].Content</textarea>
                                         </div>
 
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-check">
+                                            <div class="checkbox">
+                                                @Html.EditorFor(x => x.SubjectItems[i].Trueis)
+                                                @Html.ValidationMessageFor(x => x.SubjectItems[i].Trueis, "", new { @class = "text-danger" })
+                                            </div>
 
+
+                                        </div>
                                     </div>
 
 
-                                }
-                            </div>
+                                </div>
 
 
-
-                            <div class="form-group">
-                                <a href="/admin/DeThi" class="btn btn-danger">Quay Lại</a>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                            }
                         </div>
+
+
+
+                        <div class="form-group">
+                            <a href="/admin/DeThi" class="btn btn-danger">Quay Lại</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                     }
                 </div>
             </div>

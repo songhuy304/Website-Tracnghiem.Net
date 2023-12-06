@@ -157,13 +157,7 @@ namespace DoAnCs.Areas.Admin.Controllers
 
                         }
                     }
-                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+              
 
                     return RedirectToAction("Index", "Account");
                 }
@@ -234,6 +228,38 @@ namespace DoAnCs.Areas.Admin.Controllers
             ViewBag.Role = new SelectList(db.Roles.ToList(), "Name", "Name");
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        public async Task<ActionResult> Delete(string userId)
+        {
+            var user = await UserManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                // Người dùng không tồn tại, xử lý lỗi hoặc thông báo người dùng không tồn tại ở đây
+                return HttpNotFound();
+            }
+
+            var userRoles = await UserManager.GetRolesAsync(user.Id);
+
+            using (var transaction = db.Database.BeginTransaction())
+            {
+                foreach (var role in userRoles)
+                {
+                    await UserManager.RemoveFromRoleAsync(user.Id, role);
+                }
+
+                var result = await UserManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    transaction.Commit();
+                    return RedirectToAction("Index", "Account");
+                }
+
+                transaction.Rollback();
+                AddErrors(result);
+                return View("Error");
+            }
         }
         private IAuthenticationManager AuthenticationManager
         {

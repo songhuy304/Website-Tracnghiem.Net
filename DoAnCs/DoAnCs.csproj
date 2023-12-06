@@ -449,6 +449,7 @@
     <Content Include="Content\asset\css\dangky.css" />
     <Content Include="Content\asset\css\Loginc.css" />
     <Content Include="Content\asset\css\online.png" />
+    <Content Include="Content\asset\css\tdimg.css" />
     <Content Include="Content\asset\js\categories_custom.js" />
     <Content Include="Content\asset\js\contact_custom.js" />
     <Content Include="Content\asset\js\custom.js" />
@@ -1737,9 +1738,10 @@
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Refresh.cshtml" />
-    <Content Include="Content\Mau.docx" />
     <Content Include="Areas\Admin\Views\Account\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ThongKe\Index.cshtml" />
+    <Content Include="Content\Mau.docx" />
+    <Content Include="Areas\Admin\Views\Roles\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Dethi.js" />
     <Content Include="Scripts\JavaScript1.js" />

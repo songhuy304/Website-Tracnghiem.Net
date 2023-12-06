@@ -104,11 +104,9 @@
                 data: { ids: topicIds, nameExam: Nameexam, monHoc: MonHoc, thoiGian: ThoiGian }, // Gửi danh sách ids trong yêu cầu AJAX
                 dataType: 'json',
                 success: function (data , re) {
-                    if (re.success) {
+               
                         toastr.success('Thêm Thành Công', 'Title');
-                    } else {
-                        toastr.error('Thêm Thất bại ', 'Title');
-                    }
+                   
                 },
                 error: function (error) {
                     // Xử lý lỗi nếu có

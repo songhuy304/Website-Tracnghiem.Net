@@ -56,6 +56,8 @@
                 <thead>
                     <tr>
                         <th>STT</th>
+                        <th>Ảnh</th>
+
                         <th>Tên Đề thi</th>
                         <th>Thời Gian</th>
                         <th>Số Lượng Câu Hỏi</th>
@@ -77,11 +79,12 @@
                                 <p>
                                     <div class="form-check">
                                         <input class="cbkItem1" type="checkbox" value="@item.IdExam" id="flexCheckDefault">
-
                                     </div>
                                     @i
                                 </p>
                             </td>
+                            <td>      @Html.Raw(item.image)</td>
+
                             <td ondblclick="editItem('@item.IdExam')">@item.NameExam</td>
                             <td>@item.Time</td>
                             <td>@item.NumberQ</td>
@@ -112,7 +115,7 @@
         }
     </div>
 
-
+    <link href="~/Content/asset/css/tdimg.css" rel="stylesheet" />
     @section scripts{
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

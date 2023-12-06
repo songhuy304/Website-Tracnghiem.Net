@@ -79,30 +79,7 @@ namespace DoAnCs.Areas.Admin.Controllers
 
             return View(question);
         }
-        [HttpGet]
-        public ActionResult edit(int id)
-        {
-            var cauhoi = db.Questions.SingleOrDefault(n => n.IdQuestion == id);
-            if (cauhoi == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            ViewBag.IdExam = new SelectList(db.Exams, "IdExam", "NameExam");
-            return View(cauhoi);
-        }
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult edit(Question question)
-        {
-            if (ModelState.IsValid)
-            {
-                question.Contentt = HttpUtility.HtmlEncode(question.Contentt);
-                db.Entry(question).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
-            return RedirectToAction("Index");
-        }
+        
         //Xóa Không load trang khác  
 
         [HttpPost]
@@ -224,9 +201,10 @@ namespace DoAnCs.Areas.Admin.Controllers
             var viewModel = new QuestionViewModel
             {
                 Question = question,
-                SubjectItems = subjectItems
-            };
+                SubjectItems = subjectItems,
+                idTopic = (int)question.idtopic
 
+            };
             ViewBag.IdTopic = new SelectList(db.Topics, "idTopic", "NameTopic");
 
             return View(viewModel);
@@ -244,11 +222,12 @@ namespace DoAnCs.Areas.Admin.Controllers
                 {
                     updatedQuestion.Contentt = viewModel.Question.Contentt;
                     updatedQuestion.answer = JsonConvert.SerializeObject(viewModel.SubjectItems);
+                    updatedQuestion.idtopic = viewModel.idTopic;
                     db.SaveChanges();
                     return RedirectToAction("Index", "Question");
                 }
             }
-
+            int idTopicFromExam = ViewBag.IdTopicFromExam;
             // Nếu có lỗi, quay trở lại trang chỉnh sửa với dữ liệu hiện tại và thông báo lỗi
             ViewBag.IdTopic = new SelectList(db.Topics, "idTopic", "NameTopic");
             return View(viewModel);
@@ -339,7 +318,7 @@ namespace DoAnCs.Areas.Admin.Controllers
 
                                 if (!string.IsNullOrWhiteSpace(text))
                                 {
-                                    if (text.StartsWith("\t\t\t\t\tĐề "))
+                                    if (text.StartsWith("Đề "))
                                     {
                                         // Assuming 'Đề' is the indicator for the 'topic' field
                                         topic = text.Substring(3).Trim(); // Extract the topic

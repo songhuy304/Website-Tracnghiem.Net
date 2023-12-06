@@ -36,7 +36,7 @@
                     <th>STT</th>
                     <th>Tên Câu Hỏi</th>
                     <th>Chủ Đề</th>
-                    <th>Độ Khó</th>
+                    @*<th>Độ Khó</th>*@
                     <th></th>
                 </tr>
             </thead>
@@ -55,15 +55,15 @@
                         <td>
                             <p>@i</p>
                         </td>
-                        <td> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
-                        <td>
+                        <td style=" max-width: 300px;"> @Html.Raw(HttpUtility.HtmlDecode(item.Contentt))</td>
+                        <td >
                             @if (@item.Topic.NameTopic != null)
                             {
                                 @item.Topic.NameTopic
                             }
 
                         </td>
-                        <td>
+                        @*<td>
                             @if (@item.Difficult != null)
                             {
                                 string nhanbiet = "Nhận Biết";
@@ -82,7 +82,7 @@
 
                                 }
                             }
-                        </td>
+                        </td>*@
 
                         <td>
                             <a href="/admin/Question/EditQuestion/@item.IdQuestion" class="btn btn-primary"><i class="fa fa-edit"></i></a>

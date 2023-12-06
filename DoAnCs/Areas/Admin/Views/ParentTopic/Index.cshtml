@@ -57,9 +57,12 @@
                                 <div class="topic-cell">
                                     <span class="d-inline">@topic.NameTopic</span>
                                     <p class="text-success d-inline ml-2">(Có : @(topic.Questions.Count()) câu hỏi)</p>
+                                    <a style="margin: -6px;" href="#" class="btn btn-danger float-right" onclick="if (confirm('Bạn Chắc Chứ') == true) location.href = '/admin/MonHoc/delete/@topic.idTopic '"><i class="fa fa-trash" style="color: white;"></i></a>
+
                                 </div>
                             }
                         </td>
+                       
                     </tr>
                     i++;
                 }
