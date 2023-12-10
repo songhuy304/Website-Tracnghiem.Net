@@ -178,14 +178,6 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Table_1">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idquestion" Type="Int32" />
-    <Property Name="idtopic" Type="Int32" />
-  </EntityType>
   <EntityType Name="Topic">
     <Key>
       <PropertyRef Name="idTopic" />
@@ -339,7 +331,6 @@
     <EntitySet Name="Students" EntityType="Self.Student" />
     <EntitySet Name="Subjects" EntityType="Self.Subject" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Table_1" EntityType="Self.Table_1" />
     <EntitySet Name="Topics" EntityType="Self.Topic" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -386,6 +377,7 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
     <EntitySet Name="ThongKes" EntityType="TracNghiemModel.ThongKe" />
+    <EntitySet Name="Reviews" EntityType="TracNghiemModel.Review" />
   </EntityContainer>
   <EntityType Name="ThongKe">
     <Key>
@@ -394,5 +386,17 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ThoiGian" Type="DateTime" Precision="3" />
     <Property Name="SoTruyCap" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamId" Type="Int32" Nullable="false" />
+    <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

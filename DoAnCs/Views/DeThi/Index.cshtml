@@ -1,6 +1,8 @@
 ﻿@model PagedList.PagedList<DoAnCs.Models.Exam>
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/asset/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/asset/styles/contact_responsive.css">
 
 @using PagedList.Mvc;
 @using System.Text.RegularExpressions;
@@ -9,7 +11,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
+<div style="margin-top:130px;" class="container">
     <div id="carouselExampleControls" class="carousel slide" style="margin:80px; " data-ride="carousel">
         <div class="carousel-inner shadow-lg" style="height:200px;">
             <div class="carousel-item active shadow-lg">
@@ -49,7 +51,7 @@
     <div class="row">
         <div style="border-radius: 16px; margin-left:95px" class="col-md-2  shadow-lg">
 
-            @Html.Action("PartialView_sidebar","Dethi")
+            @Html.Action("PartialView_sidebar", "Dethi")
         </div>
         <div class="col-md-9">
             @if (Model != null && Model.Any())
@@ -88,25 +90,8 @@
 
 
 
-    <!-- Modal xác nhận -->
-    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Xác nhận thi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h3>Môn: <span id="examName"></span></h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" style="width:500px;" class="btn btn-primary" id="confirmAction">Xác nhận</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    @Html.Action("partialModalReview", "Home")
+
 </section>
 
 
@@ -126,15 +111,193 @@
 
         $(document).ready(function () {
             var idToRedirect = null;
-            var nameToShow = null;
-            // Xử lý sự kiện click cho nút "Chi tiết"
-            $('.chitiet').on('click', function () {
-                idToRedirect = $(this).data('subject-id');
-                nameToShow = $(this).data('name');
-                $('#examName').text(nameToShow); // Hiển thị tên môn thi trong modal
-                $('#confirmationModal').modal('show');
-            });
+           
+            //$('.chitiet').on('click', function () {
+            //    idToRedirect = $(this).data('subject-id');
+            //    var examId = $(this).data('subject-id');
+            //    $.ajax({
+            //        url: "/Home/detail/" + examId, // Replace ControllerName with your actual controller name
+            //        type: 'GET',
+            //        success: function (data) {
+            //            if (data.error) {
+            //                alert(data.error);
+            //            } else {
+            //                $('#examId').text(data.exam.IdExam);
+            //                $('#examName123').text(data.exam.NameExam);
+            //                if (data.exam.image) {
+            //                    $('#examImage123').removeAttr('src'); // Xóa thuộc tính src nếu không có hình ảnh
+            //                    var htmlString = data.exam.image;
+            //                    var srcRegex = /src="([^"]*)"/;
+            //                    var match = htmlString.match(srcRegex);
+            //                    if (match && match.length > 1) {
+            //                        var srcValue = match[1];
+            //                        $('#examImage123').attr('src', srcValue);// Sử dụng URL hình ảnh từ dữ liệu nhận được
+            //                    }
+            //                } else {
+            //                    $('#examImage123').attr('src', ''); // Thiết lập thuộc tính src thành chuỗi rỗng để hiển thị hình ảnh là null
+            //                }
+            //                $('#chitietModal').modal('show');
+            //            }
+            //        },
+            //        error: function () {
+            //            alert('Error retrieving exam details.');
+            //        }
+            //    });
+            //    // Phần Review Exam
+            //    $.ajax({
+            //        url: "/Home/ReviewExam/" + examId, // Replace ControllerName with your actual controller name
+            //        type: 'GET',
+            //        success: function (data) {
+            //            if (data.error) {
+            //                alert(data.error);
+            //            } else {
+            //                var examReviews = data.examReview;
+            //                console.log(data);
+            //                var reviewContainer = $('.reviews_col'); // Thay thế bằng lớp hoặc id của phần tử chứa đánh giá
+            //                reviewContainer.empty();
+            //                examReviews.forEach(function (review) {
 
+
+            //                    var userReview = `
+            //        <div class="user_review_container d-flex flex-column flex-sm-row">
+            //            <div class="user">
+            //                <div class="user_pic"></div>
+            //                <div class="user_rating">
+            //                    <ul class="star_rating">
+            //                        ${generateStarRating(review.Rate)}
+            //                    </ul>
+            //                </div>
+            //            </div>
+            //            <div class="review">
+            //                <div class="review_date">${review.CreateDate}</div>
+            //                <div class="user_name">${review.userName}</div>
+            //                <p>${review.Description}</p>
+            //            </div>
+            //        </div>
+            //    `;
+
+            //                    // Thêm đánh giá vào phần tử chứa đánh giá
+            //                    reviewContainer.append(userReview);
+            //                });
+            //            }
+            //        },
+            //        error: function () {
+            //            alert('Error retrieving exam details.');
+            //        }
+            //    });
+
+
+            //});
+            $('.chitiet').on('click', function () {
+                const examId = $(this).data('subject-id');
+                idToRedirect = $(this).data('subject-id');
+
+                const examDetailUrl = `/Home/detail/${examId}`;
+                const reviewExamUrl = `/Home/ReviewExam/${examId}`;
+
+                const $examId = $('#examId');
+                const $examName = $('#examName123');
+                const $examImage = $('#examImage123');
+                const $chitietModal = $('#chitietModal');
+                const $reviewContainer = $('.reviews_col');
+
+                // Function to generate star rating HTML
+                const generateStarRating = (rate) => {
+                    let starsHTML = '';
+                    for (let i = 1; i <= 5; i++) {
+                        if (i <= rate) {
+                            starsHTML += `<li><i class="fa fa-star" aria-hidden="true"></i></li>`;
+                        } else {
+                            starsHTML += `<li><i class="fa fa-star-o" aria-hidden="true"></i></li>`;
+                        }
+                    }
+                    return starsHTML;
+                };
+
+                const renderExamDetails = (data) => {
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+
+                    const { exam } = data;
+                    $examId.text(exam.IdExam);
+                    $examName.text(exam.NameExam);
+
+                    if (exam.image) {
+                        const htmlString = exam.image;
+                        const srcRegex = /src="([^"]*)"/;
+                        const match = htmlString.match(srcRegex);
+                        const srcValue = match && match.length > 1 ? match[1] : '';
+                        $examImage.attr('src', srcValue);
+                    } else {
+                        $examImage.attr('src', '');
+                    }
+
+                    $chitietModal.modal('show');
+                };
+
+                const renderExamReviews = (data) => {
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+
+                    const examReviews = data.examReview || [];
+                    $reviewContainer.empty();
+
+                    examReviews.forEach((review) => {
+                        const userReview = `
+                <div class="user_review_container d-flex flex-column flex-sm-row">
+                    <div class="user">
+                        <div class="user_pic"></div>
+                        <div class="user_rating">
+                            <ul class="star_rating">
+                                ${generateStarRating(review.Rate)}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="review_date">${review.CreateDate}</div>
+                        <div class="user_name">${review.userName}</div>
+                        <p>${review.Description}</p>
+                    </div>
+                </div>
+            `;
+
+                        $reviewContainer.append(userReview);
+                    });
+                };
+
+                $.ajax({
+                    url: examDetailUrl,
+                    type: 'GET',
+                    success: renderExamDetails,
+                    error: function () {
+                        alert('Error retrieving exam details.');
+                    }
+                });
+
+                $.ajax({
+                    url: reviewExamUrl,
+                    type: 'GET',
+                    success: renderExamReviews,
+                    error: function () {
+                        alert('Error retrieving exam reviews.');
+                    }
+                });
+            });
+            //function generateStarRating(rate) {
+            //    let starsHTML = '';
+            //    for (let i = 1; i <= 5; i++) {
+            //        if (i <= rate) {
+            //            starsHTML += `<li><i class="fa fa-star" aria-hidden="true"></i></li>`;
+            //        } else {
+            //            starsHTML += `<li><i class="fa fa-star-o" aria-hidden="true"></i></li>`;
+            //        }
+            //    }
+            //    return starsHTML;
+            //}
             // Xác nhận hành động khi nhấn nút "Xác nhận" trong modal
             $('#confirmAction').on('click', function () {
                 if (idToRedirect) {

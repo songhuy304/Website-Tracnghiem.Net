@@ -12,10 +12,14 @@ namespace DoAnCs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Table_1
+    public partial class Review
     {
         public int id { get; set; }
-        public Nullable<int> idquestion { get; set; }
-        public Nullable<int> idtopic { get; set; }
+        public int ExamId { get; set; }
+        public string userName { get; set; }
+        public string Email { get; set; }
+        public string Description { get; set; }
+        public Nullable<int> Rate { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
     }
 }

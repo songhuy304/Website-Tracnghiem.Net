@@ -135,6 +135,18 @@
     <Property Name="IdExam" Type="int" />
     <Property Name="IdQuestion" Type="int" />
   </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamId" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rate" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
   <EntityType Name="Student">
     <Key>
       <PropertyRef Name="IdStudent" />
@@ -165,14 +177,6 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <EntityType Name="Table_1">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idquestion" Type="int" />
-    <Property Name="idtopic" Type="int" />
   </EntityType>
   <EntityType Name="ThongKe">
     <Key>
@@ -355,10 +359,10 @@
     <EntitySet Name="ParentTopic" EntityType="Self.ParentTopic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question_Exam" EntityType="Self.Question_Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongKe" EntityType="Self.ThongKe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">

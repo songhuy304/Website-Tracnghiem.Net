@@ -39,8 +39,8 @@ namespace DoAnCs.Models
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Table_1> Table_1 { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<ThongKe> ThongKes { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
     }
 }

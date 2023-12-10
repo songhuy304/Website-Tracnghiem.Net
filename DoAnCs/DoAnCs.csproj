@@ -412,6 +412,9 @@
     <Compile Include="Models\Question_Exam.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Student.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -419,9 +422,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Table_1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThongKe.cs">
@@ -1805,6 +1805,8 @@
     <Content Include="Views\Home\Refresh.cshtml" />
     <Content Include="Views\DeThi\PartialView_sidebar.cshtml" />
     <Content Include="Views\DeThi\Refresh.cshtml" />
+    <Content Include="Views\DeThi\PartiaviewDeThiPhoBien.cshtml" />
+    <Content Include="Views\Home\partialModalReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

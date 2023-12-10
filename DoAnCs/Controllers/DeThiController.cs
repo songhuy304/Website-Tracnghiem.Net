@@ -25,8 +25,6 @@ namespace DoAnCs.Controllers
         public ActionResult Index(string currentFilter, int? page, string searchString, int? idSubject)
         {
             var item = new List<Exam>();
-
-
             if (searchString != null) /*nếu ô tìm kiếm bằng khác null  thì bắt đầu từ  page  1*/
             {
                 page = 1;
@@ -56,6 +54,26 @@ namespace DoAnCs.Controllers
             ViewBag.PageSize = pagesize;
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
+        }
+        public JsonResult Chitiet(int? id)
+        {
+            if (id == null)
+            {
+                return Json(new { error = "Bad Request" }, JsonRequestBehavior.AllowGet);
+            }
+
+            var exam = db.Exams.Find(id);
+            if (exam == null)
+            {
+                return Json(new { error = "Exam not found" }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new { exam = exam }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult PartiaviewDeThiPhoBien()
+        {
+            var item = db.Exams.OrderByDescending(x=>x.Viewcount).Take(5).ToList();
+            return View(item);
         }
         [HttpGet]
 
@@ -163,7 +181,7 @@ namespace DoAnCs.Controllers
                 Session.Remove("cauhoi");
                 Session.Remove("bathiId");
                 Session.Remove("ThongTinKyThiCuaSinhVien");
-                return Json(new { redirectTo = Url.Action("ketquathi", new { id = idResult }) });
+                return Json(new { redirectTo = Url.Action("ketquathi", new { id = idResult, showReviewModal = true }) });
             }
             catch (Exception ex)
             {
@@ -187,6 +205,7 @@ namespace DoAnCs.Controllers
                 ViewBag.questionData = questionData;
                 ViewBag.TenBaiThi = idn.Exam.NameExam;
                 ViewBag.Score = idn.Score;
+                ViewBag.idBaiThi =idn.IdExam;
                 ViewBag.Time = idn.Time;
                 ViewBag.SocauHoiKetQua = idn.Exam.NumberQ;
                 ViewBag.ThoiGian = idn.Exam.Time;

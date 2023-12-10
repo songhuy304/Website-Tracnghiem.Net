@@ -1041,7 +1041,7 @@ section
 }
 .star_rating
 {
-	display: inline-block;
+	display: flex;
 	margin-left: 33px;
 }
 .star_rating li
@@ -1263,8 +1263,9 @@ section
 	width: 100%;
 	margin-bottom: 37px;
 }
-.reviews_col
-{
+.reviews_col {
+	max-height: 366px;
+	overflow-y: auto;
 	padding-right: 30px;
 }
 .user_pic
@@ -1276,8 +1277,8 @@ section
 }
 .user_rating .star_rating
 {
-	margin-left: 5px;
-	margin-top: 13px;
+	margin-left: -24px;
+	
 }
 .user_rating .star_rating li
 {

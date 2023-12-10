@@ -170,15 +170,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Table_1">
-      <EntityTypeMapping TypeName="TracNghiemModel.Table_1">
-        <MappingFragment StoreEntitySet="Table_1">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idquestion" ColumnName="idquestion" />
-          <ScalarProperty Name="idtopic" ColumnName="idtopic" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Topics">
       <EntityTypeMapping TypeName="TracNghiemModel.Topic">
         <MappingFragment StoreEntitySet="Topic">
@@ -202,6 +193,19 @@
           <ScalarProperty Name="SoTruyCap" ColumnName="SoTruyCap" />
           <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="TracNghiemModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -18,10 +18,11 @@
             <ul class="sidebar_categories">
                 @foreach (var item in Model)
                 {
-                    <li><a  class="text-primary font-weight-bold" href="@Url.Action("Index", "DeThi", new { idSubject = item.IdSubject })">@item.NameSubject</a></li>
+                    <li><a class="text-primary font-weight-bold" href="@Url.Action("Index", "DeThi", new { idSubject = item.IdSubject })">@item.NameSubject</a></li>
 
 
                 }
+                <li><a class="text-primary font-weight-bold" href="/dethi/index">Tất Cả</a></li>
             </ul>
 
             </div>
