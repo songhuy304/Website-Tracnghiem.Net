@@ -89,18 +89,18 @@ $(document).ready(function () {
         }
     });
  
-    $('.butoon1').on('click', function () {
-        var questionNumber = $(this).data('question-number');
-        var targetQuestion = $("#question_" + questionNumber);
-        if (targetQuestion.length) {
-            var windowHeight = $(window).height();
-            var targetOffset = targetQuestion.offset().top;
-            var scrollTo = targetOffset - (windowHeight / 3);
-            $('html, body').animate({
-                scrollTop: scrollTo
-            }, 1000);
-        }
-    });
+    //$('.butoon1').on('click', function () {
+    //    var questionNumber = $(this).data('question-number');
+    //    var targetQuestion = $("#question_" + questionNumber);
+    //    if (targetQuestion.length) {
+    //        var windowHeight = $(window).height();
+    //        var targetOffset = targetQuestion.offset().top;
+    //        var scrollTo = targetOffset - (windowHeight / 3);
+    //        $('html, body').animate({
+    //            scrollTop: scrollTo
+    //        }, 1000);
+    //    }
+    //});
     doimaubutton();
 
 });

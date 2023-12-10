@@ -59,5 +59,41 @@ namespace DoAnCs.Areas.Admin.Controllers
             }
             return View(parentTopic);
         }
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    var examToDelete = db.Topics.Find(id);
+
+                    if (examToDelete != null) // Kiểm tra xem bản ghi có tồn tại không
+                    {
+                        db.Topics.Remove(examToDelete);
+                        db.SaveChanges();
+                        TempData["Succes"] = "Xóa Thành Công";
+                        return Json(new { success = true });
+                    }
+                    else
+                    {
+                        TempData["warning"] = "Lỗi Không Tìm Thấy Bbản Ghi";
+                        return Json(new { success = false, message = "Không tìm thấy bản ghi để xóa." });
+                    }
+                }
+                else
+                {
+                    TempData["warning"] = "Lỗi Không Tìm Thấy Bbản Ghi";
+                    return Json(new { success = false, message = "ID không hợp lệ." });
+                }
+            }
+            catch (Exception e)
+            {
+
+                TempData["warning"] = "Có lỗi xảy ra khi xóa bản ghi.";
+                Console.WriteLine($"Processing failed: {e.Message}");
+                return Json(new { success = false, message = "Có lỗi xảy ra khi xóa bản ghi." });
+
+            }
+        }
     }
 }
