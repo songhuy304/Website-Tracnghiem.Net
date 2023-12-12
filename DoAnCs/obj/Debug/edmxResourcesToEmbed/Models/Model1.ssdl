@@ -88,11 +88,38 @@
     <Property Name="IdResult" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdStudent" Type="int" />
     <Property Name="IdExam" Type="int" />
-    <Property Name="Score" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="Score" Type="decimal" Precision="5" Scale="2" />
     <Property Name="ExamDay" Type="datetime" />
     <Property Name="KetQuaThi" Type="nvarchar(max)" />
     <Property Name="Time" Type="nvarchar" MaxLength="8" />
     <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Exam_ResultsForUser">
+    <Key>
+      <PropertyRef Name="IdResult" />
+    </Key>
+    <Property Name="IdResult" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdStudent" Type="int" />
+    <Property Name="IdExam" Type="int" />
+    <Property Name="Score" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ExamDay" Type="datetime" />
+    <Property Name="KetQuaThi" Type="nvarchar(max)" />
+    <Property Name="Time" Type="nvarchar" MaxLength="8" />
+    <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ExamForUser">
+    <Key>
+      <PropertyRef Name="IdExam" />
+    </Key>
+    <Property Name="IdExam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Exam_date" Type="datetime" />
+    <Property Name="Time" Type="int" Nullable="false" />
+    <Property Name="NumberQ" Type="int" Nullable="false" />
+    <Property Name="NameExam" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifierDate" Type="datetime" />
+    <Property Name="MordifierBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="idUser" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="Lecturer">
     <Key>
@@ -134,6 +161,25 @@
     <Property Name="IdQE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdExam" Type="int" />
     <Property Name="IdQuestion" Type="int" />
+  </EntityType>
+  <EntityType Name="Question_ExamForUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdExam" Type="int" />
+    <Property Name="IdQuestion" Type="int" />
+  </EntityType>
+  <EntityType Name="QuestionForUser">
+    <Key>
+      <PropertyRef Name="IdQuestion" />
+    </Key>
+    <Property Name="IdQuestion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contentt" Type="nvarchar(max)" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="200" />
+    <Property Name="answer" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="Review">
     <Key>
@@ -274,6 +320,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Exam_ResultsForUser_ExamForUser">
+    <End Role="ExamForUser" Type="Self.ExamForUser" Multiplicity="0..1" />
+    <End Role="Exam_ResultsForUser" Type="Self.Exam_ResultsForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Principal>
+      <Dependent Role="Exam_ResultsForUser">
+        <PropertyRef Name="IdExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Exam_Subject1">
     <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
     <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
@@ -322,6 +380,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Question_ExamForUser_ExamForUser">
+    <End Role="ExamForUser" Type="Self.ExamForUser" Multiplicity="0..1" />
+    <End Role="Question_ExamForUser" Type="Self.Question_ExamForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Principal>
+      <Dependent Role="Question_ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_ExamForUser_QuestionForUser">
+    <End Role="QuestionForUser" Type="Self.QuestionForUser" Multiplicity="0..1" />
+    <End Role="Question_ExamForUser" Type="Self.Question_ExamForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionForUser">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Question_ExamForUser">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Question_Topic">
     <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
     <End Role="Question" Type="Self.Question" Multiplicity="*" />
@@ -355,10 +437,14 @@
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exam_Results" EntityType="Self.Exam_Results" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam_ResultsForUser" EntityType="Self.Exam_ResultsForUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamForUser" EntityType="Self.ExamForUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lecturer" EntityType="Self.Lecturer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ParentTopic" EntityType="Self.ParentTopic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question_Exam" EntityType="Self.Question_Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question_ExamForUser" EntityType="Self.Question_ExamForUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionForUser" EntityType="Self.QuestionForUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
@@ -389,6 +475,10 @@
       <End Role="Student" EntitySet="Student" />
       <End Role="Exam_Results" EntitySet="Exam_Results" />
     </AssociationSet>
+    <AssociationSet Name="FK_Exam_ResultsForUser_ExamForUser" Association="Self.FK_Exam_ResultsForUser_ExamForUser">
+      <End Role="ExamForUser" EntitySet="ExamForUser" />
+      <End Role="Exam_ResultsForUser" EntitySet="Exam_ResultsForUser" />
+    </AssociationSet>
     <AssociationSet Name="FK_Exam_Subject1" Association="Self.FK_Exam_Subject1">
       <End Role="Subject" EntitySet="Subject" />
       <End Role="Exam" EntitySet="Exam" />
@@ -404,6 +494,14 @@
     <AssociationSet Name="FK_Question_Exam_Question" Association="Self.FK_Question_Exam_Question">
       <End Role="Question" EntitySet="Question" />
       <End Role="Question_Exam" EntitySet="Question_Exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_ExamForUser_ExamForUser" Association="Self.FK_Question_ExamForUser_ExamForUser">
+      <End Role="ExamForUser" EntitySet="ExamForUser" />
+      <End Role="Question_ExamForUser" EntitySet="Question_ExamForUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_ExamForUser_QuestionForUser" Association="Self.FK_Question_ExamForUser_QuestionForUser">
+      <End Role="QuestionForUser" EntitySet="QuestionForUser" />
+      <End Role="Question_ExamForUser" EntitySet="Question_ExamForUser" />
     </AssociationSet>
     <AssociationSet Name="FK_Question_Topic" Association="Self.FK_Question_Topic">
       <End Role="Topic" EntitySet="Topic" />

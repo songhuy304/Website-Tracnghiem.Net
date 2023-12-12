@@ -1,0 +1,17 @@
+﻿@model List<DoAnCs.Models.ExamForUser>
+    hehe
+@if (Model != null)
+{
+
+    foreach (var item in Model)
+    {
+        <div class="card m-3" style="display: inline-block;">
+            <div class="card-body">
+                <h5 class="card-title">@item.NameExam</h5>
+                <h5>Mã Đề Thi @item.IdExam</h5>
+
+            </div>
+        </div>
+
+    }
+}

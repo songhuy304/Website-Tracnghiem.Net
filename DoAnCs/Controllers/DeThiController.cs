@@ -16,12 +16,11 @@ using System.Windows.Input;
 namespace DoAnCs.Controllers
 {
 
-    [ClientAuthen("User", "Admin")]
     public class DeThiController : Controller
     {
         // GET: DeThi
         private TracNghiemEntities1 db = new TracNghiemEntities1();
-
+        [AllowAnonymous]
         public ActionResult Index(string currentFilter, int? page, string searchString, int? idSubject)
         {
             var item = new List<Exam>();
@@ -55,6 +54,8 @@ namespace DoAnCs.Controllers
             ViewBag.Page = page;
             return View(item.ToPagedList(pageIndex, pagesize));
         }
+        [ClientAuthen("User", "Admin")]
+
         public JsonResult Chitiet(int? id)
         {
             if (id == null)
@@ -70,12 +71,15 @@ namespace DoAnCs.Controllers
 
             return Json(new { exam = exam }, JsonRequestBehavior.AllowGet);
         }
+        [ClientAuthen("User", "Admin")]
+
         public ActionResult PartiaviewDeThiPhoBien()
         {
             var item = db.Exams.OrderByDescending(x=>x.Viewcount).Take(5).ToList();
             return View(item);
         }
         [HttpGet]
+        [ClientAuthen("User", "Admin")]
 
         public ActionResult DeThi(int? id, FormCollection form)
         {
@@ -126,6 +130,7 @@ namespace DoAnCs.Controllers
             ViewBag.socauhoi = ((Exam)Session["bathi"]).NumberQ;
             return View(questions);
         }
+        [ClientAuthen("User", "Admin")]
 
         [HttpPost]
         public ActionResult DeThi(List<QuestionAnswer> examResults, FormCollection form, int? socaudung, string thoigianthi)
@@ -190,15 +195,11 @@ namespace DoAnCs.Controllers
                 return View();
             }
         }
-
-
+        [ClientAuthen("User", "Admin")]
 
         public ActionResult ketquathi(int? id)
         {
             var idn = db.Exam_Results.FirstOrDefault(x => x.IdResult == id);
-
-
-
             if (idn != null)
             {
                 var questionData = JsonConvert.DeserializeObject<List<QuestionAnswer>>(idn.KetQuaThi);
@@ -214,6 +215,9 @@ namespace DoAnCs.Controllers
 
             return View();
         }
+
+        [AllowAnonymous]
+
         [HttpGet]
         public ActionResult modalconfirmThi(int id)
         {
@@ -225,6 +229,7 @@ namespace DoAnCs.Controllers
             return Json(new { error = "Không tìm thấy bài kiểm tra" });
         }
 
+        [AllowAnonymous]
         public ActionResult PartialView_sidebar()
         {
             var items = db.Subjects.ToList();

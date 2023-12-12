@@ -73,7 +73,6 @@
                                 </div>
 
 
-
                             </div>
 
 
@@ -250,7 +249,8 @@
                         const userReview = `
                 <div class="user_review_container d-flex flex-column flex-sm-row">
                     <div class="user">
-                        <div class="user_pic"></div>
+                      <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 70px;"
+  alt="Avatar" />
                         <div class="user_rating">
                             <ul class="star_rating">
                                 ${generateStarRating(review.Rate)}
@@ -287,17 +287,7 @@
                     }
                 });
             });
-            //function generateStarRating(rate) {
-            //    let starsHTML = '';
-            //    for (let i = 1; i <= 5; i++) {
-            //        if (i <= rate) {
-            //            starsHTML += `<li><i class="fa fa-star" aria-hidden="true"></i></li>`;
-            //        } else {
-            //            starsHTML += `<li><i class="fa fa-star-o" aria-hidden="true"></i></li>`;
-            //        }
-            //    }
-            //    return starsHTML;
-            //}
+          
             // Xác nhận hành động khi nhấn nút "Xác nhận" trong modal
             $('#confirmAction').on('click', function () {
                 if (idToRedirect) {

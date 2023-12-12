@@ -1,8 +1,8 @@
 ﻿
-@model List<DoAnCs.Models.Question>
+@model List<DoAnCs.Models.QuestionForUser>
 @using System.Text.RegularExpressions;
 @{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "VaoThi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
@@ -60,7 +60,6 @@
                                 </div>
                             </div>
                             <div class="card" id="correct_@item.IdQuestion">
-                              
                             </div>
                         </div>
                         <div class="col-sm-7">
@@ -123,37 +122,37 @@
 
 
     }
- 
+
     @*}*@
-<div class="col-md-3" id="cotdanhsach">
-    <div class="card shadow-lg" style="width: 16rem;" id="cotdanhsachcon">
-        <div class="card-body">
-            @{ var socauhoi1 = 1;
-            }
-            @foreach (var number in Model)
-            {
+    <div class="col-md-3" id="cotdanhsach">
+        <div class="card shadow-lg" style="width: 16rem;" id="cotdanhsachcon">
+            <div class="card-body">
+                @if (Model != null && Model.Any())
+                {
+                    var socauhoi1 = 1; // Initialize socauhoi1 here if not already initialized outside
 
-                <button class="butoon1 question-button" id="button_@number.IdQuestion" data-question-number="@socauhoi1">Câu @socauhoi1</button>
+                    foreach (var number in Model)
+                    {
+                        <button class="butoon1 question-button" id="button_@number.IdQuestion" data-question-number="@socauhoi1">Câu @socauhoi1</button>
+                        socauhoi1++;
+                    }
+                }
 
-                socauhoi1++;
-
-               
-            }
-            <div class="card-footer">
-                <div class="d-flex justify-content-around">
-                    <button class="btn btn-primary btn-sm" id="backButton"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Trước </button>
-                    <button class="btn btn-primary btn-sm" id="nextButton">Tiếp <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-primary btn-sm" id="backButton"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i> Trước </button>
+                        <button class="btn btn-primary btn-sm" id="nextButton">Tiếp <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-   
-    
-</div>
+
+
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="~/Scripts/JavaScript1.js"></script>
+    <script src="~/Scripts/VaoThiUser.js"></script>
 
     <script src="~/Content/asset/js/custom.js"></script>
 
@@ -167,9 +166,9 @@
                     $(this).prev().find('input[type="radio"]').prop('checked', true);
                 });
 
-                // xử lý btn câu hỏi 
-               
-                
+                // xử lý btn câu hỏi
+
+
                 var currentQuestion = 1;
                 var totalQuestions = document.getElementById("questionCount").getAttribute("data-countcauhoi");
 
@@ -214,7 +213,7 @@
                     question.style.display = "flex";
                 }
 
-             
+
 
                 // Gán sự kiện click cho mỗi nút button
                 $('.butoon1').on('click', function () {

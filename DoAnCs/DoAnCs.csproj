@@ -346,10 +346,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthenClient\ClientAuthen.cs" />
     <Compile Include="Controllers\DeThiController.cs" />
+    <Compile Include="Controllers\ExamUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InforController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\QuestionUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -379,7 +381,13 @@
     <Compile Include="Models\Exam.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExamForUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Exam_Results.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exam_ResultsForUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -409,7 +417,13 @@
     <Compile Include="Models\Question.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QuestionForUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Question_Exam.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question_ExamForUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Review.cs">
@@ -1757,6 +1771,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\VaoThiUser.js" />
     <Content Include="System.Linq.Dynamic.dll" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1807,6 +1822,15 @@
     <Content Include="Views\DeThi\Refresh.cshtml" />
     <Content Include="Views\DeThi\PartiaviewDeThiPhoBien.cshtml" />
     <Content Include="Views\Home\partialModalReview.cshtml" />
+    <Content Include="Views\ExamUser\Index.cshtml" />
+    <Content Include="Views\ExamUser\UpFile.cshtml" />
+    <Content Include="Views\ExamUser\UpThuCong.cshtml" />
+    <Content Include="Views\ExamUser\ThamGia.cshtml" />
+    <Content Include="Views\QuestionUser\DisplayQuestion.cshtml" />
+    <Content Include="Views\ExamUser\DeThiCuaMinh.cshtml" />
+    <Content Include="Views\ExamUser\VaoThi.cshtml" />
+    <Content Include="Views\ExamUser\Er404.cshtml" />
+    <Content Include="Views\ExamUser\KetQua.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

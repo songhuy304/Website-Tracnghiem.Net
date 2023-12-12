@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "DisplayQuestion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<DoAnCs.Models.QuestionForUser>
+<div style="background-color:#f1f5f9 ;border-radius:16px;" class="container shadow-lg p-3 mb-5">
+    <div>
+        <div style="padding:50px;">
+            <div class="row">
+                <div class="col-md-5">
+                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-group">
+                            <label class="text-primary" for="exampleInputEmail1">Tên Đề Thi</label>
+                            <input type="text" id="TenDeThi" name="TenDeThi" class="form-control" placeholder="Tên Đề Thi" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label class="text-primary" for="Time">Thời Gian</label>
+                    <input type="number"  id="ThoiGian" name="Thoigian" class="form-control" placeholder="Thời Gian" min="0" max="100" required />
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    @if (Model != null)
+    {
+        <h4  class="p-3">Danh sách câu hỏi</h4>
+        if (!string.IsNullOrEmpty(@ViewBag.ThongBao))
+        {
+            <div class="mx-auto" style="width: 256px;color:red">
+                @ViewBag.ThongBao
+            </div>
+        }
+        //Thông Báo ở đây
+
+        foreach (var question in Model)
+        {
+            <div class="col-sm-12">
+                <div id="cardformthi" class="card p-3 mb-5">
+                    <div class="card-body">
+                        <h4 id="noidungthi" class="card-title">
+                            <span class="text-success">Câu Hỏi:</span> @question.Contentt
+                        </h4>
+                        @if (!string.IsNullOrEmpty(question.answer))
+                        {
+                            var subjectItems = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DoAnCs.Models.Viewmodel.SubjectItem>>(question.answer);
+                            <strong>Đáp Án:</strong>
+                            foreach (var items in subjectItems)
+                            {
+                                var trueisValue = items.Trueis ? 1 : 0;
+                                if (trueisValue == 1)
+                                {
+                                    <div class="input-group mt-2">
+                                        <div class="form-control hienthidapan" style="color:dodgerblue">
+                                            @Html.Raw(items.Content)
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="input-group mt-2">
+                                        <div class="form-control hienthidapan" style="color:black">
+                                            @Html.Raw(items.Content)
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+    @if (!string.IsNullOrEmpty(ViewBag.ThongBao))
+    {
+
+
+        <button class="btn btn-primary" id="LuuCauHoi" disabled>Xác Nhận</button>
+    }
+    else
+    {
+        <button class="btn btn-primary" id="LuuCauHoi">Xác Nhận</button>
+    }
+
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $("#LuuCauHoi").on("click", function () {
+            var tendethi = $('#TenDeThi').val();
+            var thoigian = $('#ThoiGian').val();
+            $.ajax({
+                url: "/QuestionUser/SaveDisplayQuestion",
+                type: "POST",
+
+                data: { Tendethi: tendethi, Thoigian: thoigian },
+                success: function (result) {
+                    window.location.href = '/ExamUser/Index';
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+}

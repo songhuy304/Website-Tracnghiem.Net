@@ -89,7 +89,7 @@
     <Property Name="IdResult" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdStudent" Type="Int32" />
     <Property Name="IdExam" Type="Int32" />
-    <Property Name="Score" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="Score" Type="Decimal" Precision="5" Scale="2" />
     <Property Name="ExamDay" Type="DateTime" Precision="3" />
     <Property Name="KetQuaThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Time" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
@@ -378,6 +378,22 @@
     </AssociationSet>
     <EntitySet Name="ThongKes" EntityType="TracNghiemModel.ThongKe" />
     <EntitySet Name="Reviews" EntityType="TracNghiemModel.Review" />
+    <EntitySet Name="Exam_ResultsForUser" EntityType="TracNghiemModel.Exam_ResultsForUser" />
+    <EntitySet Name="ExamForUsers" EntityType="TracNghiemModel.ExamForUser" />
+    <EntitySet Name="Question_ExamForUser" EntityType="TracNghiemModel.Question_ExamForUser" />
+    <EntitySet Name="QuestionForUsers" EntityType="TracNghiemModel.QuestionForUser" />
+    <AssociationSet Name="FK_Exam_ResultsForUser_ExamForUser" Association="TracNghiemModel.FK_Exam_ResultsForUser_ExamForUser">
+      <End Role="ExamForUser" EntitySet="ExamForUsers" />
+      <End Role="Exam_ResultsForUser" EntitySet="Exam_ResultsForUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_ExamForUser_ExamForUser" Association="TracNghiemModel.FK_Question_ExamForUser_ExamForUser">
+      <End Role="ExamForUser" EntitySet="ExamForUsers" />
+      <End Role="Question_ExamForUser" EntitySet="Question_ExamForUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_ExamForUser_QuestionForUser" Association="TracNghiemModel.FK_Question_ExamForUser_QuestionForUser">
+      <End Role="QuestionForUser" EntitySet="QuestionForUsers" />
+      <End Role="Question_ExamForUser" EntitySet="Question_ExamForUser" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ThongKe">
     <Key>
@@ -399,4 +415,92 @@
     <Property Name="Rate" Type="Int32" />
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="Exam_ResultsForUser">
+    <Key>
+      <PropertyRef Name="IdResult" />
+    </Key>
+    <Property Name="IdResult" Type="Int32" Nullable="false" />
+    <Property Name="IdStudent" Type="Int32" />
+    <Property Name="IdExam" Type="Int32" />
+    <Property Name="Score" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ExamDay" Type="DateTime" Precision="3" />
+    <Property Name="KetQuaThi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="IdUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ExamForUser" Relationship="TracNghiemModel.FK_Exam_ResultsForUser_ExamForUser" FromRole="Exam_ResultsForUser" ToRole="ExamForUser" />
+  </EntityType>
+  <EntityType Name="ExamForUser">
+    <Key>
+      <PropertyRef Name="IdExam" />
+    </Key>
+    <Property Name="IdExam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Exam_date" Type="DateTime" Precision="3" />
+    <Property Name="Time" Type="Int32" Nullable="false" />
+    <Property Name="NumberQ" Type="Int32" Nullable="false" />
+    <Property Name="NameExam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifierDate" Type="DateTime" Precision="3" />
+    <Property Name="MordifierBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Exam_ResultsForUser" Relationship="TracNghiemModel.FK_Exam_ResultsForUser_ExamForUser" FromRole="ExamForUser" ToRole="Exam_ResultsForUser" />
+    <NavigationProperty Name="Question_ExamForUser" Relationship="TracNghiemModel.FK_Question_ExamForUser_ExamForUser" FromRole="ExamForUser" ToRole="Question_ExamForUser" />
+  </EntityType>
+  <EntityType Name="Question_ExamForUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="IdExam" Type="Int32" />
+    <Property Name="IdQuestion" Type="Int32" />
+    <NavigationProperty Name="ExamForUser" Relationship="TracNghiemModel.FK_Question_ExamForUser_ExamForUser" FromRole="Question_ExamForUser" ToRole="ExamForUser" />
+    <NavigationProperty Name="QuestionForUser" Relationship="TracNghiemModel.FK_Question_ExamForUser_QuestionForUser" FromRole="Question_ExamForUser" ToRole="QuestionForUser" />
+  </EntityType>
+  <EntityType Name="QuestionForUser">
+    <Key>
+      <PropertyRef Name="IdQuestion" />
+    </Key>
+    <Property Name="IdQuestion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Contentt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Question_ExamForUser" Relationship="TracNghiemModel.FK_Question_ExamForUser_QuestionForUser" FromRole="QuestionForUser" ToRole="Question_ExamForUser" />
+  </EntityType>
+  <Association Name="FK_Exam_ResultsForUser_ExamForUser">
+    <End Type="TracNghiemModel.ExamForUser" Role="ExamForUser" Multiplicity="0..1" />
+    <End Type="TracNghiemModel.Exam_ResultsForUser" Role="Exam_ResultsForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Principal>
+      <Dependent Role="Exam_ResultsForUser">
+        <PropertyRef Name="IdExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_ExamForUser_ExamForUser">
+    <End Type="TracNghiemModel.ExamForUser" Role="ExamForUser" Multiplicity="0..1" />
+    <End Type="TracNghiemModel.Question_ExamForUser" Role="Question_ExamForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Principal>
+      <Dependent Role="Question_ExamForUser">
+        <PropertyRef Name="IdExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_ExamForUser_QuestionForUser">
+    <End Type="TracNghiemModel.QuestionForUser" Role="QuestionForUser" Multiplicity="0..1" />
+    <End Type="TracNghiemModel.Question_ExamForUser" Role="Question_ExamForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionForUser">
+        <PropertyRef Name="IdQuestion" />
+      </Principal>
+      <Dependent Role="Question_ExamForUser">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

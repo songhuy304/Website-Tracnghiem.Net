@@ -1,0 +1,91 @@
+﻿@model List<DoAnCs.Models.ExamForUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /* Tùy chỉnh style nếu cần */
+    .hihe card {
+        margin: 10px; /* Khoảng cách giữa các card */
+    }
+</style>
+<div style="background-color:#f1f5f9; height:100%;" class="container shadow-lg rounded">
+    <div style="padding-top:100px;">
+        <h4>
+            Chào mừng bạn đến với Ôn Thi Trắc Nghiệm 🎉
+        </h4>
+        Tại Đây bạn có thể tạo đề thi riêng mình, và tham gia đề thi
+        <p></p>
+        <div class="d-flex justify-content-around mt-lg-5">
+            <button id="Upfile" type="button" style="width:300px;" class="btn btn-light btn-lg"><i class="fa-solid fa-file-word" style="color: #005eff;"></i> Thêm từ file</button>
+            <button id="ThemThuCong" type="button" style="width:300px;" class="btn btn-light btn-lg"><i class="fa-solid fa-pen" style="color: #fff700;"></i> Thêm Thủ Công</button>
+            <button id="ThamGia" type="button" style="width:300px;" class="btn btn-light btn-lg"><i class="fa-solid fa-right-to-bracket" style="color: #00ff1e;"></i> Tham Gia đề Thi</button>
+        </div>
+        <h4 class="mt-5">
+            Đề Thi Của bạn
+        </h4>
+        <div class="d-flex flex-wrap" style="max-width: 100%;">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="card m-3" style="width: 330px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Tên Đề Thi: <span class="text-primary">@item.NameExam</span></h5>
+                            <h5>Mã Đề Thi: <span class="text-primary">@item.IdExam</span></h5>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        @Html.Partial("~/Views/ExamUser/UpFile.cshtml")
+        @Html.Partial("~/Views/ExamUser/UpThuCong.cshtml")
+        @Html.Partial("~/Views/ExamUser/ThamGia.cshtml")
+
+
+    </div>
+
+</div>
+@section  scripts{
+    <script src="~/Content/toaster/scripts/toastr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          
+            $('#btnThamGia').click(function () {
+                localStorage.clear();
+                sessionStorage.clear();
+                var txtmaDethi = document.getElementById('txtMaDethi').value;
+                if (txtmaDethi == "") {
+
+                    alert("không được để trống")
+                } else {
+                    window.location.href = '/ExamUser/VaoThi/' + txtmaDethi; 
+
+                }
+               
+            });
+            $('#Upfile').click(function () {
+                $('#ModalUpFile').modal('show');
+
+            });
+            $('#ThemThuCong').click(function () {
+                $('#ThuCong').modal('show');
+
+            });
+            $('#ThamGia').click(function () {
+                $('#ModalThamGia').modal('show');
+
+            });
+            $('.close').click(function () {
+                $('#UpFile').modal('hide');
+
+            });
+
+
+
+
+        });
+    </script>
+}

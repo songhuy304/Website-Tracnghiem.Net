@@ -41,8 +41,7 @@ namespace DoAnCs.Controllers
             return PartialView(item);
         }
         [HttpGet]
-
-        [ClientAuthen("User", "Admin")]
+        [AllowAnonymous]
 
         public ActionResult detail(int id)
         {
@@ -57,7 +56,8 @@ namespace DoAnCs.Controllers
             }
             return Json(new { exam = exam }, JsonRequestBehavior.AllowGet);
         }
-        [ClientAuthen("User", "Admin")]
+        [AllowAnonymous]
+
 
         public ActionResult ReviewExam(int id)
         {
@@ -83,7 +83,7 @@ namespace DoAnCs.Controllers
 
             return Json(new { examReview = formattedReviews }, JsonRequestBehavior.AllowGet);
         }
-        [ClientAuthen("User", "Admin")]
+        [AllowAnonymous]
         public ActionResult partialModalReview()
         {
             return PartialView();

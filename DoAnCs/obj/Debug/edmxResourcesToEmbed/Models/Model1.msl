@@ -209,5 +209,55 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Exam_ResultsForUser">
+      <EntityTypeMapping TypeName="TracNghiemModel.Exam_ResultsForUser">
+        <MappingFragment StoreEntitySet="Exam_ResultsForUser">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="KetQuaThi" ColumnName="KetQuaThi" />
+          <ScalarProperty Name="ExamDay" ColumnName="ExamDay" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="IdResult" ColumnName="IdResult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamForUsers">
+      <EntityTypeMapping TypeName="TracNghiemModel.ExamForUser">
+        <MappingFragment StoreEntitySet="ExamForUser">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="MordifierBy" ColumnName="MordifierBy" />
+          <ScalarProperty Name="ModifierDate" ColumnName="ModifierDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="NameExam" ColumnName="NameExam" />
+          <ScalarProperty Name="NumberQ" ColumnName="NumberQ" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
+          <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question_ExamForUser">
+      <EntityTypeMapping TypeName="TracNghiemModel.Question_ExamForUser">
+        <MappingFragment StoreEntitySet="Question_ExamForUser">
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+          <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionForUsers">
+      <EntityTypeMapping TypeName="TracNghiemModel.QuestionForUser">
+        <MappingFragment StoreEntitySet="QuestionForUser">
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="Contentt" ColumnName="Contentt" />
+          <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -42,5 +42,9 @@ namespace DoAnCs.Models
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<ThongKe> ThongKes { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Exam_ResultsForUser> Exam_ResultsForUser { get; set; }
+        public virtual DbSet<ExamForUser> ExamForUsers { get; set; }
+        public virtual DbSet<Question_ExamForUser> Question_ExamForUser { get; set; }
+        public virtual DbSet<QuestionForUser> QuestionForUsers { get; set; }
     }
 }
