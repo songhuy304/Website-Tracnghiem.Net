@@ -60,7 +60,7 @@
 
     </div>
     <section class="mt-4" id="matrande">
-        <h4 class="text-center text-danger">Thêm Câu Hỏi Từ Ma Trận</h4>
+        <h4 class="text-center text-danger mb-4">Thêm Câu Hỏi Từ Ma Trận</h4>
         <div class="form-group">
             @Html.DropDownList("chudecha", ViewBag.IdParent as SelectList, "--Chọn Chủ Đề --", htmlAttributes: new { @class = "form-control" })
         </div>
@@ -81,7 +81,7 @@
 
         </tbody>
     </table>
-    <h3 class="text-center text-danger font-weight-bold"> Tổng: <span id="tongCauHoi"></span>Câu Hỏi</h3>
+    <h3 class="text-center text-danger font-weight-bold mt-3"> Tổng: <span id="tongCauHoi"></span>Câu Hỏi</h3>
 </div>
 @section scripts{
     <script>

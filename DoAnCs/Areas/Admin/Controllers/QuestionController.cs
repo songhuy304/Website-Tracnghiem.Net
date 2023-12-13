@@ -221,12 +221,23 @@ namespace DoAnCs.Areas.Admin.Controllers
                 if (updatedQuestion != null)
                 {
                     updatedQuestion.Contentt = viewModel.Question.Contentt;
+
+                    // Lấy danh sách SubjectItems từ JSON của updatedQuestion
+                    var existingSubjectItems = JsonConvert.DeserializeObject<List<SubjectItem>>(updatedQuestion.answer);
+
+                    // Gán lại ID cho từng SubjectItem
+                    int i = 1;
+                    foreach (var item in viewModel.SubjectItems)
+                    {
+                        item.id = i++;
+                    }
                     updatedQuestion.answer = JsonConvert.SerializeObject(viewModel.SubjectItems);
                     updatedQuestion.idtopic = viewModel.idTopic;
                     db.SaveChanges();
                     return RedirectToAction("Index", "Question");
                 }
             }
+
             int idTopicFromExam = ViewBag.IdTopicFromExam;
             // Nếu có lỗi, quay trở lại trang chỉnh sửa với dữ liệu hiện tại và thông báo lỗi
             ViewBag.IdTopic = new SelectList(db.Topics, "idTopic", "NameTopic");
