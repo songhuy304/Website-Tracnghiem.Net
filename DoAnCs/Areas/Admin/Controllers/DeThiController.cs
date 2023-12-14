@@ -28,7 +28,7 @@ namespace DoAnCs.Areas.Admin.Controllers
         // GET: Admin/BaiThi
         public ActionResult Index()
         {
-            var item = db.Exams.ToList();
+            var item = db.Exams.OrderByDescending(x=>x.IdSubject).ToList();
             return View(item);
         }
 
